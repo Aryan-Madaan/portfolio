@@ -12,7 +12,22 @@ const enterpriseProjects = [
   {
     title: "Tata Steel Digital Assistant (TDA)",
     period: "2025 — present",
-    body: "Enterprise RAG assistant built from zero to production in 2 months. 13,000+ active users across 5 group companies, 150+ integrated data sources, cut policy discovery from 2 business days to under a minute.",
+    body: "Enterprise knowledge assistant built from zero to production in 2 months — past basic retrieval, on knowledge graphs and cross-session memory. Queries across three domains — global public data, internal enterprise systems, and proprietary user data (call recordings, spreadsheets, PDFs) — cutting policy discovery from 2 business days to under a minute. Layers real-time market and geopolitical signal over commodity pricing for predictive supply-chain insight. Rolled out to 76,000+ people across 5 group companies.",
+  },
+  {
+    title: "People Care Agent",
+    period: "2025 — present",
+    body: "A specialized HR-helpdesk agent, separate from TDA, resolving 70%+ of routine employee tickets autonomously — hours of manual resolution time back for HR teams across the group.",
+  },
+  {
+    title: "Zen AI",
+    period: "2025 — present",
+    body: "The low-code platform behind Tata Steel's agent fleet — lets non-data-scientists (developers, frontline managers) build and ship their own AI agents. Built on Google's Agent Development Kit (ADK). Part of a fleet that scaled past 300 specialized agents in 9 months, publicly announced with Google Cloud in April 2026.",
+  },
+  {
+    title: "Safety EyeQ",
+    period: "2025 — present",
+    body: "A computer-vision agent analyzing live video feeds in high-risk plant zones for SOP adherence — flagging hazards (like equipment near hot material) and pushing real-time alerts for corrective action, in support of Tata Steel's zero lost-time-injury goal.",
   },
   {
     title: "Vaani",
@@ -28,11 +43,6 @@ const enterpriseProjects = [
     title: "Code Genie CLI",
     period: "2024 — 2025",
     body: "An internal terminal-based AI coding agent — conceptually similar to today's terminal coding assistants, built before that category had wide adoption.",
-  },
-  {
-    title: "No-code AI agent platform",
-    period: "2025 — present",
-    body: "A platform letting non-engineering teams assemble their own AI agents without writing code — now running 200+ agents across 20 departments.",
   },
 ];
 
@@ -68,7 +78,7 @@ function ProjectGrid({
     <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
       {items.map((p, i) => (
         <Reveal key={p.title} delay={(i % 2) * 80}>
-          <article className="group h-full border-t-2 border-[var(--color-fg)] p-5 transition-transform duration-300 hover:-translate-y-1">
+          <article className="reg-mark group h-full border-t-2 border-[var(--color-fg)] p-5 transition-transform duration-300 hover:-translate-y-1">
             <span className="font-[family-name:var(--font-mono)] text-xs text-[var(--color-muted)]">
               {p.period}
             </span>
@@ -100,6 +110,18 @@ export default function ProjectsPage() {
           extending or complementing the same core platform.
         </p>
         <ProjectGrid items={enterpriseProjects} />
+        <p className="mt-6 text-sm text-[var(--color-muted)]">
+          Independently verifiable:{" "}
+          <a
+            href="https://www.tatasteel.com/newsroom/press-releases/india/2026/tata-steel-partners-with-google-cloud-to-deploy-a-unified-agentic-ai-across-its-global-value-chain/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-signal)] underline underline-offset-4"
+          >
+            Tata Steel &amp; Google Cloud press release, April 2026
+          </a>{" "}
+          on the platform&apos;s scale.
+        </p>
       </section>
 
       <section className="mt-16">

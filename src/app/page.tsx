@@ -6,24 +6,29 @@ import { CountUp } from "@/components/count-up";
 
 const stats = [
   { value: "76,000+", label: "total users the platform has rolled out to" },
-  { value: "13,000+", label: "daily active users across 5 Tata Group companies" },
-  { value: "150+", label: "enterprise data sources integrated" },
+  { value: "300+", label: "AI agents deployed org-wide in 9 months" },
+  { value: "70%+", label: "of routine HR tickets resolved autonomously" },
   { value: "2", label: "peer-reviewed ML publications" },
 ];
 
 const pillars = [
   {
     tag: "01",
-    title: "Enterprise RAG & agentic systems",
-    body: "Retrieval-augmented generation (RAG) architecture, multi-agent orchestration, and the data-integration work underneath it — built to hold up past a demo, at organization scale.",
+    title: "Retrieval, knowledge graphs & agentic systems",
+    body: "Past basic RAG — knowledge catalogs, graph-based retrieval (GraphRAG), and persistent memory across sessions, wired into multi-agent orchestration that holds up past a demo, at organization scale.",
   },
   {
     tag: "02",
-    title: "AI governance & trust layers",
-    body: "Access control, audit trails, and escalation paths — the layer that decides whether people actually rely on what the system tells them.",
+    title: "Governance, security & Responsible AI",
+    body: "Access control, audit trails, and escalation paths on one side; red-teaming against prompt injection and data leakage on the other — plus the cross-border compliance work of running one platform across four countries.",
   },
   {
     tag: "03",
+    title: "Builder tooling & internal platforms",
+    body: "A no-code agent platform non-engineers use to ship their own automations, an AI-assisted internal coding tool, and the developer platform 700+ engineers build on daily.",
+  },
+  {
+    tag: "04",
     title: "Executive-facing AI products",
     body: "Turning a model into something a CXO will make a real decision from — voice interfaces, reporting pipelines, and getting people to actually change how they work.",
   },
@@ -36,20 +41,15 @@ export default function Home() {
         <Container>
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-14">
             <Reveal>
-              <div className="shrink-0">
-                <div className="h-44 w-44 overflow-hidden border border-[var(--color-line)] bg-[var(--color-surface)] sm:h-56 sm:w-56">
-                  <Image
-                    src="/images/aryan-madaan.jpg"
-                    alt="Portrait of Aryan Madaan"
-                    width={448}
-                    height={448}
-                    priority
-                    className="h-full w-full object-cover object-top"
-                  />
-                </div>
-                <p className="mt-3 font-[family-name:var(--font-mono)] text-[0.68rem] tracking-[0.14em] text-[var(--color-muted)]">
-                  AM / TATA STEEL / 2026
-                </p>
+              <div className="h-48 w-48 shrink-0 overflow-hidden rounded-full ring-4 ring-[var(--color-signal)] ring-offset-4 ring-offset-[var(--color-bg)] drop-shadow-xl sm:h-60 sm:w-60">
+                <Image
+                  src="/images/aryan-madaan.jpg"
+                  alt="Portrait of Aryan Madaan"
+                  width={480}
+                  height={480}
+                  priority
+                  className="h-full w-full object-cover object-top"
+                />
               </div>
             </Reveal>
 
@@ -122,7 +122,7 @@ export default function Home() {
           <Reveal>
             <p className="eyebrow mb-10">What I build</p>
           </Reveal>
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
             {pillars.map((p, i) => (
               <Reveal key={p.tag} delay={i * 100}>
                 <div className="group border-t-2 border-[var(--color-fg)] pt-5 transition-transform duration-300 hover:-translate-y-1">

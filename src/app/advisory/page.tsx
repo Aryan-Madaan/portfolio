@@ -5,7 +5,7 @@ import { Container } from "@/components/container";
 export const metadata: Metadata = {
   title: "AI Advisory",
   description:
-    "Advisory for organizations on enterprise AI stack strategy, RAG and agentic architecture, and AI governance — from someone who has built and shipped it at scale.",
+    "Advisory for organizations on enterprise AI stack strategy, knowledge-graph and agentic architecture, and AI governance — from someone who has built and shipped it at scale.",
 };
 
 const services = [
@@ -16,16 +16,21 @@ const services = [
   },
   {
     tag: "02",
-    title: "RAG & agentic architecture design and review",
-    body: "Retrieval-augmented generation (RAG) architecture, multi-agent orchestration, and a second set of eyes on an existing build before it hits production load.",
+    title: "Knowledge-graph & agentic architecture design and review",
+    body: "Knowledge catalogs, graph-based retrieval, cross-session memory, and multi-agent orchestration — plus a second set of eyes on an existing build before it hits production load.",
   },
   {
     tag: "03",
-    title: "AI governance & security assessment",
-    body: "Access control, audit trails, escalation paths, and the compliance posture that decides whether the business actually trusts the system.",
+    title: "AI governance & Responsible AI frameworks",
+    body: "Access control, audit trails, escalation paths, and a framework for how the organization approves, monitors, and retires the models and LLMs it runs — the compliance posture that decides whether the business actually trusts the system.",
   },
   {
     tag: "04",
+    title: "AI security & red-teaming",
+    body: "Testing for prompt injection, data leakage, and agent manipulation before an attacker — or a regulator — finds it first.",
+  },
+  {
+    tag: "05",
     title: "Build-vs-buy evaluation",
     body: "An honest assessment of whether your team should build this in-house, extend a platform, or buy — before the budget is committed.",
   },
@@ -34,9 +39,11 @@ const services = [
 const proof = [
   "Built an enterprise AI assistant from zero to production in 2 months, now rolled out to 76,000+ people (13,000+ daily active) across 5 Tata Group companies.",
   "Integrated 150+ enterprise data sources — 100+ databases and 50,000+ documents — into a single retrieval layer.",
+  "Run a no-code AI agent platform with 200+ agents live across 20 departments — governance at that scale is a different problem than governing one chatbot.",
   "Manage the same platform across UK, Thailand, and Singapore entities — including cross-border data transfer and data-privacy compliance across jurisdictions, not just the India build.",
+  "Helping shape how the organization governs its models and LLMs directly — which get approved, how they're monitored, and when they're retired.",
   "Negotiate directly with cloud and AI infrastructure partners on contracts and connectivity.",
-  "Delivered enterprise-grade security — role-based access control (RBAC), encryption, and VAPT (vulnerability assessment and penetration testing) clearance — at 99% uptime.",
+  "Delivered enterprise-grade security — role-based access control (RBAC), encryption, and VAPT (independent penetration testing) clearance — at 99% uptime.",
   "Two peer-reviewed ML publications in indexed international journals.",
 ];
 
@@ -50,6 +57,21 @@ export default function AdvisoryPage() {
             Enterprise Intelligence: why most &ldquo;enterprise AI&rdquo;
             isn&apos;t, and what actually makes organizations trust it.
           </h1>
+
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Link
+              href="/contact?reason=advisory"
+              className="border border-[var(--color-fg)] bg-[var(--color-fg)] px-5 py-2.5 text-sm font-medium text-[var(--color-bg)] transition-all hover:-translate-y-0.5 hover:border-[var(--color-signal)] hover:bg-[var(--color-signal)]"
+            >
+              Start a conversation
+            </Link>
+            <Link
+              href="/projects"
+              className="text-sm font-medium underline decoration-[var(--color-line)] underline-offset-4 transition-colors hover:text-[var(--color-signal)] hover:decoration-[var(--color-signal)]"
+            >
+              See the outcomes this has driven →
+            </Link>
+          </div>
 
           <div className="prose-schematic mt-10">
             <p>
