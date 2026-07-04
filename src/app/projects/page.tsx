@@ -30,6 +30,11 @@ const enterpriseProjects = [
     body: "A computer-vision agent analyzing live video feeds in high-risk plant zones for SOP adherence — flagging hazards (like equipment near hot material) and pushing real-time alerts for corrective action, in support of Tata Steel's zero lost-time-injury goal.",
   },
   {
+    title: "Resume Screener",
+    period: "2025 — present",
+    body: "An AI recruitment tool that pre-screens candidates so HR can spend its time on strategic hiring and candidate engagement instead of manual resume triage — referenced publicly by Tata Steel's Chief People Officer in Forbes India.",
+  },
+  {
     title: "Vaani",
     period: "2025 — present",
     body: "A Microsoft Teams voice and conversational bot extending TDA — captures minutes of meeting automatically and answers spoken queries when invoked, across HR, Finance, and Operations.",

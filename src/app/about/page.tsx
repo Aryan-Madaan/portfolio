@@ -73,6 +73,22 @@ export default function AboutPage() {
           paper did.
         </p>
         <p>
+          I also serve as a reverse mentor to Tata Steel&apos;s Chief People
+          Officer under the company&apos;s Reverse Mentoring 2.0 program —
+          she&apos;s written about the program publicly in{" "}
+          <a
+            href="https://www.forbesindia.com/article/upfront/column/forging-the-future/2988540/1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-signal)] underline underline-offset-4"
+          >
+            Forbes India
+          </a>
+          . It&apos;s taught me that simplifying complexity for different
+          audiences is its own skill, separate from getting the technical
+          answer right.
+        </p>
+        <p>
           Before that: an internship analyzing large-scale financial
           datasets for a US lender, an IT internship at Tata Steel building
           the analytics case for an internal chatbot, and two years building
