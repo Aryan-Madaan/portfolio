@@ -35,14 +35,32 @@ export default function AboutPage() {
         <p>
           I currently lead AI Discovery and Governance work at Tata Steel —
           part of the Tata Group, one of India&apos;s largest industrial
-          conglomerates, and an organization now running 860+ AI models in
-          production — where I built an enterprise AI assistant from zero
+          conglomerates — where I built an enterprise AI assistant from zero
           to production in two months. It has since rolled out to 76,000+
           people, with 13,000+ using it daily across five group companies,
           integrated with 150+ internal data sources. The interesting part
           was never the model. It was designing the access control, audit
           trails, and escalation paths that made people willing to act on
           what it told them.
+        </p>
+        <p>
+          The assumption I run into constantly: a 100+ year old steel
+          manufacturer surely doesn&apos;t have a serious AI function. It
+          does — running 860+ AI models in production and partnering
+          directly with Google Cloud on enterprise-wide agentic AI at a
+          scale{" "}
+          <a
+            href="https://www.tatasteel.com/newsroom/press-releases/india/2026/tata-steel-partners-with-google-cloud-to-deploy-a-unified-agentic-ai-across-its-global-value-chain/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-signal)] underline underline-offset-4"
+          >
+            Google Cloud publicly called
+          </a>{" "}
+          &ldquo;few in the industry have achieved.&rdquo; That environment
+          — heavy industry, real operational constraints, no tolerance for
+          a model that&apos;s wrong at the wrong moment — is precisely what
+          shaped how I think about shipping AI that has to actually work.
         </p>
         <p>
           That scope has since grown past India to the UK, Thailand, and
