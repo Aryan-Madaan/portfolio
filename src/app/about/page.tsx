@@ -35,13 +35,14 @@ export default function AboutPage() {
         <p>
           I currently lead AI Discovery and Governance work at Tata Steel —
           part of the Tata Group, one of India&apos;s largest industrial
-          conglomerates — where I built an enterprise AI assistant from
-          zero to production in two months. It has since rolled out to
-          76,000+ people, with 13,000+ using it daily across five group
-          companies, integrated with 150+ internal data sources. The
-          interesting part was never the model. It was designing the access
-          control, audit trails, and escalation paths that made people
-          willing to act on what it told them.
+          conglomerates, and an organization now running 860+ AI models in
+          production — where I built an enterprise AI assistant from zero
+          to production in two months. It has since rolled out to 76,000+
+          people, with 13,000+ using it daily across five group companies,
+          integrated with 150+ internal data sources. The interesting part
+          was never the model. It was designing the access control, audit
+          trails, and escalation paths that made people willing to act on
+          what it told them.
         </p>
         <p>
           That scope has since grown past India to the UK, Thailand, and

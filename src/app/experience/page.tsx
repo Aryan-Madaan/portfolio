@@ -18,7 +18,8 @@ const roles = [
       "Architecting the next version of TDA on Google's Agent Development Kit (ADK) v2, with improved cross-system connectivity.",
       "Learned networking and systems fundamentals (MPLS links, infra topology) to hold my own in infrastructure negotiations, and lead contract talks with cloud and AI infrastructure partners.",
       "Delivered enterprise-grade security — role-based access control (RBAC), encryption, and VAPT (independent penetration testing) clearance — at 99% uptime.",
-      "Launched a no-code AI agent platform now running 200+ agents across 20 departments.",
+      "Launched Zen AI, the low-code platform behind Tata Steel's agent fleet — part of a fleet that scaled past 300 specialized agents in 9 months.",
+      "TDA received Apex Recognition at Tata Steel's APEX TQM Nite / Innovista 2025, awarded to the project team.",
     ],
   },
   {
