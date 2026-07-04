@@ -1,0 +1,12 @@
+# Queue of topics for the automated AI-blog draft pipeline (scripts/draft-post.mjs).
+# Each run pops the first entry, drafts a post, and removes it from this file in the same PR.
+# Add new topics to the bottom. Order doesn't imply priority beyond "next".
+
+- "Why RAG evaluation is harder than RAG retrieval"
+- "Multi-agent orchestration: when one agent isn't enough, and when it's one too many"
+- "AI governance for organizations that have never done AI governance before"
+- "What actually breaks when an enterprise chatbot scales past 10,000 users"
+- "Build vs buy for enterprise AI: a framework, not a vibe"
+- "The compliance case for audit trails in agentic systems"
+- "Cross-border data transfer, explained for engineers who'd rather not read the regulation"
+- "Vendor lock-in in the LLM era: what's actually portable and what isn't"

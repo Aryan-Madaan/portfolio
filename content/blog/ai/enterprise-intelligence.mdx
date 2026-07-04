@@ -1,0 +1,45 @@
+---
+title: "Enterprise Intelligence: why most 'enterprise AI' isn't"
+description: "Most enterprise AI is a chatbot bolted onto a department. Enterprise Intelligence is a different, harder claim — and the hard part isn't the model."
+date: "2026-07-04"
+category: "ai"
+tags: ["enterprise ai", "rag", "governance"]
+draft: false
+---
+
+Walk into most large organizations in 2026 and you'll find the same thing: a chatbot bolted onto a department, answering questions from a document store nobody fully trusts. Call it an assistant, a copilot, an agent — the shape is the same. It's a lookup tool with a nicer interface.
+
+That's not what I mean by **Enterprise Intelligence**.
+
+Enterprise Intelligence is the claim that an organization's collective knowledge — its data, its documents, its policies, its past decisions, and the tacit reasoning of the people who've been there longest — should be queryable and actionable in real time. Not locked in silos, not buried in a shared drive nobody indexes, not walking out the door every time someone resigns.
+
+That's a bigger claim than "we added an LLM," and it's worth separating from it explicitly.
+
+## Why this actually matters, not as a slogan
+
+**Decision latency is a competitiveness problem.** When policy discovery takes two business days, or executive reporting takes ten to fifteen, decisions get made on stale information — or they get delayed until the window that mattered has closed. Speed of *reasoning over what the organization already knows* is a real constraint, separate from speed of execution.
+
+**Knowledge doesn't scale with headcount.** As organizations grow, institutional knowledge fragments across systems and people faster than any wiki or intranet search can keep up. New hires re-solve already-solved problems. So do veterans, in a different department, unaware someone three floors up already has the answer.
+
+**Tribal knowledge walks out the door.** When an expert leaves, the undocumented judgment behind their decisions leaves with them. Enterprise Intelligence is, in part, an attempt to externalize that reasoning into something durable enough to outlast any one person's tenure.
+
+**Governance requires traceability.** Ad hoc knowledge work — a private spreadsheet, a Slack thread, a verbal decision in a hallway — can't be audited after the fact. A real architecture for this problem (retrieval, plus access control, plus an audit trail) makes institutional decision-making explainable in a way that matters more, not less, once AI is part of the decision chain and not just a lookup tool.
+
+**The bottleneck is trust, not retrieval.** Anyone can wire a language model to a vector database this year — it takes an afternoon. The harder problem, the one that actually determines whether anyone uses the thing six months in, is the governance layer around it: who's allowed to see what, what happens when the system doesn't know, and who it escalates to when it's unsure. That's a distinct discipline. It doesn't fall out for free from picking a good model vendor.
+
+## What the governance layer actually is
+
+Concretely, the difference between a chatbot and Enterprise Intelligence is a small number of unglamorous things done properly:
+
+- **Access control that mirrors the org, not a flat permission model.** If someone couldn't see a document before the AI existed, the AI shouldn't surface it to them now just because the retrieval index doesn't know that.
+- **An audit trail with enough context to reconstruct *why* the system answered the way it did** — not just that it did. Regulators and internal audit will eventually ask.
+- **An explicit path for "I don't know."** A system that answers confidently every time, including when it shouldn't, is worse than no system, because it burns the trust that took months to build in one bad incident.
+- **A human escalation point that's actually staffed.** Governance on paper that routes to an inbox nobody checks is not governance.
+
+None of this is exotic. It's also almost never done properly on the first attempt, because it's not the part anyone gets excited about in the planning meeting.
+
+## The honest version of my own experience
+
+I built an enterprise AI assistant from zero to production in two months, integrating 150+ internal data sources, and it's now used by 13,000+ people across five group companies. If I'm honest about where the time actually went: the retrieval and orchestration work was maybe 40% of the effort. The rest was access control, audit logging, escalation design, and the unglamorous work of getting people to trust it enough to change how they worked.
+
+That ratio is the whole argument. If your AI stack strategy allocates its planning time the other way around, you'll ship something that demos well and gets abandoned by month four.

@@ -1,26 +1,187 @@
 @import "tailwindcss";
 
+/*
+  Design tokens — schematic/blueprint system.
+  Light = drafting paper. Dark = graphite sheet. One accent (signal), tuned per theme.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #12151a;
+  --paper: #f1f0ec;
+  --graphite: #5b6472;
+  --line: rgba(18, 21, 26, 0.12);
+  --signal: #e24e00;
+  --signal-contrast: #ffffff;
+
+  --color-bg: var(--paper);
+  --color-fg: var(--ink);
+  --color-muted: var(--graphite);
+  --color-line: var(--line);
+  --color-signal: var(--signal);
+  --color-signal-contrast: var(--signal-contrast);
+  --color-surface: #e8e6df;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root[data-theme="dark"] {
+  --color-bg: var(--ink);
+  --color-fg: var(--paper);
+  --color-muted: #9aa4b2;
+  --color-line: rgba(241, 240, 236, 0.14);
+  --color-signal: #ff6a2e;
+  --color-signal-contrast: #12151a;
+  --color-surface: #1a1e26;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    --color-bg: var(--ink);
+    --color-fg: var(--paper);
+    --color-muted: #9aa4b2;
+    --color-line: rgba(241, 240, 236, 0.14);
+    --color-signal: #ff6a2e;
+    --color-signal-contrast: #12151a;
+    --color-surface: #1a1e26;
   }
 }
 
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-fg: var(--color-fg);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+  --color-signal: var(--color-signal);
+  --color-signal-contrast: var(--color-signal-contrast);
+  --color-surface: var(--color-surface);
+
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-plex-mono);
+}
+
+html {
+  color-scheme: light;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+* {
+  border-color: var(--color-line);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  overflow-x: hidden;
+}
+
+/* Registration-mark motif: small corner crosses on section frames */
+.reg-mark {
+  position: relative;
+}
+.reg-mark::before,
+.reg-mark::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--color-muted);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.reg-mark::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+.reg-mark::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.prose-schematic {
+  max-width: 68ch;
+  line-height: 1.7;
+}
+.prose-schematic h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+.prose-schematic h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-schematic p {
+  margin-bottom: 1.25rem;
+  color: var(--color-fg);
+}
+.prose-schematic a {
+  color: var(--color-signal);
+  text-underline-offset: 3px;
+}
+.prose-schematic ul,
+.prose-schematic ol {
+  margin: 1.25rem 0;
+  padding-left: 1.5rem;
+}
+.prose-schematic li {
+  margin-bottom: 0.5rem;
+}
+.prose-schematic li::marker {
+  color: var(--color-signal);
+}
+.prose-schematic blockquote {
+  border-left: 2px solid var(--color-signal);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--color-muted);
+  margin: 1.5rem 0;
+}
+.prose-schematic code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--color-surface);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+}
+.prose-schematic pre {
+  background: var(--color-surface);
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--color-line);
+}
+.prose-schematic pre code {
+  background: none;
+  padding: 0;
+}
+.prose-schematic hr {
+  border-color: var(--color-line);
+  margin: 2.5rem 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

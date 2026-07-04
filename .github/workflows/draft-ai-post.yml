@@ -1,0 +1,55 @@
+name: Draft AI blog post
+
+# Manual trigger only, by default. Uncomment the `schedule` block below once
+# you're happy with draft quality and comfortable with the API cost of a
+# weekly run — each draft costs a small fraction of a dollar.
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Specific topic to draft (optional — defaults to the next item in content/topics-queue.yaml)"
+        required: false
+        type: string
+  # schedule:
+  #   - cron: "0 4 * * 1" # Mondays 04:00 UTC
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Draft post
+        id: draft
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/draft-post.mjs "${{ inputs.topic }}"
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Draft AI post: ${{ steps.draft.outputs.title }}"
+          branch: "ai-draft/${{ steps.draft.outputs.slug }}"
+          title: "[AI draft] ${{ steps.draft.outputs.title }}"
+          labels: ai-draft, needs-review
+          body: |
+            Auto-drafted post — **not published**. `draft: true` is set in the frontmatter, so it won't render or appear in any listing even if this PR is merged as-is.
+
+            Before merging *and* before flipping `draft: false`, check:
+            - [ ] Every factual claim is actually true (no fabricated stats, tools, or citations)
+            - [ ] Voice matches the rest of the site (direct, no filler)
+            - [ ] Nothing confidential about a current or past employer
+            - [ ] Worth publishing at all — it's fine to close this PR instead
+
+            File: `${{ steps.draft.outputs.file_path }}`

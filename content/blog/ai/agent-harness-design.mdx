@@ -1,0 +1,36 @@
+---
+title: "The harness matters more than the model"
+description: "An agent is not the model. It's the tool orchestration, verification loops, memory, guardrails, and observability wrapped around it — and that's where production reliability actually comes from."
+date: "2026-07-04"
+category: "ai"
+tags: ["agents", "harness engineering", "reliability"]
+draft: false
+---
+
+Swap the model behind most production agent failures and the failure usually persists. That's the tell: the problem was rarely the model. It was the harness — the system of tools, constraints, and feedback loops wrapped around the model that determines whether it behaves reliably once real users and real data show up.
+
+A model is a function that maps context to a next action. A harness is everything that decides *what context it sees, what it's allowed to do with an action, and what happens when it gets it wrong.* Two teams can point the same underlying model at the same problem and get completely different reliability, because the harness — not the model — is doing most of the work.
+
+## The five layers that actually make up a harness
+
+**Tool orchestration.** What the agent can touch, in what order, and how failures in one tool call propagate. This is the difference between an agent that can *describe* a multi-step workflow and one that can actually execute it against a real API, a real database, a real filesystem — and recover when step three of five fails.
+
+**Verification loops.** A step doesn't count as done because the model claims it's done. Something outside the model — a test, a schema check, a second model call with a narrower job — has to confirm it. The verifier is usually the actual bottleneck in a harness, not the generator. If you only invest in making the model smarter and never invest in making verification cheaper and more reliable, you've optimized the wrong half.
+
+**Context and memory.** What the agent remembers between steps, between sessions, and across a long-running task. Get this wrong and you get an agent that re-discovers the same fact five times in one task, or forgets a constraint you gave it three tool calls ago.
+
+**Guardrails.** The constraints that hold regardless of what the model decides to do — a spend cap, a set of actions that always require human sign-off, a hard stop on categories of destructive operations. Guardrails exist precisely because you can't fully guarantee model behavior; they're the part of the system that doesn't rely on the model behaving.
+
+**Observability.** If you can't see what the agent actually did — not what it said it did — you can't debug it, and you can't hold it accountable when it's wrong. This is the layer most teams build last and regret not building first.
+
+## The one rule that generalizes
+
+The core discipline of harness engineering comes down to one habit: every time an agent makes a mistake in a way you didn't anticipate, you don't just fix the output — you change the harness so that class of mistake becomes structurally harder to make again. Not "prompt it to be more careful." Add a verification step. Narrow the tool's permissions. Require a second signal before the action commits.
+
+Over enough iterations, this is what separates an agent that's charming in a demo from one that survives contact with production traffic.
+
+## Where humans fit
+
+The harness is also where you decide, explicitly, when a human has to be in the loop — not as an afterthought, but as a designed checkpoint. That can be an approval gate before an irreversible action, a periodic check-in on a long-running task, or a hard rule that certain categories of decision never get delegated at all. The mistake I see most often isn't too much human oversight — it's oversight that was never designed, just assumed, and quietly erodes the first time the agent is fast and confident and wrong.
+
+None of this is a reason to distrust agents. It's a reason to stop evaluating them by how good the model is, and start evaluating them by how good the system around the model is — because that's the thing that actually ships.

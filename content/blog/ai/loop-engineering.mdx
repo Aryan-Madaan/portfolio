@@ -1,0 +1,32 @@
+---
+title: "Loop engineering: designing the cycle, not the prompt"
+description: "The useful unit of design for an autonomous agent isn't a prompt anymore. It's a loop — a discover/plan/execute/verify cycle with an explicit stop condition."
+date: "2026-07-04"
+category: "ai"
+tags: ["agents", "loop engineering", "automation"]
+draft: false
+---
+
+Prompt engineering assumes a human writes the next instruction. That assumption is quietly dying. The more interesting design problem in 2026 isn't "what do I tell the model to do" — it's "what cycle keeps it working toward the goal, and when does it stop." That's loop engineering: designing agents that prompt themselves, on a schedule, in response to an event, or until a condition is met, instead of waiting for someone to type the next message.
+
+## The shape of a loop
+
+Nearly every production loop I've seen — including the small one behind the AI section of this site — reduces to the same cycle: **discover, plan, execute, verify.** Discover what state the world is actually in right now. Plan the next action given that state and the goal. Execute it. Verify whether that action actually moved things toward the goal, or just looked like it did. Then decide: continue, stop, or escalate.
+
+The design work is almost entirely in the last part of that sentence.
+
+## What a goal-driven loop needs, non-negotiably
+
+**A stop condition the agent can actually evaluate.** Not "keep going until it's good" — a concrete, checkable condition. "Three consecutive rounds surfaced nothing new" is checkable. "Feels complete" is not.
+
+**A max iteration cap and a budget cap**, set independently of the stop condition. The stop condition is what you *want* to happen. The caps are what happens when your stop condition is wrong, or the loop finds a way to convince itself it hasn't been met. Caps are the guardrail for when your judgment about the loop was incomplete.
+
+**A verifier that isn't the same model making the same kind of mistake twice.** If the thing checking the work has the same blind spot as the thing doing the work, the loop will converge confidently on a wrong answer. This is why the verifier, not the generator, is usually the actual bottleneck in a loop-engineered system — it's worth spending more design effort on the check than on the step being checked.
+
+**An escalation path for when the goal genuinely can't be met.** A loop that can't succeed and doesn't know how to say so will either spin forever or quietly ship something wrong. Both are worse than stopping and telling a human why.
+
+## A concrete example, not a hypothetical one
+
+The AI-focused posts on this site are drafted by exactly this kind of loop: a scheduled job pulls the next topic from a queue, drafts a post, and opens it as a pull request — never publishing directly. The loop's stop condition is "a draft PR exists," not "the post is good," because *good* isn't something the loop is positioned to judge about its own writing under my byline. That judgment stays a human checkpoint on purpose. The loop's job is to get a reasonable first draft in front of a person to react to, not to have the last word.
+
+That's the general pattern worth taking away: design the loop to do the part that benefits from repetition and speed, and design the boundary where a human has to look at the result before it counts as done. Loop engineering isn't about removing the human. It's about being precise regarding where they're still required.

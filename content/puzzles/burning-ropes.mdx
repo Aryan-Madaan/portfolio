@@ -1,0 +1,28 @@
+---
+title: "Measure 45 minutes with two burning ropes"
+description: "You have two ropes and a lighter. Each rope takes exactly 60 minutes to burn end to end, but burns unevenly along its length. Measure exactly 45 minutes."
+date: "2026-07-04"
+difficulty: "medium"
+tags: ["classic", "timing"]
+draft: false
+---
+
+You're given two ropes and a lighter. Each rope, if lit at one end, takes **exactly 60 minutes** to burn completely — but the rope doesn't burn at a constant rate along its length. It might burn through the first half in 10 minutes and the second half in 50. You have no way to know its burn profile in advance, and the two ropes may burn differently from each other.
+
+**Using only these two ropes and the lighter, measure exactly 45 minutes.**
+
+You can light either rope at either end, or both ends, at any point. That's the only tool you have — no clock, no marking the rope.
+
+<Spoiler>
+
+Light **rope A at both ends** and **rope B at one end**, all at the same moment.
+
+Rope A, burning from both ends at once, will finish in exactly **30 minutes** — regardless of its uneven burn profile, because the two flames consume the rope from opposite directions and meet somewhere in the middle at the halfway *time* mark, not the halfway *length* mark. (This is the part that feels wrong but holds: total burn time from both ends is always half the one-end burn time, since between them the two flames still have to consume the entire rope's total "burn duration," just split across two fronts.)
+
+The instant rope A finishes (at the 30-minute mark), light the **other end of rope B** — the end that isn't already burning.
+
+Rope B has been burning from one end for 30 minutes, so it has **30 minutes of burn time left** if left alone. But now it's burning from both remaining ends toward whatever's left, so that remaining 30 minutes of burn time collapses to **15 minutes**.
+
+Total elapsed time: 30 minutes (rope A) + 15 minutes (rope B's remainder, halved) = **45 minutes**, measured exactly, without ever needing to know either rope's burn profile.
+
+</Spoiler>
