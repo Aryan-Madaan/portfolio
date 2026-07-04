@@ -57,17 +57,18 @@ export default function AdvisoryPage() {
               department — a Q&amp;A widget on top of a SharePoint.
               <strong> Enterprise Intelligence</strong> is a different claim:
               that an organization&apos;s collective knowledge — its data,
-              documents, policies, past decisions, and the tacit reasoning of
-              its experts — should be queryable and actionable in real time,
-              instead of sitting locked in silos, PDFs, and the heads of
-              people who might leave next quarter.
+              documents, policies, past decisions, and the judgment calls its
+              most experienced people make that never get written down —
+              should be queryable and actionable in real time, instead of
+              sitting locked in silos, PDFs, and the heads of people who
+              might leave next quarter.
             </p>
             <h2>Why organizations actually need this</h2>
             <p>
-              <strong>Decision latency is a competitiveness problem.</strong>{" "}
-              When policy discovery or executive reporting takes days,
-              decisions get made on stale information — or delayed until the
-              window is gone.
+              <strong>Slow decisions lose money.</strong> When policy
+              discovery or executive reporting takes days, decisions get
+              made on stale information — or delayed until the window is
+              gone.
             </p>
             <p>
               <strong>Knowledge doesn&apos;t scale with headcount.</strong>{" "}
@@ -77,8 +78,8 @@ export default function AdvisoryPage() {
               surface the answer to.
             </p>
             <p>
-              <strong>Tribal knowledge walks out the door.</strong> When an
-              expert leaves, the undocumented judgment behind their
+              <strong>Experience walks out the door when people do.</strong>{" "}
+              When an expert leaves, the undocumented judgment behind their
               decisions leaves with them. Enterprise Intelligence is the
               attempt to externalize that reasoning into something durable.
             </p>
@@ -148,7 +149,7 @@ export default function AdvisoryPage() {
       <section className="py-16">
         <Container className="max-w-3xl text-center">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold">
-            Considering an AI stack decision?
+            Have an AI stack decision on the table?
           </h2>
           <p className="mt-3 text-[var(--color-muted)]">
             Tell me what you&apos;re trying to build or fix — I&apos;ll tell

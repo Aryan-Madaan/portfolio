@@ -12,13 +12,12 @@ const roles = [
     title: "Manager, AI Discovery and Governance",
     period: "Nov 2025 — Present",
     bullets: [
-      "Built the Tata Steel Digital Assistant from concept to production in 2 months — now 13,000+ active users across 5 group companies in India and the UK, ~20,000 queries/day.",
+      "Built the Tata Steel Digital Assistant from concept to production in 2 months — 13,000+ daily active users (76,000+ rolled out to) across 5 group companies in India and the UK, ~20,000 queries/day.",
       "Integrated 150+ enterprise data sources (100+ databases, 50,000+ documents); cut policy discovery from 2 business days to under a minute.",
-      "Own platform management across UK, Thailand, and Singapore (NYK) entities, alongside India — spanning technical, compliance, and stakeholder scope well beyond a typical early-career AI role.",
-      "Lead data-privacy and cross-border data transfer compliance discussions for the platform across jurisdictions.",
+      "Beyond that user base, own platform governance and compliance for the Thailand and Singapore (NYK) entities as they come online, including cross-border data transfer discussions across all four countries.",
       "Architecting the next version of TDA on Google's Agent Development Kit (ADK) v2, with improved cross-system connectivity.",
-      "Picked up networking and systems fundamentals (MPLS links, infra topology) out of necessity, and lead contract negotiations with cloud and AI infrastructure partners.",
-      "Delivered enterprise-grade security — RBAC, encryption, VAPT clearance — at 99% uptime.",
+      "Learned networking and systems fundamentals (MPLS links, infra topology) to hold my own in infrastructure negotiations, and lead contract talks with cloud and AI infrastructure partners.",
+      "Delivered enterprise-grade security — role-based access control (RBAC), encryption, and VAPT (independent penetration testing) clearance — at 99% uptime.",
       "Launched a no-code AI agent platform now running 200+ agents across 20 departments.",
     ],
   },
@@ -79,7 +78,7 @@ export default function ExperiencePage() {
 
       <ol className="mt-12 space-y-12">
         {roles.map((role, i) => (
-          <li key={role.title + role.period} className="reg-mark border-t border-[var(--color-line)] pt-6">
+          <li key={role.title + role.period} className="border-t border-[var(--color-line)] pt-6">
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
               <h2 className="font-[family-name:var(--font-display)] text-lg font-semibold">
                 {role.title}

@@ -20,7 +20,6 @@ export function Nav() {
           onClick={() => setOpen(false)}
         >
           Aryan Madaan
-          <span className="text-[var(--color-signal)]">.</span>
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex">

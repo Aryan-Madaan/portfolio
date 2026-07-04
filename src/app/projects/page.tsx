@@ -68,7 +68,7 @@ function ProjectGrid({
     <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
       {items.map((p, i) => (
         <Reveal key={p.title} delay={(i % 2) * 80}>
-          <article className="reg-mark group h-full border-t-2 border-[var(--color-fg)] p-5 transition-transform duration-300 hover:-translate-y-1">
+          <article className="group h-full border-t-2 border-[var(--color-fg)] p-5 transition-transform duration-300 hover:-translate-y-1">
             <span className="font-[family-name:var(--font-mono)] text-xs text-[var(--color-muted)]">
               {p.period}
             </span>

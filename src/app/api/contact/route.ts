@@ -13,10 +13,12 @@ const ContactSchema = z.object({
   // Honeypot: real users never fill this in — it's hidden via CSS, not `type="hidden"`,
   // since bots specifically skip hidden inputs.
   company: z.string().max(0).optional().or(z.literal("")),
-  turnstileToken: z.string().optional(),
+  // FormData.get() returns null (not undefined) when the Turnstile widget isn't
+  // rendered (no site key configured yet) — accept both.
+  turnstileToken: z.string().nullish(),
 });
 
-async function verifyTurnstile(token: string | undefined, ip: string) {
+async function verifyTurnstile(token: string | null | undefined, ip: string) {
   const secret = process.env.TURNSTILE_SECRET_KEY;
   if (!secret) return true; // not configured yet — honeypot + rate limit still apply
   if (!token) return false;
@@ -84,6 +86,9 @@ export async function POST(request: Request) {
 
   const toEmail = process.env.CONTACT_TO_EMAIL || siteConfig.email;
   const fromEmail = process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev";
+  // Defense-in-depth: strip control characters before they reach an email header,
+  // regardless of how the upstream API sanitizes it.
+  const safeName = name.replace(/[\r\n]+/g, " ").slice(0, 100);
 
   try {
     const res = await fetch("https://api.resend.com/emails", {
@@ -96,7 +101,7 @@ export async function POST(request: Request) {
         from: `Portfolio Contact <${fromEmail}>`,
         to: [toEmail],
         reply_to: email,
-        subject: `[${reason}] New message from ${name}`,
+        subject: `[${reason}] New message from ${safeName}`,
         text: `From: ${name} <${email}>\nReason: ${reason}\n\n${message}`,
       }),
     });

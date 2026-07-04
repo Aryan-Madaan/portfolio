@@ -25,7 +25,7 @@ const pillars = [
   {
     tag: "03",
     title: "Executive-facing AI products",
-    body: "Turning a model into something a CXO will make a real decision from — voice interfaces, reporting pipelines, and the change management around adoption.",
+    body: "Turning a model into something a CXO will make a real decision from — voice interfaces, reporting pipelines, and getting people to actually change how they work.",
   },
 ];
 
@@ -36,23 +36,26 @@ export default function Home() {
         <Container>
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-14">
             <Reveal>
-              <div className="reg-mark group inline-block shrink-0 bg-[var(--color-surface)] p-2.5 transition-colors duration-300 hover:bg-[var(--color-signal)]/15">
-                <div className="h-40 w-40 overflow-hidden bg-white sm:h-48 sm:w-48">
+              <div className="shrink-0">
+                <div className="h-44 w-44 overflow-hidden border border-[var(--color-line)] bg-[var(--color-surface)] sm:h-56 sm:w-56">
                   <Image
                     src="/images/aryan-madaan.jpg"
                     alt="Portrait of Aryan Madaan"
-                    width={384}
-                    height={384}
+                    width={448}
+                    height={448}
                     priority
-                    className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+                    className="h-full w-full object-cover object-top"
                   />
                 </div>
+                <p className="mt-3 font-[family-name:var(--font-mono)] text-[0.68rem] tracking-[0.14em] text-[var(--color-muted)]">
+                  AM / TATA STEEL / 2026
+                </p>
               </div>
             </Reveal>
 
             <Reveal delay={100}>
               <p className="eyebrow mb-3">Aryan Madaan</p>
-              <h1 className="font-[family-name:var(--font-display)] text-2xl font-semibold leading-tight sm:text-3xl">
+              <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold leading-tight sm:text-4xl">
                 Enterprise AI architect, currently building AI Discovery
                 &amp; Governance at Tata Steel.
               </h1>

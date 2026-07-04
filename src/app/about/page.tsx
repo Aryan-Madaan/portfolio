@@ -49,10 +49,9 @@ export default function AboutPage() {
           transfer and data-privacy compliance work alongside the
           engineering — plus contract negotiation with cloud and AI
           infrastructure partners, and enough networking and systems
-          fundamentals to hold my own in an infra conversation. It&apos;s
-          more jurisdictional and infrastructure exposure than most people
-          get a few years into a technical career, and it&apos;s shaped how
-          I think about AI governance as much as any research paper has.
+          fundamentals to hold my own in an infra conversation. That work
+          shaped how I think about AI governance as much as any research
+          paper did.
         </p>
         <p>
           Before that: an internship analyzing large-scale financial

@@ -34,7 +34,10 @@ jobs:
         id: draft
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/draft-post.mjs "${{ inputs.topic }}"
+          # Passed via env, never interpolated into `run:` — untrusted workflow_dispatch
+          # input inside a shell string would be a script-injection vector otherwise.
+          TOPIC: ${{ inputs.topic }}
+        run: node scripts/draft-post.mjs
 
       - name: Open pull request
         uses: peter-evans/create-pull-request@v6

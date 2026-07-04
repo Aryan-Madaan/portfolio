@@ -53,7 +53,7 @@ export function ContactForm({ defaultReason = "opportunity" }: { defaultReason?:
 
   if (status === "success") {
     return (
-      <div className="reg-mark border border-[var(--color-line)] p-6">
+      <div className="border border-[var(--color-line)] p-6">
         <p className="font-[family-name:var(--font-display)] text-lg font-semibold">
           Message sent.
         </p>

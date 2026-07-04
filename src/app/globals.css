@@ -28,7 +28,7 @@
   --color-line: rgba(241, 240, 236, 0.14);
   --color-signal: #ff6a2e;
   --color-signal-contrast: #12151a;
-  --color-surface: #1a1e26;
+  --color-surface: #20242e;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,7 +39,7 @@
     --color-line: rgba(241, 240, 236, 0.14);
     --color-signal: #ff6a2e;
     --color-signal-contrast: #12151a;
-    --color-surface: #1a1e26;
+    --color-surface: #20242e;
   }
 }
 
@@ -72,6 +72,16 @@ body {
   background: var(--color-bg);
   color: var(--color-fg);
   overflow-x: hidden;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
 }
 
 /* Registration-mark motif: small corner crosses on section frames */

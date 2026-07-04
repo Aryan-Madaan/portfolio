@@ -34,6 +34,11 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Adds Subresource Integrity hashes to Next.js's own script tags — real,
+  // free hardening on top of the CSP above (doesn't replace it).
+  experimental: {
+    sri: { algorithm: "sha256" },
+  },
   async headers() {
     return [
       {
