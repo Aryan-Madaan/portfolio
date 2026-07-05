@@ -98,7 +98,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-b border-[var(--color-line)] py-14">
+      <section className="border-b border-[var(--color-line)] py-16">
         <Container>
           <dl className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {stats.map((s, i) => (

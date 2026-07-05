@@ -37,8 +37,16 @@ export default async function PuzzlePage({
       <h1 className="mt-6 font-[family-name:var(--font-display)] text-3xl font-semibold leading-tight sm:text-4xl">
         {puzzle.title}
       </h1>
-      <div className="mt-4 flex flex-wrap gap-3 text-xs text-[var(--color-muted)]">
+      <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-[var(--color-muted)]">
         <span className="font-[family-name:var(--font-mono)]">{puzzle.date}</span>
+        {puzzle.category && (
+          <>
+            <span>·</span>
+            <span className="font-[family-name:var(--font-mono)] uppercase tracking-wide">
+              {puzzle.category}
+            </span>
+          </>
+        )}
         {puzzle.difficulty && (
           <>
             <span>·</span>
@@ -46,9 +54,26 @@ export default async function PuzzlePage({
           </>
         )}
       </div>
+      {puzzle.tags.length > 0 && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {puzzle.tags.map((tag) => (
+            <span
+              key={tag}
+              className="border border-[var(--color-line)] px-2 py-0.5 text-xs text-[var(--color-muted)]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
       <div className="mt-10">
         <MdxContent source={puzzle.content} />
       </div>
+      {puzzle.source && (
+        <p className="mt-8 border-t border-[var(--color-line)] pt-6 text-sm text-[var(--color-muted)]">
+          Source: {puzzle.source}
+        </p>
+      )}
     </Container>
   );
 }

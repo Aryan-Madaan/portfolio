@@ -46,8 +46,10 @@ const roles = [
     period: "Jan 2024 — Jun 2024",
     bullets: [
       "Reduced a mission-critical weekly reporting process from 11 hours to under 1 (91% reduction) via Python automation.",
+      "Separately optimized a key finance-metric report generation script, cutting runtime from 6 hours to 4 minutes.",
       "Cut downstream reporting errors by 95% with automated quality frameworks; improved SQL pipeline speed by 73%.",
-      "Analyzed large-scale datasets for a US-based lender, contributing to a 22% reduction in credit risk.",
+      "Analyzed large-scale datasets for a US-based lender (~$100M revenue), contributing to a 22% reduction in credit risk.",
+      "Designed and built 10 Tableau dashboards spanning 40+ key metrics for a financial-sector client, plus data-optimization work identifying and eliminating redundant tables to speed up storage and retrieval — details of the engagement itself stay under the client NDA.",
     ],
   },
   {

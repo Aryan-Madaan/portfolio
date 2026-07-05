@@ -24,7 +24,9 @@ export default function PuzzlesIndexPage() {
         Puzzles, with solutions kept out of sight until you want them.
       </h1>
       <p className="mt-6 text-[var(--color-muted)]">
-        Solutions are hidden behind a reveal — try it first.
+        I placed 3rd in a cryptic puzzle-solving competition at BITS Pilani
+        — this section is that same habit, kept up. Solutions are hidden
+        behind a reveal; try it first.
       </p>
 
       <ul className="mt-12 space-y-10">
@@ -35,6 +37,14 @@ export default function PuzzlesIndexPage() {
                 <span className="font-[family-name:var(--font-mono)]">
                   {puzzle.date}
                 </span>
+                {puzzle.category && (
+                  <>
+                    <span>·</span>
+                    <span className="font-[family-name:var(--font-mono)] uppercase tracking-wide">
+                      {puzzle.category}
+                    </span>
+                  </>
+                )}
                 {puzzle.difficulty && (
                   <>
                     <span>·</span>

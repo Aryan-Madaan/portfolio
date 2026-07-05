@@ -1,0 +1,28 @@
+---
+title: "What actually changes when you go from 1 agent to 300"
+description: "Governing one chatbot and governing a fleet of 300 specialized agents are different disciplines, not different scales of the same problem. Here's the architecture that made the difference for us."
+date: "2026-07-05"
+category: "ai"
+tags: ["agents", "governance", "architecture"]
+draft: false
+---
+
+Yuval Noah Harari's argument in *Sapiens* is that large numbers of strangers can only cooperate at scale through shared fictions — money, law, corporations — things that exist only because enough people agree to act as if they're real. An enterprise agent fleet runs into a smaller, more literal version of the same problem: 300 autonomous agents, built by different teams, can only operate safely together if there's a shared structure everyone (and every agent) actually respects. Without it, you don't have a fleet. You have 300 unrelated scripts that happen to share a cloud bill.
+
+I watched this problem show up in a very specific way. The first ten or twenty agents we shipped were each governed informally — a Slack thread here, a code review there, someone remembering that this agent touches PII and needs extra sign-off. That worked, the way a two-person startup's "process" works: through memory and goodwill. It stopped working somewhere past agent fifty, when nobody could hold the full picture in their head anymore, and it became actively dangerous past a hundred, because an agent built by a team unaware of an existing constraint could silently violate it.
+
+## The four things that had to exist before scale did
+
+**A registry, not a wiki.** Every agent needs to be a row in a system, not a paragraph in a doc someone wrote in March. The registry needs to answer, programmatically: what data can this agent touch, what actions can it take, who owns it, and what's its current compliance status. If that information lives in prose, it goes stale the first week and stays stale forever after.
+
+**A policy check that runs before the action, not after the incident.** The distinction that matters: are you checking whether an agent *is allowed* to do something before it does it, or are you finding out after the fact in a postmortem? Every agent action that touches something sensitive — PII, financial data, anything customer-facing — needs to hit a policy layer that can say no in real time, using the registry above as its source of truth.
+
+**An audit trail built for a regulator, not a debugger.** Most logging is built to answer "what broke." Governance logging needs to answer a different question: "why did the system make this specific decision, for this specific person, on this specific date" — months later, to someone who wasn't in the room and doesn't trust you by default. That's a different schema, not just more logging. It means capturing the inputs, the policy check result, and the reasoning trace, not just the final output.
+
+**An escalation path that's actually staffed.** The single most common governance failure I've seen isn't a missing rule — it's a rule that correctly triggers a human handoff, to a queue nobody's watching. Escalation design has to include who receives it and what their SLA is, or it's decoration.
+
+## Why this had to exist before we hit 300, not after
+
+None of this is exotic engineering. It's the unglamorous 40% of the work that doesn't show up in a demo. But the fleet that scaled past 300 agents in nine months only worked because this layer existed before agent 100, not after — retrofitting governance onto agents already running in production is a much harder, much more political problem than building it into the platform from agent one.
+
+The shared-fiction analogy holds up better than I expected going in: the registry, the policy layer, the audit trail, and the escalation path aren't really about controlling agents. They're about giving 300 independently-built systems, and the humans responsible for them, a shared thing to trust — the actual precondition for cooperation at any scale past what one person can personally track.

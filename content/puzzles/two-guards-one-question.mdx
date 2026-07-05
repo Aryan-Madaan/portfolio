@@ -1,0 +1,34 @@
+---
+title: "Two guards, two doors, one question"
+description: "One door leads to freedom, one to doom. One guard always tells the truth, one always lies. You don't know which guard is which, or which door is which. You get one question. What do you ask?"
+date: "2026-07-05"
+category: "logic"
+difficulty: "medium"
+tags: ["knights-and-knaves", "classic"]
+source: "Classic knights-and-knaves logic puzzle, variants popularized by Raymond Smullyan"
+draft: false
+---
+
+You're standing in front of two doors. One leads to freedom, the other to doom — you don't know which. Guarding the doors are two guards. One always tells the truth. The other always lies. You don't know which guard is which, either.
+
+You may ask exactly **one question**, to exactly **one guard** of your choosing. Based on the answer, you must pick a door.
+
+**What question do you ask, and how do you decide which door to take?**
+
+<Spoiler>
+
+Ask either guard: **"If I asked the other guard which door leads to freedom, what would they say?"**
+
+Then take the **other** door — not the one they name.
+
+Here's why it works, checking both cases:
+
+**If you happen to ask the truth-teller:** They'll answer honestly about what the liar *would* say. The liar, asked directly which door leads to freedom, would lie and name the doom door. So the truth-teller honestly reports: "the doom door" — meaning their answer to your question points at the wrong door.
+
+**If you happen to ask the liar:** They'll lie about what the truth-teller *would* say. The truth-teller, asked directly, would honestly name the freedom door. The liar, lying about that, reports the doom door instead — again, the wrong door.
+
+Either guard you ask, and regardless of which one is the liar, the answer you get always names the doom door. So you simply walk through the **other** one.
+
+The trick is the double negation: routing the question through "what would the other guy say" flips the liar's lie back to false a second time, collapsing both cases — honest guard reporting a dishonest answer, and dishonest guard misreporting an honest answer — into the same wrong answer. One question is enough because you've engineered the asymmetry between the guards to cancel itself out.
+
+</Spoiler>

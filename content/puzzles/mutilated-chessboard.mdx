@@ -1,0 +1,36 @@
+---
+title: "Can you tile the mutilated chessboard?"
+description: "Take a standard 8x8 chessboard and cut off two opposite corners. Can you cover the remaining 62 squares with 31 dominoes, each covering exactly two adjacent squares?"
+date: "2026-07-05"
+category: "parity"
+difficulty: "medium"
+tags: ["combinatorics", "chessboard", "classic"]
+source: "Classic combinatorics puzzle, popularized by Martin Gardner's columns"
+draft: false
+---
+
+Take a standard 8×8 chessboard — 64 squares, alternating black and white. Cut off two opposite corners (say, top-left and bottom-right). You're left with 62 squares.
+
+<ChessboardDiagram />
+
+You have 31 dominoes. Each domino covers exactly two squares that share an edge.
+
+**Can you tile the mutilated board completely with 31 dominoes, with no overlaps and no gaps?**
+
+You don't need to find a tiling or prove it's impossible by exhaustive search — there's a short argument either way.
+
+<Spoiler>
+
+No — it's impossible, and you can prove it without checking a single arrangement.
+
+On a standard chessboard, the two squares in any pair of opposite corners are always the **same color**. (Count along the diagonal, or just picture it: corners alternate color as you go around the board, and opposite corners are two steps apart in that alternation, keeping the same color.)
+
+So cutting off two opposite corners removes two squares of the *same* color — say, two black squares. The board started with 32 black and 32 white squares. After the cut, you have 30 black and 32 white — 62 squares total, but no longer balanced.
+
+Every domino, wherever you place it, covers one black square and one white square, because any two adjacent squares on a chessboard are always different colors. So *n* dominoes always cover exactly *n* black squares and *n* white squares — equal numbers, no exceptions.
+
+But we need to cover 30 black squares and 32 white squares — an unequal split. No number of dominoes can produce an unequal split, since each one contributes one of each. The tiling is therefore impossible, regardless of how cleverly you arrange them.
+
+The elegance here is that the proof needs zero trial and error — it's a parity argument, not a search. That's usually the fastest way to show something is impossible: find an invariant (here, "dominoes always cover equal black and white") that the target configuration violates.
+
+</Spoiler>

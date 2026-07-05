@@ -3,9 +3,11 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { Spoiler } from "@/components/spoiler";
+import { ChessboardDiagram } from "@/components/chessboard-diagram";
 
 const components = {
   Spoiler,
+  ChessboardDiagram,
 };
 
 export function MdxContent({ source }: { source: string }) {

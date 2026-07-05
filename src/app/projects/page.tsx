@@ -55,6 +55,19 @@ const fleetIGovern = [
   },
 ];
 
+const consultingProjects = [
+  {
+    title: "Financial reporting automation — Indus Insights",
+    period: "2024",
+    body: "Automated a weekly reporting process from 11 hours to under 1 (91% reduction), and separately cut a finance-metric report script from 6 hours to 4 minutes. Improved SQL pipeline speed by 73% and cut downstream errors by 95% with automated quality frameworks.",
+  },
+  {
+    title: "Credit risk analysis for a US lender — Indus Insights",
+    period: "2024",
+    body: "Analyzed large-scale datasets for a US-based lender (~$100M revenue), contributing to a 22% reduction in credit risk. Designed 10 Tableau dashboards spanning 40+ key metrics and optimized data storage by eliminating redundant tables — engagement specifics stay under the client NDA.",
+  },
+];
+
 const researchProjects = [
   {
     title: "Semantic-rich latents via Diffusion Autoencoders",
@@ -141,6 +154,15 @@ export default function ProjectsPage() {
           </a>{" "}
           on the platform&apos;s scale.
         </p>
+      </section>
+
+      <section className="mt-16">
+        <p className="eyebrow mb-2">Consulting &amp; analytics — Indus Insights</p>
+        <p className="text-[var(--color-muted)]">
+          A 6-month Practice School placement doing data science and
+          analytics consulting, ahead of the AI-focused roles that followed.
+        </p>
+        <ProjectGrid items={consultingProjects} />
       </section>
 
       <section className="mt-16">

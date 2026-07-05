@@ -13,6 +13,7 @@ export type PostMeta = {
   category?: string;
   tags: string[];
   difficulty?: string;
+  source?: string;
   draft: boolean;
   readingTime: string;
 };
@@ -46,6 +47,7 @@ function loadCollection(sub: string): Post[] {
       category: data.category ? String(data.category) : undefined,
       tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],
       difficulty: data.difficulty ? String(data.difficulty) : undefined,
+      source: data.source ? String(data.source) : undefined,
       draft: Boolean(data.draft),
       readingTime: readingTime(content).text,
       content,
