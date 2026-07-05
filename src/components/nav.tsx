@@ -52,6 +52,8 @@ export function Nav() {
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
             onClick={() => setOpen((v) => !v)}
             className="flex h-8 w-8 items-center justify-center"
           >
@@ -61,7 +63,7 @@ export function Nav() {
       </div>
 
       {open && (
-        <nav className="border-t border-[var(--color-line)] px-6 py-4 md:hidden">
+        <nav id="mobile-nav" className="border-t border-[var(--color-line)] px-6 py-4 md:hidden">
           <ul className="flex flex-col gap-4">
             {[...siteConfig.nav, { label: "Contact", href: "/contact" }].map(
               (item) => (

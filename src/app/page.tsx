@@ -5,9 +5,9 @@ import { Reveal } from "@/components/reveal";
 import { CountUp } from "@/components/count-up";
 
 const stats = [
-  { value: "76,000+", label: "total users the platform has rolled out to" },
-  { value: "300+", label: "AI agents deployed org-wide in 9 months" },
-  { value: "70%+", label: "of routine HR tickets resolved autonomously" },
+  { value: "76,000+", label: "total users TDA has rolled out to" },
+  { value: "300+", label: "AI agents across the fleet I govern, in 9 months" },
+  { value: "70%+", label: "of HR tickets one of those agents resolves solo" },
   { value: "2", label: "peer-reviewed ML publications" },
 ];
 
@@ -25,7 +25,7 @@ const pillars = [
   {
     tag: "03",
     title: "Builder tooling & internal platforms",
-    body: "A no-code agent platform non-engineers use to ship their own automations, an AI-assisted internal coding tool, and the developer platform 700+ engineers build on daily.",
+    body: "A low-code agent platform non-engineers use to ship their own automations, an AI-assisted internal coding tool, and the developer platform 700+ engineers build on daily.",
   },
   {
     tag: "04",

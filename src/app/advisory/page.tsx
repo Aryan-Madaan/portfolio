@@ -12,7 +12,7 @@ const services = [
   {
     tag: "01",
     title: "Enterprise AI stack strategy & roadmapping",
-    body: "Where to start, what to build versus buy, and what sequence actually gets adopted — not a vendor slide deck.",
+    body: "Where to start, what to build versus buy or extend, and what sequence actually gets adopted — not a vendor slide deck.",
   },
   {
     tag: "02",
@@ -31,18 +31,17 @@ const services = [
   },
   {
     tag: "05",
-    title: "Build-vs-buy evaluation",
-    body: "An honest assessment of whether your team should build this in-house, extend a platform, or buy — before the budget is committed.",
+    title: "Adoption & change management",
+    body: "The unglamorous half of the work: getting an organization to actually change how it operates once the system is built, instead of quietly reverting to the old way.",
   },
 ];
 
 const proof = [
+  "Govern a fleet that scaled past 300 specialized AI agents in 9 months — including Safety EyeQ (computer-vision safety monitoring) and People Care Agent (HR helpdesk) — publicly verified in Tata Steel's April 2026 press release with Google Cloud.",
   "Built an enterprise AI assistant from zero to production in 2 months, now rolled out to 76,000+ people (13,000+ daily active) across 5 Tata Group companies.",
   "Integrated 150+ enterprise data sources — 100+ databases and 50,000+ documents — into a single retrieval layer.",
-  "Run a no-code AI agent platform with 200+ agents live across 20 departments — governance at that scale is a different problem than governing one chatbot.",
   "Manage the same platform across UK, Thailand, and Singapore entities — including cross-border data transfer and data-privacy compliance across jurisdictions, not just the India build.",
   "Helping shape how the organization governs its models and LLMs directly — which get approved, how they're monitored, and when they're retired.",
-  "Negotiate directly with cloud and AI infrastructure partners on contracts and connectivity.",
   "Delivered enterprise-grade security — role-based access control (RBAC), encryption, and VAPT (independent penetration testing) clearance — at 99% uptime.",
   "Two peer-reviewed ML publications in indexed international journals.",
 ];
@@ -84,6 +83,11 @@ export default function AdvisoryPage() {
               should be queryable and actionable in real time, instead of
               sitting locked in silos, PDFs, and the heads of people who
               might leave next quarter.
+            </p>
+            <p>
+              I built this argument by running it: an assistant now used by
+              76,000+ people across 5 Tata Group companies, governing a
+              fleet that scaled past 300 production agents in 9 months.
             </p>
             <h2>Why organizations actually need this</h2>
             <p>
@@ -127,7 +131,8 @@ export default function AdvisoryPage() {
               technical build is genuinely the easier half. What I actually
               spend my time on is the second half — governance, adoption,
               and the trust layer that determines whether any of it gets
-              used.
+              used. That&apos;s why 300+ agents run under one governance
+              model instead of 300 one-off builds.
             </p>
           </div>
         </Container>
@@ -165,17 +170,37 @@ export default function AdvisoryPage() {
               </li>
             ))}
           </ul>
+          <p className="mt-6 text-sm text-[var(--color-muted)]">
+            Independently verifiable:{" "}
+            <a
+              href="https://www.tatasteel.com/newsroom/press-releases/india/2026/tata-steel-partners-with-google-cloud-to-deploy-a-unified-agentic-ai-across-its-global-value-chain/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--color-signal)] underline underline-offset-4"
+            >
+              Tata Steel &amp; Google Cloud press release, April 2026
+            </a>
+            , or the full{" "}
+            <Link
+              href="/projects"
+              className="text-[var(--color-signal)] underline underline-offset-4"
+            >
+              breakdown of what this fleet actually does
+            </Link>
+            .
+          </p>
         </Container>
       </section>
 
       <section className="py-16">
         <Container className="max-w-3xl text-center">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold">
+          <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold sm:text-3xl">
             Have an AI stack decision on the table?
           </h2>
           <p className="mt-3 text-[var(--color-muted)]">
             Tell me what you&apos;re trying to build or fix — I&apos;ll tell
-            you honestly whether it&apos;s worth a conversation.
+            you honestly whether it&apos;s worth a conversation. 15 minutes,
+            no deck required.
           </p>
           <Link
             href="/contact?reason=advisory"

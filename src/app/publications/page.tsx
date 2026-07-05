@@ -32,6 +32,11 @@ export default function PublicationsPage() {
       <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold sm:text-4xl">
         Peer-reviewed work.
       </h1>
+      <p className="mt-6 text-[var(--color-muted)]">
+        Two papers from undergrad, both on trusting ML predictions in
+        industrial settings — a preview, in hindsight, of the access-and-audit
+        problems I now solve at enterprise scale.
+      </p>
 
       <ul className="mt-12 space-y-8">
         {publications.map((pub) => (

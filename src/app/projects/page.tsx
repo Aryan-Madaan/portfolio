@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
 
@@ -8,31 +9,16 @@ export const metadata: Metadata = {
     "Enterprise AI products built at Tata Steel, plus research projects from undergrad — diffusion models, StyleGAN, CNNs from scratch, time-series forecasting.",
 };
 
-const enterpriseProjects = [
+const builtByMe = [
   {
     title: "Tata Steel Digital Assistant (TDA)",
     period: "2025 — present",
-    body: "Enterprise knowledge assistant built from zero to production in 2 months — past basic retrieval, on knowledge graphs and cross-session memory. Queries across three domains — global public data, internal enterprise systems, and proprietary user data (call recordings, spreadsheets, PDFs) — cutting policy discovery from 2 business days to under a minute. Layers real-time market and geopolitical signal over commodity pricing for predictive supply-chain insight. Rolled out to 76,000+ people across 5 group companies.",
-  },
-  {
-    title: "People Care Agent",
-    period: "2025 — present",
-    body: "A specialized HR-helpdesk agent, separate from TDA, resolving 70%+ of routine employee tickets autonomously — hours of manual resolution time back for HR teams across the group.",
+    body: "Enterprise knowledge assistant built from zero to production in 2 months — past basic retrieval, on knowledge graphs and cross-session memory. Queries across three domains — global public data, internal enterprise systems, and proprietary user data (call recordings, spreadsheets, PDFs) — cutting policy discovery from 2 business days to under a minute. Rolled out to 76,000+ people across 5 group companies.",
   },
   {
     title: "Zen AI",
     period: "2025 — present",
-    body: "The low-code platform behind Tata Steel's agent fleet — lets non-data-scientists (developers, frontline managers) build and ship their own AI agents. Built on Google's Agent Development Kit (ADK). Part of a fleet that scaled past 300 specialized agents in 9 months, publicly announced with Google Cloud in April 2026.",
-  },
-  {
-    title: "Safety EyeQ",
-    period: "2025 — present",
-    body: "A computer-vision agent analyzing live video feeds in high-risk plant zones for SOP adherence — flagging hazards (like equipment near hot material) and pushing real-time alerts for corrective action, in support of Tata Steel's zero lost-time-injury goal.",
-  },
-  {
-    title: "Resume Screener",
-    period: "2025 — present",
-    body: "An AI recruitment tool that pre-screens candidates so HR can spend its time on strategic hiring and candidate engagement instead of manual resume triage — referenced publicly by Tata Steel's Chief People Officer in Forbes India.",
+    body: "The low-code platform behind Tata Steel's agent fleet — lets non-data-scientists (developers, frontline managers) build and ship their own AI agents. Built on Google's Agent Development Kit (ADK). Agents built on it now number 300+ across the group, 9 months after launch.",
   },
   {
     title: "Vaani",
@@ -42,12 +28,30 @@ const enterpriseProjects = [
   {
     title: "TDA Cowork",
     period: "2025 — present",
-    body: "An in-house desktop application extending TDA with a more personalized layer for individual workflows, rather than the shared enterprise-wide surface.",
+    body: "A desktop app extending TDA with local file access and a persistent personal memory layer — context that carries across sessions on your own machine, rather than the shared enterprise-wide chat surface.",
   },
   {
     title: "Code Genie CLI",
     period: "2024 — 2025",
-    body: "An internal terminal-based AI coding agent — conceptually similar to today's terminal coding assistants, built before that category had wide adoption.",
+    body: "An internal terminal-based AI coding agent — conceptually similar to today's terminal coding assistants, built before that category had wide adoption. Superseded by agents built on Zen AI.",
+  },
+];
+
+const fleetIGovern = [
+  {
+    title: "Safety EyeQ",
+    period: "2025 — present",
+    body: "A computer-vision agent analyzing live video feeds in high-risk plant zones for SOP adherence — flagging hazards (like equipment near hot material) and pushing real-time alerts for corrective action, in support of Tata Steel's zero lost-time-injury goal.",
+  },
+  {
+    title: "People Care Agent",
+    period: "2025 — present",
+    body: "A specialized HR-helpdesk agent resolving 70%+ of routine employee tickets autonomously — hours of manual resolution time back for HR teams across the group.",
+  },
+  {
+    title: "Resume Screener",
+    period: "2025 — present",
+    body: "An AI recruitment tool that pre-screens candidates so HR can spend its time on strategic hiring and candidate engagement instead of manual resume triage — referenced publicly by Tata Steel's Chief People Officer in Forbes India.",
   },
 ];
 
@@ -55,7 +59,7 @@ const researchProjects = [
   {
     title: "Semantic-rich latents via Diffusion Autoencoders",
     period: "2023",
-    body: "Fine-tuned Denoising Diffusion Implicit Models (DDIMs) and performed linear interpolation across the latent space for smooth morphing between images. Achieved a Fréchet Inception Distance of ~21, versus 150 from a comparable UNet architecture.",
+    body: "Fine-tuned Denoising Diffusion Implicit Models (DDIMs) and performed linear interpolation across the latent space for smooth morphing between images. Achieved a Fréchet Inception Distance of ~21, versus 150 from a comparable UNet architecture — coursework-adjacent research done independently.",
   },
   {
     title: "Image generation from text captions using StyleGANs",
@@ -83,7 +87,7 @@ function ProjectGrid({
     <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
       {items.map((p, i) => (
         <Reveal key={p.title} delay={(i % 2) * 80}>
-          <article className="reg-mark group h-full border-t-2 border-[var(--color-fg)] p-5 transition-transform duration-300 hover:-translate-y-1">
+          <article className="group h-full border-t-2 border-[var(--color-fg)] p-5 transition-transform duration-300 hover:-translate-y-1">
             <span className="font-[family-name:var(--font-mono)] text-xs text-[var(--color-muted)]">
               {p.period}
             </span>
@@ -105,16 +109,26 @@ export default function ProjectsPage() {
     <Container className="max-w-3xl py-16 sm:py-24">
       <p className="eyebrow mb-4">Projects</p>
       <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold sm:text-4xl">
-        What I&apos;ve actually shipped.
+        What I&apos;ve built, and the fleet I govern.
       </h1>
 
       <section className="mt-14">
-        <p className="eyebrow mb-2">Enterprise AI products — Tata Steel</p>
+        <p className="eyebrow mb-2">Built by me</p>
         <p className="text-[var(--color-muted)]">
-          Built as part of the AI Discovery &amp; Governance function, all
-          extending or complementing the same core platform.
+          Products I personally designed and shipped, as part of the AI
+          Discovery &amp; Governance function.
         </p>
-        <ProjectGrid items={enterpriseProjects} />
+        <ProjectGrid items={builtByMe} />
+      </section>
+
+      <section className="mt-16">
+        <p className="eyebrow mb-2">Part of the fleet I govern</p>
+        <p className="text-[var(--color-muted)]">
+          Built by other teams within the same agentic ecosystem — my role
+          covers their governance, security, and compliance, not their
+          authorship.
+        </p>
+        <ProjectGrid items={fleetIGovern} />
         <p className="mt-6 text-sm text-[var(--color-muted)]">
           Independently verifiable:{" "}
           <a
@@ -138,6 +152,18 @@ export default function ProjectsPage() {
         </p>
         <ProjectGrid items={researchProjects} />
       </section>
+
+      <div className="mt-16 border-t border-[var(--color-line)] pt-10 text-center">
+        <p className="text-[var(--color-muted)]">
+          Want the full technical or business case behind any of this?
+        </p>
+        <Link
+          href="/contact?reason=opportunity"
+          className="mt-4 inline-block border border-[var(--color-fg)] bg-[var(--color-fg)] px-6 py-3 text-sm font-medium text-[var(--color-bg)] transition-colors hover:border-[var(--color-signal)] hover:bg-[var(--color-signal)]"
+        >
+          Get in touch
+        </Link>
+      </div>
     </Container>
   );
 }

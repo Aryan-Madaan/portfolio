@@ -53,7 +53,7 @@ export function ContactForm({ defaultReason = "opportunity" }: { defaultReason?:
 
   if (status === "success") {
     return (
-      <div className="border border-[var(--color-line)] p-6">
+      <div role="status" aria-live="polite" className="border border-[var(--color-line)] p-6">
         <p className="font-[family-name:var(--font-display)] text-lg font-semibold">
           Message sent.
         </p>
@@ -146,11 +146,18 @@ export function ContactForm({ defaultReason = "opportunity" }: { defaultReason?:
         </div>
 
         {TURNSTILE_SITE_KEY && (
-          <div className="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} />
+          <div>
+            <div className="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} />
+            <p className="mt-1 text-xs text-[var(--color-muted)]">
+              Protected by Cloudflare Turnstile.
+            </p>
+          </div>
         )}
 
         {status === "error" && (
-          <p className="text-sm text-[var(--color-signal)]">{errorMessage}</p>
+          <p role="status" aria-live="polite" className="text-sm text-[var(--color-signal)]">
+            {errorMessage}
+          </p>
         )}
 
         <button

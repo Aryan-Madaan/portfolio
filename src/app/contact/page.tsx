@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch — roles, advisory engagements, or anything else.",
+  description: "Get in touch.",
 };
 
 export default async function ContactPage({
@@ -44,11 +44,15 @@ export default async function ContactPage({
         >
           GitHub
         </a>
-        .
+        . I typically reply within 1–2 business days.
       </p>
 
       <div className="mt-10">
         <ContactForm defaultReason={defaultReason} />
+        <p className="mt-4 text-xs text-[var(--color-muted)]">
+          Used only to reply to you — never shared, sold, or added to a
+          list.
+        </p>
       </div>
     </Container>
   );

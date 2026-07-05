@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/container";
 
 export const metadata: Metadata = {
@@ -18,19 +19,26 @@ export default function AboutPage() {
       <div className="prose-schematic mt-10">
         <p>
           I studied Chemical Engineering with a minor in Data Science at
-          BITS Pilani, which is a less strange path into AI than it sounds —
-          most of what I do now is still process design: mapping how
-          information actually flows through an organization, finding where
-          it bottlenecks, and building the system that fixes it. I just do
-          it with retrieval pipelines and agents instead of reactors.
+          BITS Pilani, where most of what I do now is still process design:
+          mapping how information actually flows through an organization,
+          finding where it bottlenecks, and building the system that fixes
+          it. I just do it with retrieval pipelines and agents instead of
+          reactors.
         </p>
         <p>
-          Two research papers came out of undergrad, both on applying
-          machine learning to industrial chemical processes — predicting
-          fuel cell performance and catalyst deactivation. That work taught
-          me that a model is only as useful as the trust an expert is
-          willing to place in its output, which turned out to be the
-          through-line of everything I&apos;ve built since.
+          Two{" "}
+          <Link
+            href="/publications"
+            className="text-[var(--color-signal)] underline underline-offset-4"
+          >
+            research papers
+          </Link>{" "}
+          came out of undergrad, both on applying machine learning to
+          industrial chemical processes — predicting fuel cell performance
+          and catalyst deactivation. That work taught me that a model is
+          only as useful as the trust an expert is willing to place in its
+          output, which turned out to be the through-line of everything
+          I&apos;ve built since.
         </p>
         <p>
           I currently lead AI Discovery and Governance work at Tata Steel —
@@ -41,14 +49,20 @@ export default function AboutPage() {
           integrated with 150+ internal data sources. The interesting part
           was never the model. It was designing the access control, audit
           trails, and escalation paths that made people willing to act on
-          what it told them.
+          what it told them. I also launched{" "}
+          <Link
+            href="/projects"
+            className="text-[var(--color-signal)] underline underline-offset-4"
+          >
+            Zen AI
+          </Link>
+          , the low-code platform behind the group&apos;s now-300+-agent
+          fleet, and that work won Apex Recognition at Tata Steel&apos;s
+          Innovista 2025.
         </p>
         <p>
-          The assumption I run into constantly: a 100+ year old steel
-          manufacturer surely doesn&apos;t have a serious AI function. It
-          does — running 860+ AI models in production and partnering
-          directly with Google Cloud on enterprise-wide agentic AI at a
-          scale{" "}
+          Tata Steel runs 860+ AI models in production and partners
+          directly with Google Cloud on agentic AI at a scale{" "}
           <a
             href="https://www.tatasteel.com/newsroom/press-releases/india/2026/tata-steel-partners-with-google-cloud-to-deploy-a-unified-agentic-ai-across-its-global-value-chain/"
             target="_blank"
@@ -66,11 +80,17 @@ export default function AboutPage() {
           That scope has since grown past India to the UK, Thailand, and
           Singapore entities, which pulled me into cross-border data
           transfer and data-privacy compliance work alongside the
-          engineering — plus contract negotiation with cloud and AI
-          infrastructure partners, and enough networking and systems
-          fundamentals to hold my own in an infra conversation. That work
-          shaped how I think about AI governance as much as any research
-          paper did.
+          engineering — plus weekly syncs with Microsoft, Google, and AWS,
+          and end-to-end deployment work down to server and network
+          configuration, not just the application layer. That work
+          shaped how I think about{" "}
+          <Link
+            href="/advisory"
+            className="text-[var(--color-signal)] underline underline-offset-4"
+          >
+            AI governance
+          </Link>{" "}
+          as much as any research paper did.
         </p>
         <p>
           I also serve as a reverse mentor to Tata Steel&apos;s Chief People

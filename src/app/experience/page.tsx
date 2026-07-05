@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/container";
 
 export const metadata: Metadata = {
@@ -14,12 +15,12 @@ const roles = [
     bullets: [
       "Built the Tata Steel Digital Assistant from concept to production in 2 months — 13,000+ daily active users (76,000+ rolled out to) across 5 group companies in India and the UK, ~20,000 queries/day.",
       "Integrated 150+ enterprise data sources (100+ databases, 50,000+ documents); cut policy discovery from 2 business days to under a minute.",
-      "Beyond that user base, own platform governance and compliance for the Thailand and Singapore (NYK) entities as they come online, including cross-border data transfer discussions across all four countries.",
+      "Beyond that user base, own platform governance and compliance for the Thailand and Singapore (NYK, Tata Steel's Southeast Asia trading arm) entities as they come online, including cross-border data transfer discussions across all four countries.",
       "Architecting the next version of TDA on Google's Agent Development Kit (ADK) v2, with improved cross-system connectivity.",
-      "Learned networking and systems fundamentals (MPLS links, infra topology) to hold my own in infrastructure negotiations, and lead contract talks with cloud and AI infrastructure partners.",
+      "Held weekly syncs with Microsoft, Google, and AWS on cloud and AI capabilities, and worked end-to-end on deployment — server and network configuration included, not just the application layer.",
       "Delivered enterprise-grade security — role-based access control (RBAC), encryption, and VAPT (independent penetration testing) clearance — at 99% uptime.",
-      "Launched Zen AI, the low-code platform behind Tata Steel's agent fleet — part of a fleet that scaled past 300 specialized agents in 9 months.",
-      "TDA received Apex Recognition at Tata Steel's APEX TQM Nite / Innovista 2025, awarded to the project team.",
+      "Launched Zen AI, the low-code platform behind Tata Steel's agent fleet, which scaled past 300 specialized agents in 9 months.",
+      "TDA won Apex Recognition, Tata Steel's top innovation award, at Innovista 2025 — a team award.",
     ],
   },
   {
@@ -27,8 +28,8 @@ const roles = [
     title: "Manager, AI",
     period: "Mar 2025 — Nov 2025",
     bullets: [
-      "Delivered an AI-powered development platform used by 700+ developers (React, Flask, GCF, BigQuery, Bedrock).",
-      "Built a pipeline converting CXO input into BRDs, FRDs, and deployment-ready technical documentation.",
+      "Delivered an AI-powered development platform used by 700+ developers (React, Flask, Google Cloud Functions, BigQuery, Bedrock).",
+      "Built a pipeline converting CXO input into business and functional requirement docs (BRDs/FRDs) and deployment-ready technical documentation.",
     ],
   },
   {
@@ -102,6 +103,18 @@ export default function ExperiencePage() {
           </li>
         ))}
       </ol>
+
+      <div className="mt-16 border-t border-[var(--color-line)] pt-10 text-center">
+        <p className="text-[var(--color-muted)]">
+          Looking for someone to fill a role, not just advise on one?
+        </p>
+        <Link
+          href="/contact?reason=opportunity"
+          className="mt-4 inline-block border border-[var(--color-fg)] bg-[var(--color-fg)] px-6 py-3 text-sm font-medium text-[var(--color-bg)] transition-colors hover:border-[var(--color-signal)] hover:bg-[var(--color-signal)]"
+        >
+          Get in touch
+        </Link>
+      </div>
     </Container>
   );
 }
