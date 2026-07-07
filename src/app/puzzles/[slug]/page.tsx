@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Container } from "@/components/container";
 import { MdxContent } from "@/components/mdx-content";
 import { getPuzzle, getPuzzles } from "@/lib/posts";
+import { siteConfig } from "@/lib/site";
 
 export function generateStaticParams() {
   return getPuzzles().map((puzzle) => ({ slug: puzzle.slug }));
@@ -17,7 +18,24 @@ export async function generateMetadata({
   const { slug } = await params;
   const puzzle = getPuzzle(slug);
   if (!puzzle) return {};
-  return { title: puzzle.title, description: puzzle.description };
+  const url = `${siteConfig.url}/puzzles/${slug}`;
+  return {
+    title: puzzle.title,
+    description: puzzle.description,
+    alternates: { canonical: url },
+    openGraph: {
+      title: puzzle.title,
+      description: puzzle.description,
+      url,
+      type: "article",
+      tags: puzzle.tags,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: puzzle.title,
+      description: puzzle.description,
+    },
+  };
 }
 
 export default async function PuzzlePage({

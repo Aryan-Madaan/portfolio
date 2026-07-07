@@ -1,0 +1,36 @@
+---
+title: "Four people, one torch, seventeen minutes"
+description: "Four people need to cross a bridge at night with one torch between them. The bridge holds at most two at a time, and any pair walks at the slower person's pace. Cross everyone in 17 minutes."
+date: "2026-07-05"
+category: "optimization"
+difficulty: "medium"
+tags: ["classic", "timing", "greedy-vs-optimal"]
+source: "Classic river/bridge-crossing puzzle, widely used in interview settings"
+draft: false
+---
+
+Four people need to cross a rickety bridge at night. There's exactly one torch, and the bridge is unsafe to cross without it. At most **two people** can be on the bridge at once, and any pair crosses at the **slower** person's pace — no splitting up mid-bridge.
+
+Each person takes a different amount of time to cross alone: **1, 2, 5, and 10 minutes.**
+
+**Get everyone across in 17 minutes.**
+
+The obvious strategy — send the fastest person back and forth as an escort every time — feels efficient and isn't optimal. There's a better arrangement.
+
+<Spoiler>
+
+The trick is to stop treating the fastest person as a permanent shuttle, and instead let the two slowest people cross **together**, even though it means sending back someone slower than your fastest option.
+
+1. **1 and 2 cross** — 2 minutes (elapsed: 2)
+2. **1 returns** with the torch — 1 minute (elapsed: 3)
+3. **5 and 10 cross together** — 10 minutes (elapsed: 13)
+4. **2 returns** with the torch — 2 minutes (elapsed: 15)
+5. **1 and 2 cross** — 2 minutes (elapsed: 17)
+
+<BridgeTorchDiagram />
+
+Total: 2 + 1 + 10 + 2 + 2 = **17 minutes.**
+
+The insight is step 3: pairing the two slowest people together means their combined cost is paid exactly once (10 minutes, the slower of the two), instead of paying it twice by ferrying them across one at a time. The "obvious" fastest-person-shuttles strategy — 1&2 across, 1 back, 1&5 across, 1 back, 1&10 across — comes out to 2+1+5+1+10 = 19 minutes, because it pays the 1-minute return cost twice *and* never gets to bundle 5 and 10 into a single crossing. Getting your two slowest people out of the way together, even at the cost of a slightly more expensive return trip, beats shuttling them separately every time.
+
+</Spoiler>
