@@ -34,11 +34,14 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  // Adds Subresource Integrity hashes to Next.js's own script tags — real,
-  // free hardening on top of the CSP above (doesn't replace it).
-  experimental: {
-    sri: { algorithm: "sha256" },
-  },
+  // experimental.sri (Next's built-in Subresource Integrity) was enabled here
+  // for defense-in-depth on top of the CSP below, but it broke script loading
+  // in production on Vercel — the build-time integrity hash didn't match what
+  // Vercel's edge actually served, throwing "Failed integrity metadata check"
+  // and preventing hydration entirely. It's an experimental feature by Next's
+  // own labeling; disabled rather than debugged live, since the CSP's
+  // `script-src 'self'` already restricts scripts to same-origin, which is
+  // most of what SRI would add here anyway.
   async headers() {
     return [
       {
