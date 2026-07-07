@@ -4,7 +4,9 @@ export const siteConfig = {
   tagline: "Systems don't fail from bad models. They fail from bad trust.",
   description:
     "Enterprise AI architect and builder. I design the systems that let organizations trust what their AI tells them — RAG architecture, agentic workflows, and the governance layer around both. Writing on AI engineering, agent harnesses, and puzzles.",
-  url: "https://aryanmadaan.com",
+  // Update this once a real custom domain is connected — everything else
+  // (sitemap, canonical URLs, Open Graph, JSON-LD) derives from this value.
+  url: "https://aryanmadaan.vercel.app",
   email: "aryanmadaan321@gmail.com",
   links: {
     github: "https://github.com/Aryan-Madaan",
