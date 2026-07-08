@@ -1,0 +1,45 @@
+---
+title: "The passcode where the third clue is the only reason you need it"
+description: "Three whole numbers multiply to 36. Their sum is a hallway number you can see but the reader can't. The largest one isn't tied with anything. Find the passcode."
+date: "2026-07-07"
+category: "number theory"
+difficulty: "easy-medium"
+tags: ["combinatorics", "enumeration", "classic"]
+source: "TED-Ed, \"Can you solve the passcode riddle?\" by Ganesh Pai — https://ed.ted.com/lessons/can-you-solve-the-passcode-riddle-ganesh-pai"
+draft: false
+---
+
+Trapped in a corridor, you find a keypad that needs three positive whole numbers, entered in ascending order, to unlock. You're given three clues:
+
+1. The **product** of the three numbers is **36**.
+2. The **sum** of the three numbers equals the number painted on the hallway wall in front of you — which you can see, but which isn't given to you here.
+3. The **largest** of the three numbers is not tied with either of the other two — it appears in the passcode exactly once, strictly bigger than both.
+
+**Find the passcode.**
+
+<Spoiler>
+
+The passcode is **2, 2, 9**.
+
+Start by listing every triple of positive whole numbers (a ≤ b ≤ c) whose product is 36, and add up each one's sum:
+
+| Triple | Sum |
+|---|---|
+| 1, 1, 36 | 38 |
+| 1, 2, 18 | 21 |
+| 1, 3, 12 | 16 |
+| 1, 4, 9 | 14 |
+| 1, 6, 6 | 13 |
+| 2, 2, 9 | 13 |
+| 2, 3, 6 | 11 |
+| 3, 3, 4 | 10 |
+
+Look at the sums: 38, 21, 16, 14, 13, 13, 11, 10. Every one of them is unique to a single triple — **except 13**, which two different triples both produce: (1, 6, 6) and (2, 2, 9).
+
+This is the move that makes clue 3 do real work: if the hallway number were anything other than 13, you'd already have your answer from clue 2 alone, and clue 3 would be pointless information. Since the puzzle *needs* clue 3 to resolve — otherwise why give it to you — the hallway number must be exactly the one sum that's genuinely ambiguous: **13**.
+
+Between (1, 6, 6) and (2, 2, 9), clue 3 breaks the tie: in (1, 6, 6), the largest number is 6 — and it's *repeated*, tied with another 6, which violates "the largest appears only once." In (2, 2, 9), the largest number is 9, appearing exactly once. So the passcode is **2, 2, 9**.
+
+The elegant part is that you never actually needed to know the hallway number to solve this — you only needed to know it existed and that the puzzle was solvable, which forces it to be the *one* sum shared by two triples. That's the same move that powers the classic "Cheryl's Birthday" family of puzzles: a clue about someone else's state of knowledge (here, "you need clue 3 for this to matter") carries real information, even when its literal content is hidden from you.
+
+</Spoiler>

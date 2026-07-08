@@ -1,0 +1,40 @@
+---
+title: "Three lions, three wildebeest, one raft, zero margin for error"
+description: "Three lions and three wildebeest need to cross a river on a raft that holds two. If lions ever outnumber wildebeest on either bank, the wildebeest don't survive the wait."
+date: "2026-07-07"
+category: "river crossing"
+difficulty: "medium"
+tags: ["river-crossing", "state-space", "classic"]
+source: "TED-Ed, \"Can you solve the river crossing riddle?\" by Lisa Winer (2016) — a variant of the classic missionaries-and-cannibals problem — https://ed.ted.com/lessons/can-you-solve-the-river-crossing-riddle-lisa-winer"
+draft: false
+---
+
+Three lions and three wildebeest need to cross a river. There's one raft, and it holds at most **two animals**, and needs at least one aboard to paddle it.
+
+The constraint: if lions ever **outnumber** wildebeest on either bank — even for a moment — the wildebeest get eaten. (A bank or the raft with zero wildebeest is always safe, no matter how many lions are there — there's nothing to outnumber.)
+
+**Get all six animals across, without ever leaving a bank — or the raft — in a state where the wildebeest are outnumbered.**
+
+<Spoiler>
+
+It takes **11 one-way trips**, and the shape of the solution is the same shape that solves every version of this puzzle (missionaries and cannibals, jealous couples, whatever the cover story): **send pairs of the "dangerous" species over first, then bring the "safe" species over in bulk once it's no longer risky, using a few backtracking trips to keep both banks legal throughout.**
+
+| # | Move | Left bank after | Right bank after |
+|---|---|---|---|
+| 1 | 2 lions cross → | 1L, 3W | 2L, 0W |
+| 2 | 1 lion returns ← | 2L, 3W | 1L, 0W |
+| 3 | 2 lions cross → | 0L, 3W | 3L, 0W |
+| 4 | 1 lion returns ← | 1L, 3W | 2L, 0W |
+| 5 | 2 wildebeest cross → | 1L, 1W | 2L, 2W |
+| 6 | 1 lion + 1 wildebeest return ← | 2L, 2W | 1L, 1W |
+| 7 | 2 wildebeest cross → | 2L, 0W | 1L, 3W |
+| 8 | 1 lion returns ← | 3L, 0W | 0L, 3W |
+| 9 | 2 lions cross → | 1L, 0W | 2L, 3W |
+| 10 | 1 lion returns ← | 2L, 0W | 1L, 3W |
+| 11 | 2 lions cross → | 0L, 0W | 3L, 3W |
+
+Check every single row against the rule and nothing ever breaks it: every bank with wildebeest present always has wildebeest ≥ lions (rows 5, 6, 7, 9, 11 are the tight ones — each is exactly equal, 1-to-1 or 2-to-2 or 3-to-3, which is legal), and every bank with zero wildebeest is safe by definition regardless of how many lions pile up there (rows 1–4, 8, 10).
+
+The part that feels wrong the first time you see it is step 6 — sending a lion *back* right after wildebeest just arrived, seemingly undoing progress. But it's necessary: after step 5, the far bank has 2 lions and 2 wildebeest, which is legal *only* because they arrived together in lockstep. To make further progress without ever letting lions get ahead on either bank, you have to temporarily retreat one of each species, re-open room on the near bank, and then bring the *rest* of the wildebeest across in one clean pair (step 7) while the lions are still held back in a safe ratio. The raft ping-pongs four times near the middle of the solution not because the animals are being inefficient, but because that's the only way to keep *both* banks simultaneously legal while still making net progress — the same reason the [bridge and torch puzzle](/puzzles/bridge-and-torch) needs a "wasteful-looking" return trip in the middle of its own optimal solution.
+
+</Spoiler>

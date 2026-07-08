@@ -1,0 +1,34 @@
+---
+title: "The islanders who already knew, but still couldn't leave"
+description: "An island where everyone can see everyone else's eye color, nobody can discuss it, and a visitor's announcement — which tells nobody anything they didn't already see with their own eyes — somehow triggers a cascade of departures."
+date: "2026-07-07"
+category: "epistemic logic"
+difficulty: "very hard"
+tags: ["common-knowledge", "induction", "classic"]
+source: "Popularized by Terence Tao, \"The blue-eyed islanders puzzle\" (2008) — https://terrytao.wordpress.com/2008/02/05/the-blue-eyed-islanders-puzzle/ — related to common-knowledge puzzles studied by John Conway and others"
+draft: false
+---
+
+An island has 100 people with blue eyes and 900 with brown eyes. Everyone can see everyone else's eye color perfectly, but there are no mirrors or reflective surfaces anywhere, and a strict taboo bans anyone from ever communicating about eye color, in any form — not a word, not a gesture. So nobody has ever learned their own eye color.
+
+Every islander is a perfect logician. Each night at midnight, a ferry leaves; anyone who has figured out their own eye color with certainty boards it and departs forever. Everyone can observe who leaves and who doesn't.
+
+One day, a foreign visitor, unaware of the taboo, addresses the whole island at once, in public, where everyone can see everyone else hearing it: **"I can see that at least one of you has blue eyes."**
+
+Here's the part that should bother you: every blue-eyed islander can already see the *other* 99 blue-eyed people. So the fact "someone here has blue eyes" wasn't news to any of them individually — they'd always known it, just by looking around. The visitor told the room nothing that any single person didn't already know.
+
+**Does anything happen? If so, what, and why would a statement that adds no new individual knowledge change anything at all?**
+
+<Spoiler>
+
+Something does happen: on the **100th night** after the announcement, all 100 blue-eyed islanders leave, together, for the first time. Nobody leaves before that. The proof is by induction — first on small hypothetical islands, then applied to the real one.
+
+**If there were only 1 blue-eyed person:** that person looks around, sees zero other blue-eyed people. Before the announcement, they had no way to rule out having brown eyes themselves. After the announcement — "at least one person has blue eyes" — since they see nobody else who qualifies, they instantly know it must be them. They leave on **night 1**.
+
+**If there were exactly 2 blue-eyed people (call them A and B):** each sees exactly one other blue-eyed person. Neither can be sure of their own eyes yet — from A's perspective, maybe A has brown eyes and B is the *only* blue-eyed person the visitor meant, in which case (by the n=1 case) B should leave on night 1. A watches night 1 pass. B doesn't leave — because B, symmetrically, was watching A for the exact same reason and saw the exact same thing. When night 1 passes with no departure, both A and B learn something genuinely new: "the other one didn't leave on night 1, which means they must see another blue-eyed person too" — and since each already knows they themselves see only one blue-eyed person (each other), they now each conclude that other blue-eyed person must be looking at *them*. Both leave together on **night 2**.
+
+**The general pattern (induction on n):** if n blue-eyed people exist, each of them sees n−1 others. As long as n−1 nights pass with nobody leaving, every blue-eyed person's suspicion that "maybe there are only n−1 of us, and I'm not one of them" gets ruled out — because if that were true, those n−1 people should have all left on night n−1, by the inductive hypothesis, and they didn't. The only remaining consistent explanation is that there are actually n blue-eyed people, which means *you* are one of them too. All n leave together on **night n**. Apply this with n=100 for the real island, and all 100 leave on night 100 — not one night sooner.
+
+Now the part that actually answers the question: **why did the visitor's statement matter, if every fact in it was already visible to somebody?** The answer is that there's a real difference between a fact being merely *known by everyone* and a fact being **common knowledge** — where everyone knows it, and everyone knows that everyone knows it, and everyone knows *that*, forever, in an infinite tower. Before the visitor spoke, with 100 blue-eyed people on the island, it's true that everyone (blue- or brown-eyed) could see blue eyes somewhere and thus "knew" blue eyes existed on the island. But no blue-eyed person could be sure that *everyone else* also knew it with certainty — because each one of them, for all they personally knew, might have brown eyes themselves and be the sole reason it looked like "everyone can see blue eyes" from everyone else's point of view. The induction above only ever bottoms out because the n=1 case has a hard floor — someone who sees *zero* blue-eyed people and is told at least one exists has no room left to doubt themselves. Without the announcement, that floor never gets poured, and the whole tower of "I know that you know that I know…" has nothing to stand on, no matter how large n actually is. The visitor didn't hand anyone a new fact. They handed the room a foundation the induction could finally rest on.
+
+</Spoiler>

@@ -1,0 +1,41 @@
+---
+title: "The budget vote where the first mover has no power at all"
+description: "Three managers vote on a budget in a fixed order. Two of them want opposite outcomes and vote strategically; the third just follows a simple rule. Work out who actually controls the result — the answer isn't the person you'd expect."
+date: "2026-07-07"
+category: "game theory"
+difficulty: "medium"
+tags: ["original", "game-theory", "sequential-voting"]
+source: "Original — composed for this site"
+draft: false
+---
+
+Three managers — **Ops**, **Finance**, and **Legal** — vote on whether to approve a budget proposal. It passes if **at least two of the three** approve. They vote publicly, in a fixed order — Ops first, then Finance, then Legal — and each person sees every vote cast before their own turn.
+
+Ops privately wants the budget to **fail**. Finance privately wants it to **pass**. Both know each other's preferences, and both are fully strategic.
+
+Legal doesn't have a preference of their own — Legal's job is to represent policy compliance, and by fixed rule, Legal always votes to **approve** unless *both* Ops and Finance already voted to reject (in which case, with no one left having approved, Legal rejects too). Both Ops and Finance know this rule going in.
+
+**Given all of that — knowing everyone's incentives and the fixed voting order in advance — what does each of Ops and Finance actually vote, and does the budget pass?**
+
+<Spoiler>
+
+**Finance always votes to approve, no matter what Ops did. The budget always passes. Ops's vote never mattered at all**, despite Ops voting first and genuinely wanting the opposite outcome.
+
+Work it out by checking all four combinations of Ops's and Finance's votes, applying Legal's fixed rule each time:
+
+| Ops votes | Finance votes | Legal's forced vote | Total approvals | Result |
+|---|---|---|---|---|
+| Approve | Approve | Approve (someone already did) | 3 | **Passes** |
+| Approve | Reject | Approve (Ops already did) | 2 | **Passes** |
+| Reject | Approve | Approve (Finance already did) | 2 | **Passes** |
+| Reject | Reject | Reject (nobody did) | 0 | Fails |
+
+Look at that table: **the only row where the budget fails is the one where both Ops and Finance reject.** Every other combination passes — because Legal's rule guarantees that the moment *either* strategic voter approves, Legal tops it up to a majority.
+
+Now think about it from Finance's seat, voting second, having already watched Ops vote. Finance wants to pass, and scanning the table: if Ops approved, it's already passing regardless of what Finance does (rows 1 and 2 both pass) — Finance's vote is moot in that branch. If Ops rejected, Finance is now facing the one branch that can still go either way (rows 3 and 4) — and Finance, wanting to pass, simply votes approve, landing on row 3, guaranteeing the pass. **Either way, "always approve" is at least as good for Finance as any other strategy, and strictly better in the one branch where it matters** — so a rational Finance approves regardless of what Ops just did.
+
+Now step back into Ops's seat, moving *first*, but reasoning forward through exactly what Finance will do next. Ops can see that whatever Ops votes, Finance's best response is always to approve — and once Finance approves, Legal is locked into approving too (by the rule), which is already 2 votes without Ops. **Ops's vote cannot change the final tally in any scenario.** Ops genuinely prefers the budget fail, sees the whole game tree in advance, and still has no move that improves their outcome — not because Ops is outvoted, but because Ops is *structurally irrelevant* to a result that was already decided by the interaction between Finance and Legal.
+
+The lesson generalizes past this specific budget vote: **voting first is not the same as voting first with power.** Power here came from being the swing vote that a fixed downstream rule reacts to — and that swing position belonged entirely to whoever moved *second*, specifically because Legal's rule was defined in terms of what the first two voters did, not in terms of Ops individually. A deterministic tie-breaking rule, applied naively, can quietly hand all the real leverage to whichever strategic player it's most sensitive to — regardless of formal voting order, and regardless of who'd naively look like they "went first" and should matter most.
+
+</Spoiler>

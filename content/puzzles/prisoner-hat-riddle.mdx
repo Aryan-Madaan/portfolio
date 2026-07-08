@@ -1,0 +1,38 @@
+---
+title: "Ten prisoners, one guess each, one person you have to sacrifice"
+description: "Ten prisoners are lined up wearing black or white hats they can't see. Each must guess their own hat color, front to back, hearing all prior guesses. Guarantee at least nine survive."
+date: "2026-07-07"
+category: "information theory"
+difficulty: "medium"
+tags: ["parity", "hats", "classic"]
+source: "TED-Ed, \"Can you solve the prisoner hat riddle?\" by Alex Gendler (2015) — https://ed.ted.com/lessons/can-you-solve-the-prisoner-hat-riddle-alex-gendler"
+draft: false
+---
+
+Ten prisoners are captured and lined up single file, all facing forward. Each is given a hat — black or white, assigned randomly, could be any mix — that they cannot see. Nobody can see their own hat. Everyone can see the hats of everyone in front of them, but not behind.
+
+Starting from the back of the line, each prisoner must guess their own hat color out loud, one at a time, moving toward the front. Everyone in the line hears every guess made before their own turn. Anyone who guesses correctly survives; anyone wrong doesn't. There's no trick with volume, tone, or timing — a guess is just the word "black" or "white."
+
+They get one meeting beforehand to agree on a strategy. No further communication once the hats go on.
+
+**What strategy guarantees the most survivors — and how many can you guarantee, no matter how the hats are assigned?**
+
+<Spoiler>
+
+You can guarantee **at least nine of the ten survive** — and it isn't luck, it's arithmetic. One person becomes a messenger, encoding a single bit of information that everyone behind them uses to solve their own hat with certainty.
+
+The prisoner at the very back can see all nine hats in front of them. They count the black hats among those nine. If the count is **odd**, they say "black." If it's **even**, they say "white." That's the whole message — and it costs them their own certainty, since it says nothing about their own hat, which they still have a 50/50 shot at.
+
+<PrisonerHatDiagram />
+
+Everyone in front of them now knows the parity (odd/even) of black hats among the original nine. Here's the trick: each subsequent prisoner also knows all the guesses spoken after the first one, and can use those to update a running count.
+
+Walk it through: the second-to-last prisoner (person 2, who can see 8 hats — everyone except themselves and person 1) hears person 1 announce a parity for all 9. They also know their own count of black hats among the 8 they can see. If their own hidden hat is black, it would flip the parity by one; if white, it wouldn't change it. So they compare: does the parity of the 8 they can see already match what person 1 announced? If yes, their own hat must be white (adding it wouldn't have changed the parity, so it must be the "no-op" color). If no — the two parities disagree — their own hat must be black (adding it is exactly what flips the count from what person 1 saw to what's actually true).
+
+Person 3 does the same thing, but now tracks the *updated* running parity — factoring in both person 1's original announcement and whatever person 2 just revealed about their own hat (which person 3 now knows for certain, since person 2 either guessed right by this logic, revealing their true color, or the strategy assumption already accounts for it). Each person recalculates the expected parity of everyone *after* them, compares it to what they can actually see, and the mismatch (or lack of it) hands them their own color outright.
+
+By the time you reach the front of the line, every single person from position 2 onward has a deterministic, guaranteed-correct answer. Only person 1 — the one who spent their guess broadcasting the parity instead of solving their own hat — is at the mercy of a coin flip.
+
+The insight is that a "guess" isn't just an answer, it's also a transmission. Sacrificing one person's certainty to broadcast one bit — odd or even — is enough to remove all ambiguity for everyone else, because each of them can combine that one bit with everything they can see and everything they've since heard to pin down exactly one hat color that's consistent with the evidence. That's the whole trade: one guaranteed loss (at worst) buys nine guaranteed wins.
+
+</Spoiler>

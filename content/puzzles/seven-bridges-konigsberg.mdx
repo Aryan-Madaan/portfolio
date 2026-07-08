@@ -1,0 +1,34 @@
+---
+title: "The walk across Königsberg that started graph theory"
+description: "The 18th-century city of Königsberg had four landmasses connected by seven bridges. Is there a walk that crosses every bridge exactly once?"
+date: "2026-07-07"
+category: "graph theory"
+difficulty: "medium"
+tags: ["graph-theory", "euler", "classic"]
+source: "TED-Ed, \"How the Königsberg bridge problem changed mathematics\" by Dan Van der Vieren — based on Leonhard Euler's 1736 paper \"Solutio problematis ad geometriam situs pertinentis\" — https://ed.ted.com/lessons/how-the-konigsberg-bridge-problem-changed-mathematics-dan-van-der-vieren"
+draft: false
+---
+
+The 18th-century Prussian city of Königsberg sat on the Pregel river, split into four landmasses: two riverbanks, and two islands (one of them, Kneiphof, in the middle). Seven bridges connected them — some landmasses connected by more than one bridge.
+
+The locals had a standing puzzle they'd argue about on walks: **is there a route through the city that crosses every one of the seven bridges exactly once**, and never crosses the same bridge twice? You can start and end anywhere — you don't need to return to your starting point.
+
+People had tried and failed for years. Nobody could find such a walk, but nobody could prove it was impossible either — until Leonhard Euler took the question seriously enough to stop thinking of it as a walking problem at all.
+
+<Spoiler>
+
+No such walk exists — and Euler's 1735 proof of that didn't just settle a local argument, it invented an entire branch of mathematics to do it.
+
+His first move was to strip away everything about the problem that didn't matter. The exact shape of the landmasses, the width of the river, the length of each bridge — none of it affects whether a valid route exists. All that matters is *which landmasses each bridge connects*. So he reduced the whole map to four points (one per landmass) and seven lines (one per bridge) joining them — what we'd now call a **graph**, with landmasses as vertices and bridges as edges.
+
+<KonigsbergDiagram />
+
+Each landmass connects to the others like this: the north bank and south bank each have two bridges to the island, and the north bank, south bank, and island each have exactly one bridge to the east bank. Count how many bridges touch each landmass — its **degree** — and you get: north bank = 3, south bank = 3, east bank = 3, island = 5. Every single one is **odd**.
+
+Here's Euler's key insight, and it's really just bookkeeping: think about what a valid route does to any landmass that *isn't* your start or end point. Every time your walk arrives at that landmass over one bridge, it must leave over a *different* bridge (you can't reuse a bridge). So every visit uses up bridges in pairs — one in, one out. That means any landmass you merely pass through must have an **even** number of bridges attached to it, because they all get consumed two at a time. The only landmasses allowed to have an odd degree are your literal starting point and your literal ending point (each of those gets one "unpaired" bridge — the first departure, or the last arrival).
+
+So a route that uses every bridge exactly once can tolerate **at most two** odd-degree landmasses — the start and the end. Königsberg has **four**, all odd. That's two too many. No matter which landmass you start from and which you end at, at least one of the remaining odd-degree landmasses will strand you — you'll arrive at it and have no unused bridge left to leave by, while a bridge elsewhere in the city still sits uncrossed.
+
+This is now called an **Eulerian path**, and Euler's general rule — a connected graph has one if and only if it has exactly zero or two odd-degree vertices (zero if you want a route that returns to its start, an **Eulerian circuit**) — is the founding theorem of graph theory. Königsberg wasn't solved by finding the clever route. It was solved by proving no clever route could possibly exist, using nothing but a parity count anyone could do by hand — the same style of argument, incidentally, that cracks the [mutilated chessboard](/puzzles/mutilated-chessboard) a few centuries later.
+
+</Spoiler>

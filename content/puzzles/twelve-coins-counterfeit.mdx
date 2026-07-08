@@ -1,0 +1,58 @@
+---
+title: "Twelve coins, one fake, three weighings, no clue if it's heavy or light"
+description: "12 identical-looking coins, one counterfeit that's either heavier or lighter (you don't know which). Find it — and whether it's heavy or light — using a balance scale exactly 3 times."
+date: "2026-07-07"
+category: "combinatorics"
+difficulty: "hard"
+tags: ["weighing", "information-theory", "classic"]
+source: "Classic balance-scale puzzle, widely attributed to a 1945 American Mathematical Monthly problem; documented extensively by Martin Gardner — see Wikipedia, \"Balance puzzle\" — https://en.wikipedia.org/wiki/Balance_puzzle"
+draft: false
+---
+
+You have 12 coins, identical in every way you can see. Exactly one is counterfeit and weighs slightly differently from the other 11 — but you don't know if it's heavier or lighter, only that it's *different*.
+
+You have a two-pan balance scale (no numbers, it only tells you left-heavier, right-heavier, or balanced) and exactly **3 weighings**.
+
+**Find the counterfeit coin, and determine whether it's heavier or lighter than the rest — in 3 weighings, guaranteed, no matter which coin is fake or which direction it's off.**
+
+Before you start hunting for a strategy: 12 coins × 2 possible directions (heavy or light) = 24 possible "worlds" you need to distinguish between. Three weighings, each with 3 possible outcomes, give you at most 3×3×3 = 27 distinguishable outcome sequences. 27 ≥ 24, so it's *possible* in principle — but only if every single weighing is designed to actually extract close to its full 3-way information content, which rules out any strategy that just splits coins in half and hopes.
+
+<Spoiler>
+
+**Weighing 1:** {1,2,3,4} vs {5,6,7,8}. Coins 9,10,11,12 sit aside.
+
+**Case A — balances.** The fake is among {9,10,11,12}, and coins 1–8 are all genuine (you can use them as known-good reference weights from here on).
+
+**Weighing 2:** {9,10,11} vs {1,2,3} (three known-genuine coins).
+- Balances → the fake is **12**. **Weighing 3:** 12 vs any known-genuine coin tells you heavy or light.
+- {9,10,11} heavier → fake is among 9,10,11 and is heavy. **Weighing 3:** 9 vs 10 — heavier one is fake-heavy; if they balance, 11 is fake-heavy.
+- {9,10,11} lighter → same logic, fake is light: weigh 9 vs 10, lighter one is fake-light, or 11 if they balance.
+
+**Case B — {1,2,3,4} is heavier.** The fake is among these 8 coins, and you know a direction *conditional on which one it is*: if it's one of {1,2,3,4}, it's heavy; if it's one of {5,6,7,8}, it's light. Coins 9–12 are genuine.
+
+**Weighing 2:** {1,2,5} vs {3,4,6}, with 7 and 8 set aside.
+
+Check what each of the 8 remaining suspects would do to this specific weighing if it were the fake:
+
+| If fake is... | Direction | Where they sit in weighing 2 | Result |
+|---|---|---|---|
+| 1 | heavy | left | **left heavy** |
+| 2 | heavy | left | **left heavy** |
+| 6 | light | right | **left heavy** (right pan under-weighs) |
+| 3 | heavy | right | **right heavy** |
+| 4 | heavy | right | **right heavy** |
+| 5 | light | left | **right heavy** (left pan under-weighs) |
+| 7 | light | aside | **balances** |
+| 8 | light | aside | **balances** |
+
+Every one of the 8 candidates produces a distinct, predictable signature — which is exactly why this specific reshuffle (not just any split) is the move:
+
+- **Left heavy** → fake is 1, 2, or 6. **Weighing 3:** 1 vs 2 — heavier is fake (heavy); balance means it's 6 (light).
+- **Right heavy** → fake is 3, 4, or 5. **Weighing 3:** 3 vs 4 — heavier is fake (heavy); balance means it's 5 (light).
+- **Balances** → fake is 7 or 8 (both light-suspects, untouched by weighing 2). **Weighing 3:** 7 vs 8 directly — since exactly one is fake-light and the other genuine, they cannot balance; whichever pan is lighter names the fake.
+
+**Case C — {5,6,7,8} is heavier** is the mirror image of Case B: swap every "heavy" and "light" label above and it resolves identically in 2 more weighings.
+
+Every branch bottoms out at exactly 3 weighings, and every branch produces a unique answer — coin identity *and* direction, with no ambiguity left over. The trick isn't cleverness at the first weighing (any even 4-vs-4 split works there); it's that **weighing 2's exact composition** — deliberately mixing coins from both suspect groups onto both pans, with two held back entirely — is chosen so that all 8 remaining hypotheses map to 8 *different, predictable* outcomes across only 3 possible signals. That's the whole trick of the puzzle: design each weighing so its 3 outcomes are never wasted on fewer than 3 live hypotheses.
+
+</Spoiler>

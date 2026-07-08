@@ -1,0 +1,51 @@
+---
+title: "The hardest logic puzzle ever, in three questions"
+description: "Three gods — True, False, and Random — answer yes/no questions in a language where you don't even know which word means yes. Identify all three in exactly three questions."
+date: "2026-07-07"
+category: "logic"
+difficulty: "very hard"
+tags: ["smullyan", "self-reference", "classic"]
+source: "Devised by Raymond Smullyan, elaborated by George Boolos in \"The Hardest Logic Puzzle Ever\" (1996); TED-Ed, \"Can you solve the three gods riddle?\" by Alex Gendler (2017) — https://ed.ted.com/lessons/can-you-solve-the-three-gods-riddle-alex-gendler"
+draft: false
+---
+
+Three gods sit before you: **True**, **False**, and **Random** — in some order you don't know. True always answers honestly. False always answers dishonestly. Random answers yes or no on a coin flip, with no regard for truth at all.
+
+You may ask **three yes/no questions total**, each addressed to exactly one god of your choosing (you can ask the same god more than once, or skip one entirely). The gods understand English perfectly — but they answer in their own language, where the words for "yes" and "no" are **da** and **ja**, and you don't know which word means which.
+
+**Identify which god is True, which is False, and which is Random — using exactly three questions.**
+
+This is a real puzzle with a real, famous, fully rigorous solution — not a trick question. Before reading on, notice why the obvious approach fails: you can't just ask "are you True?" because a lying False god would say yes, and a Random god's answer means nothing regardless of phrasing. Any question you ask needs to survive being answered by a liar *and* mean something even when you don't know if "ja" means yes.
+
+<Spoiler>
+
+**The tool that makes this solvable: the embedded question.** For any yes/no question Q whose true answer you want, don't ask Q directly. Ask instead:
+
+> "If I asked you Q right now, would you say 'ja'?"
+
+This single construction has a remarkable property: **when asked to a god that isn't Random (whether True or False), the word "ja" always means the real answer to Q is yes, and "da" always means it's no** — regardless of whether that god is honest or lying, and regardless of what "ja" actually means in their language. Two liars' worth of inversion cancel out, and the unknown word-mapping cancels out with it.
+
+You can check this yourself with a truth table, but here's the shape of why it works: a **True** god answering the embedded question just truthfully reports what they'd really say to Q — which already correctly encodes Q's true answer through whatever the ja/da mapping happens to be. A **False** god has to *lie* about what they'd say to Q — but what they'd actually say to Q (if you asked it directly) is already a lie about Q's real answer. Lying about a lie is honest again — the two inversions cancel, and you're left with the same clean signal a True god would've given you. Neither the direction of the lie nor the meaning of the words survives being asked twice.
+
+**Now the three questions.**
+
+**Question 1 — ask god A:** *"If I asked you 'Is B Random?', would you say ja?"*
+
+Whatever A answers, work through what it implies, considering both possibilities for what A might be:
+
+- If A answers **"ja"**: either (A is True or False, and the honest embedded-answer is telling you B really is Random) — in which case C isn't Random — **or** A itself is Random, in which case the answer is meaningless noise, but then B and C are necessarily True and False in some order, so C *still* isn't Random. Either way you slice it, **C is definitely not Random.**
+- If A answers **"da"**: by the same two-way check, either (A is not Random, and B genuinely isn't Random either) — meaning C must be the Random one — **or** A is Random, meaning B and C are True/False, so **B** isn't Random. Working through both branches here shows **B is definitely not Random.**
+
+So after one question, you've identified one specific god — C in the "ja" case, B in the "da" case — who is **guaranteed to be True or False**, even though you don't yet know which, and even though you still don't know if A is Random. Call this confirmed-non-Random god your **oracle**.
+
+**Question 2 — ask your oracle:** *"If I asked you 'Are you True?', would you say ja?"*
+
+Since the oracle is definitely True or False (never Random), the embedded-question trick applies cleanly: **"ja" means the oracle really is True; "da" means the oracle is really False.** No ambiguity — you now know the oracle's exact identity.
+
+**Question 3 — ask the same oracle again:** *"If I asked you 'Is A Random?', would you say ja?"*
+
+The oracle is still reliable (same god, still not Random), so this answers, with certainty, whether A is the Random one. If A is Random, the remaining unassigned god (whichever of B/C wasn't your oracle) takes whatever label the oracle doesn't have. If A isn't Random, that remaining god is Random instead, and A takes the oracle's leftover label.
+
+Three questions, all three identities pinned down, no ambiguity left standing. The reason this needs exactly three and not two: question 1 spends its entire budget just finding *one* god you can trust, without learning anything else usable about the others directly — every subsequent question has to go through that same trusted oracle, because asking anyone else risks hitting Random and getting noise back. The whole puzzle is a lesson in a very general idea: **you can't extract information from an unreliable source no matter how cleverly you phrase the question — the only way through is to first spend whatever it costs to find a source you can actually trust, and route everything else through it.**
+
+</Spoiler>

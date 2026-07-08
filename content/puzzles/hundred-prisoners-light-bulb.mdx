@@ -1,0 +1,32 @@
+---
+title: "100 prisoners, a light bulb, and a random visitor every day"
+description: "A warden picks a random prisoner to enter a room with a switch, every single day, forever. Any prisoner may declare that everyone has visited at least once — get it right and all go free, get it wrong and none do. Devise a strategy that's guaranteed to eventually work."
+date: "2026-07-07"
+category: "probability / strategy"
+difficulty: "hard"
+tags: ["probability", "strategy", "classic"]
+source: "Classic puzzle documented and analyzed by Peter Winkler (Dartmouth) among others — see cut-the-knot.org, \"The Light Bulbs\" — https://www.cut-the-knot.org/Probability/LightBulbs.shtml"
+draft: false
+---
+
+100 prisoners are told the rules: every day, forever, the warden picks one prisoner uniformly at random (the same prisoner can be picked again on a later day — there's no guarantee of variety) and sends them into a windowless room containing a single light bulb, initially off, and a switch. The chosen prisoner may flip the switch or leave it, then returns to their cell. No two prisoners are ever in the room at once, and there's no other way to pass information.
+
+At any point, any prisoner may instead declare: **"All 100 of us have been in this room at least once."** If they're right, everyone goes free. If they're wrong, nobody ever does.
+
+They get one meeting beforehand to agree on a strategy, and never communicate again after that.
+
+**Devise a strategy that's guaranteed to eventually result in a correct declaration** — not just probably, but with certainty, however long it takes.
+
+<Spoiler>
+
+Designate exactly **one prisoner as the counter** — everyone else is a **reporter**.
+
+**Every reporter's rule:** the very first time you enter the room and find the light **off**, turn it **on**. On every visit after that — whether it's your second visit ever, or your fiftieth — do nothing, regardless of what you find. (If you enter and the light's already on because of your own first visit, or anyone else's, you just leave it alone forever after your own first "off" visit.)
+
+**The counter's rule:** every time you enter and find the light **on**, turn it **off** and add one to your personal tally. If you enter and find it off, do nothing. Once your tally reaches **99**, declare victory.
+
+Why this is airtight, not just probable: a reporter only ever turns the light on **once** in their entire life — on their first visit, and never again. That means every single "on" event the counter ever finds corresponds to exactly one *distinct* reporter's first-ever visit — it's a one-time signal, not a repeatable one, so the counter can never double-count the same reporter. Once the counter has personally cleared 99 such signals, that's proof — not a guess — that 99 distinct reporters have each visited at least once, plus the counter has obviously visited (they're the one counting), which accounts for all 100.
+
+This is where it's worth being honest about what the strategy *doesn't* promise: it doesn't put a tight bound on **how long** this takes. It's guaranteed to terminate correctly — eventually, with probability 1, since the warden keeps picking prisoners forever and every prisoner gets selected infinitely often over infinite time — but the *expected* wait is dominated by two slow processes stacked on top of each other: each of the 99 reporters needs to be randomly selected at least once (itself a slow "coupon collector"-style wait when you're drawing 1-in-100 uniformly), and separately, the counter — who is also just a 1-in-100 draw each day — needs to be selected again after every single one of those 99 "on" events accumulates, in order to actually register it. Getting an exact expected number of days right requires real renewal-process math beyond a back-of-envelope estimate; what's safe to say without hand-waving a precise figure is that it's on the order of **tens of thousands of days** — this is a strategy you'd only ever run because it's *provably correct*, not because it's fast.
+
+</Spoiler>

@@ -1,0 +1,38 @@
+---
+title: "The ledger entry that can't balance, no matter which digit you blame"
+description: "Any 3-digit code, minus its own digits reversed, always comes out a multiple of the same fixed number — and one whole digit turns out not to matter at all. Prove it, and find every value the difference can actually take."
+date: "2026-07-07"
+category: "number theory"
+difficulty: "easy-medium"
+tags: ["original", "algebra", "invariant"]
+source: "Original — composed for this site"
+draft: false
+---
+
+An accountant is chasing down a class of typo called a **reversal error**: a 3-digit transaction code gets keyed in with its digits flipped end to end — 452 becomes 254, 190 becomes 091, and so on. First digit of the original code is never zero (it's a genuine 3-digit code), but the reversed version is allowed to start with zero (it just reads as a shorter number — 190 reversed is 91, not "091").
+
+The accountant notices something odd flipping through old error reports: **the difference between a code and its reversed version always seems to be a multiple of the same fixed number** — no matter which 3-digit code triggered the error.
+
+**Find that fixed number, prove it holds for every possible 3-digit code, and figure out the complete set of values the difference can actually take.**
+
+<Spoiler>
+
+The fixed number is **99**, and the proof takes four lines of algebra — no case-checking required.
+
+Write any 3-digit code as digits **a, b, c** (so the code's value is 100a + 10b + c, with a from 1–9 since it's a genuine leading digit, and b, c from 0–9). Reversing it swaps the outer digits: the reversed value is 100c + 10b + a.
+
+Subtract:
+
+**(100a + 10b + c) − (100c + 10b + a) = 100a − a + c − 100c = 99a − 99c = 99(a − c).**
+
+The **10b** term cancels itself out exactly, on both sides, every time. **The middle digit never affects the difference at all** — which is the part worth sitting with for a second, because it means two codes that agree on their first and last digit (190, 150, 100, 199 — anything "1_0" through "1_9") all produce the *exact same reversal-difference*, no matter what's stuffed in the middle. The entire effect lives in the outer two digits.
+
+So the difference is always **99 times (a − c)** — always a multiple of 99, proving the accountant's hunch outright.
+
+Now the full range: a runs from 1 to 9, c runs from 0 to 9, so a − c can be any whole number from **1 − 9 = −8** up to **9 − 0 = 9** — every integer in that span is reachable (pick a = c + k for whichever k you want, as long as both stay in range, and there's always a valid pair for every k from −8 to 9). That's **18 distinct possible values of (a − c)**, so the difference between a code and its reversal can be exactly:
+
+**99 × (−8), 99 × (−7), …, 99 × (−1), 0, 99 × 1, …, 99 × 9** — that is, every multiple of 99 from **−792 to 891**, and nothing outside that range, and nothing that isn't a clean multiple of 99 in between.
+
+The zero case is worth naming too: a − c = 0 means a = c, a code whose first and last digit match (like 373, or 505) — its reversal difference is exactly 0, meaning the code is *unchanged* by reversal in the digits that matter, regardless of what the middle digit is. A "reversal error" on one of those codes wouldn't even be detectable by comparing the two numbers — which is arguably the one genuinely dangerous case hiding inside an otherwise reassuring pattern: an invariant that holds *for the wrong reason* on the codes that would matter most to catch.
+
+</Spoiler>

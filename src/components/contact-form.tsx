@@ -1,15 +1,48 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import Script from "next/script";
+import { siteConfig } from "@/lib/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
+type TurnstileStatus = "pending" | "solved" | "blocked";
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+// Widget has this long to either succeed or error out before we assume something
+// (Brave Shields, an ad-blocker, NoScript) is silently preventing it from ever
+// calling back at all — which is otherwise indistinguishable from "still loading."
+const TURNSTILE_TIMEOUT_MS = 8000;
+
+declare global {
+  interface Window {
+    __onTurnstileSuccess?: () => void;
+    __onTurnstileError?: () => void;
+    turnstile?: { reset: (widgetId?: string) => void };
+  }
+}
 
 export function ContactForm({ defaultReason = "opportunity" }: { defaultReason?: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [turnstileStatus, setTurnstileStatus] = useState<TurnstileStatus>("pending");
+
+  useEffect(() => {
+    if (!TURNSTILE_SITE_KEY) return;
+
+    window.__onTurnstileSuccess = () => setTurnstileStatus("solved");
+    window.__onTurnstileError = () => setTurnstileStatus("blocked");
+
+    const timeout = window.setTimeout(() => {
+      setTurnstileStatus((current) => (current === "pending" ? "blocked" : current));
+    }, TURNSTILE_TIMEOUT_MS);
+
+    return () => {
+      window.clearTimeout(timeout);
+      delete window.__onTurnstileSuccess;
+      delete window.__onTurnstileError;
+    };
+  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -40,6 +73,10 @@ export function ContactForm({ defaultReason = "opportunity" }: { defaultReason?:
       if (!res.ok) {
         setStatus("error");
         setErrorMessage(data.error ?? "Something went wrong.");
+        // A Turnstile token is single-use — Cloudflare has already consumed it
+        // in the verify call above, win or lose. Get a fresh one queued up
+        // before the visitor retries, instead of resubmitting a dead token.
+        window.turnstile?.reset();
         return;
       }
 
@@ -147,10 +184,27 @@ export function ContactForm({ defaultReason = "opportunity" }: { defaultReason?:
 
         {TURNSTILE_SITE_KEY && (
           <div>
-            <div className="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} />
+            <div
+              className="cf-turnstile"
+              data-sitekey={TURNSTILE_SITE_KEY}
+              data-callback="__onTurnstileSuccess"
+              data-error-callback="__onTurnstileError"
+            />
             <p className="mt-1 text-xs text-[var(--color-muted)]">
               Protected by Cloudflare Turnstile.
             </p>
+            {turnstileStatus === "blocked" && (
+              <p role="status" className="mt-2 text-xs text-[var(--color-signal)]">
+                The verification widget above doesn&apos;t seem to be loading —
+                this is common with Brave Shields or a strict ad-blocker. Try
+                turning shields off for this site and refreshing, or email me
+                directly at{" "}
+                <a href={`mailto:${siteConfig.email}`} className="underline">
+                  {siteConfig.email}
+                </a>
+                .
+              </p>
+            )}
           </div>
         )}
 

@@ -1,0 +1,46 @@
+---
+title: "Five pirates, 100 coins, and a vote where losing means the plank"
+description: "Five perfectly logical pirates must split 100 coins. The most senior proposes a split; if at least half of the pirates approve (including the proposer), it passes — otherwise the proposer walks the plank and the next pirate proposes."
+date: "2026-07-07"
+category: "game theory"
+difficulty: "medium-hard"
+tags: ["game-theory", "backward-induction", "classic"]
+source: "Classic game-theory puzzle (\"rational pirates\"), widely popularized in economics and computer-science interview settings; commonly attributed to Ian Stewart's Scientific American column"
+draft: false
+---
+
+Five pirates — ranked 1 (most senior) through 5 (most junior) — must split 100 identical gold coins. The rules:
+
+1. The most senior surviving pirate proposes a distribution of all 100 coins.
+2. All surviving pirates, including the proposer, vote yes or no.
+3. If **at least half** approve, the proposal passes and the coins are distributed exactly as proposed.
+4. If it fails, the proposer is thrown overboard, and the next-most-senior pirate proposes to whoever's left.
+
+Every pirate is a perfect logician, and every pirate's priorities, in strict order, are: **stay alive** first, **maximize their own gold** second, and — as a pure tiebreaker with no cost to themselves — **prefer seeing other pirates walk the plank** third.
+
+**What does pirate 1 propose, and does it pass?**
+
+<Spoiler>
+
+Pirate 1 proposes **98 coins to themselves, 0 to pirate 2, 1 to pirate 3, 0 to pirate 4, 1 to pirate 5** — and it passes.
+
+The trick is that you can't reason forward from 5 pirates; you have to reason backward from the smallest possible group, because every pirate's vote depends on what they'd get if the current proposal *fails* and it falls to the next-most-senior pirate instead.
+
+**Down to 2 pirates (4 and 5):** Pirate 4 needs just their own vote — "at least half" of 2 is 1. Pirate 4 proposes (100, 0) and passes it themselves. Pirate 5 gets nothing, and has no power to stop it.
+
+**Down to 3 pirates (3, 4, 5):** Pirate 3 needs 2 of 3 votes (half of 3, rounded up). They know pirate 4 gets 0 if this fails and it drops to the 2-pirate case above — so pirate 3 only needs to beat "0" for one other vote. Offer pirate 5 just **1** coin (better than the 0 they'd get in the 2-pirate case), and pirate 5 votes yes. Proposal: **(3:99, 4:0, 5:1)** — passes 2-to-1.
+
+**Down to 4 pirates (2, 3, 4, 5):** Pirate 2 needs 2 of 4 votes. If this fails, it drops to the 3-pirate case above, where pirate 4 would get 0. So pirate 2 buys pirate 4's vote for just **1** coin. Proposal: **(2:99, 3:0, 4:1, 5:0)** — passes 2-to-4 (exactly half).
+
+**All 5 pirates:** Pirate 1 needs 3 of 5 votes (half of 5, rounded up). If this fails, it drops to the 4-pirate case above, where pirates 3 and 5 both get **0**. Pirate 1 buys both of their votes for just **1 coin each** — cheaper than buying pirate 2 or pirate 4, who'd get more (0 and 1 respectively... but 2 gets 0 too in that case — let's check who's actually cheapest) — specifically, pirates 3 and 5 are the two who get 0 in the 4-pirate fallback, so 1 coin each is the minimum bribe that beats their fallback. Proposal: **(1:98, 2:0, 3:1, 4:0, 5:1)** — pirate 1 votes yes, pirate 3 votes yes (1 > 0), pirate 5 votes yes (1 > 0): that's 3 of 5, exactly enough.
+
+| Pirates left | Proposer keeps | Everyone else gets |
+|---|---|---|
+| 2 (pirates 4,5) | 4 keeps 100 | 5 gets 0 |
+| 3 (pirates 3,4,5) | 3 keeps 99 | 4 gets 0, 5 gets 1 |
+| 4 (pirates 2,3,4,5) | 2 keeps 99 | 3 gets 0, 4 gets 1, 5 gets 0 |
+| 5 (all) | 1 keeps 98 | 2 gets 0, 3 gets 1, 4 gets 0, 5 gets 1 |
+
+Notice the pattern: pirate 2 is the pirate everyone in the final split hates the most (they get **zero** at every level once they stop being the proposer), because pirate 1 never needs to buy pirate 2's vote — pirate 2's fallback (becoming proposer of 4) is *good enough for pirate 2 alone* that no bribe would ever be cheap enough to matter, so pirate 1 simply routes around them entirely. Being senior enough to have a strong fallback position, ironically, is exactly why pirate 1 can safely ignore you. The whole solution is driven by finding the *cheapest* possible swing votes at each level — never the pirates with the most to gain, always the ones with the least to lose from saying no.
+
+</Spoiler>

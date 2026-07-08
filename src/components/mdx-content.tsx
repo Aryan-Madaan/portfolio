@@ -8,6 +8,8 @@ import { RopeBurnDiagram } from "@/components/rope-burn-diagram";
 import { BridgeTorchDiagram } from "@/components/bridge-torch-diagram";
 import { HarnessStackDiagram } from "@/components/harness-stack-diagram";
 import { LoopCycleDiagram } from "@/components/loop-cycle-diagram";
+import { KonigsbergDiagram } from "@/components/konigsberg-diagram";
+import { PrisonerHatDiagram } from "@/components/prisoner-hat-diagram";
 
 const components = {
   Spoiler,
@@ -16,6 +18,8 @@ const components = {
   BridgeTorchDiagram,
   HarnessStackDiagram,
   LoopCycleDiagram,
+  KonigsbergDiagram,
+  PrisonerHatDiagram,
 };
 
 export function MdxContent({ source }: { source: string }) {
