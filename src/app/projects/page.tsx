@@ -16,14 +16,24 @@ const builtByMe = [
     body: "Enterprise knowledge assistant built from zero to production in 2 months — past basic retrieval, on knowledge graphs and cross-session memory. Queries across three domains — global public data, internal enterprise systems, and proprietary user data (call recordings, spreadsheets, PDFs) — cutting policy discovery from 2 business days to under a minute. Rolled out to 76,000+ people across 5 group companies.",
   },
   {
+    title: "Project Management System",
+    period: "2024 — 2025",
+    body: "An internal idea- and project-tracking platform for the organization — captures and tracks ₹1 crore+ in proposed ideas and has enabled ₹400 crore+ in organization-wide savings. Adopted by 100,000+ people, the widest reach of anything I've shipped.",
+  },
+  {
     title: "Zen AI",
-    period: "2025 — present",
+    period: "2026 — present",
     body: "The low-code platform behind Tata Steel's agent fleet — lets non-data-scientists (developers, frontline managers) build and ship their own AI agents. Built on Google's Agent Development Kit (ADK). Agents built on it now number 300+ across the group, 9 months after launch.",
   },
   {
     title: "Vaani",
-    period: "2025 — present",
+    period: "2026 — present",
     body: "A Microsoft Teams voice and conversational bot extending TDA — captures minutes of meeting automatically and answers spoken queries when invoked, across HR, Finance, and Operations.",
+  },
+  {
+    title: "Sarathi",
+    period: "2026 — present",
+    body: "A voice-based business travel booking system — say what trip you need, and it automatically surfaces the best flight and accommodation options, including multiple route combinations, instead of manual comparison shopping. Cut average booking time from around 30 minutes to 5–10. Adopted company-wide.",
   },
   {
     title: "TDA Cowork",
@@ -32,7 +42,7 @@ const builtByMe = [
   },
   {
     title: "Code Genie CLI",
-    period: "2024 — 2025",
+    period: "2025",
     body: "An internal terminal-based AI coding agent — conceptually similar to today's terminal coding assistants, built before that category had wide adoption. Superseded by agents built on Zen AI.",
   },
 ];
@@ -45,7 +55,7 @@ const fleetIGovern = [
   },
   {
     title: "People Care Agent",
-    period: "2025 — present",
+    period: "2026 — present",
     body: "A specialized HR-helpdesk agent resolving 70%+ of routine employee tickets autonomously — hours of manual resolution time back for HR teams across the group.",
   },
   {

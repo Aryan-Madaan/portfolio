@@ -56,16 +56,20 @@ export default function Home() {
             <Reveal delay={100}>
               <p className="eyebrow mb-3">Aryan Madaan</p>
               <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold leading-tight sm:text-4xl">
-                Enterprise AI architect, currently building AI Discovery
-                &amp; Governance at Tata Steel.
+                Enterprise AI leader spanning strategy, governance, and
+                security — not just model-building.
               </h1>
               <p className="mt-4 max-w-2xl text-base text-[var(--color-muted)]">
-                Chemical engineer by training, published ML researcher,
-                and the person who built an enterprise AI assistant now
-                rolled out to 76,000+ people (13,000+ daily active) across
-                five companies within the Tata Group — one of India&apos;s
-                largest industrial conglomerates. I write about AI
-                engineering and advise organizations on their AI stack.
+                At Tata Steel, I partner directly with the C-suite on
+                enterprise GenAI strategy, and I&apos;ve shipped that
+                strategy myself: an assistant built zero-to-production in
+                two months, now at 76,000+ people (13,000+ daily active)
+                across five group companies. My governance remit covers
+                what doesn&apos;t show up in a demo — access control, audit
+                trails, and cross-border data-privacy compliance across
+                India, the UK, Thailand, and Singapore — plus the
+                partnerships that keep 860+ production AI models running
+                safely at that scale.
               </p>
 
               <p className="mt-8 max-w-2xl font-[family-name:var(--font-display)] text-xl font-semibold leading-snug sm:text-2xl">
@@ -80,6 +84,14 @@ export default function Home() {
                 >
                   Work with me on your AI stack
                 </Link>
+                <a
+                  href="/resume/Aryan-Madaan-Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium underline decoration-[var(--color-line)] underline-offset-4 transition-colors hover:text-[var(--color-signal)] hover:decoration-[var(--color-signal)]"
+                >
+                  Download resume
+                </a>
                 <Link
                   href="/blog"
                   className="text-sm font-medium underline decoration-[var(--color-line)] underline-offset-4 transition-colors hover:text-[var(--color-signal)] hover:decoration-[var(--color-signal)]"
