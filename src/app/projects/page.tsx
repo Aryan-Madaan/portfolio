@@ -6,7 +6,7 @@ import { Reveal } from "@/components/reveal";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Enterprise AI products built at Tata Steel, plus research projects from undergrad — diffusion models, StyleGAN, CNNs from scratch, time-series forecasting.",
+    "Enterprise AI products built at Tata Steel, Marshal (an open-source AI governance library), and research projects from undergrad — diffusion models, StyleGAN, CNNs from scratch, time-series forecasting.",
 };
 
 const builtByMe = [
@@ -44,6 +44,16 @@ const builtByMe = [
     title: "Code Genie CLI",
     period: "2025",
     body: "An internal terminal-based AI coding agent — conceptually similar to today's terminal coding assistants, built before that category had wide adoption. Superseded by agents built on Zen AI.",
+  },
+];
+
+const openSourceProjects = [
+  {
+    title: "Marshal",
+    period: "2026 — present",
+    body: "Governance for AI systems — permission-aware retrieval, tool-call approval, model routing with budgets, cross-border data-residency and retention control, and one shared audit trail across all of it. MIT-licensed.",
+    github: "https://github.com/Aryan-Madaan/Marshal",
+    site: "https://aryan-madaan.github.io/Marshal/",
   },
 ];
 
@@ -88,11 +98,13 @@ const researchProjects = [
     title: "Image generation from text captions using StyleGANs",
     period: "2023",
     body: "Generated multiline captions from 700 one-hot-encoded facial-feature vectors using a refined word2vec model, trained a StyleGAN with a VGG16-derived latent space, and built a text encoder to synthesize images matching described facial features.",
+    github: "https://github.com/Aryan-Madaan/GAN_DL_CLASS_PROJECT",
   },
   {
     title: "CNN built from scratch in C++",
     period: "2022",
     body: "Implemented convolution, pooling, and backpropagation with no external ML libraries. Trained on Kaggle's 42,000-image digit set, reaching 96% accuracy on the 28,000-image test set.",
+    github: "https://github.com/Aryan-Madaan/CNN",
   },
   {
     title: "Statistical forecasting of wind energy",
@@ -104,7 +116,7 @@ const researchProjects = [
 function ProjectGrid({
   items,
 }: {
-  items: { title: string; period: string; body: string }[];
+  items: { title: string; period: string; body: string; github?: string; site?: string }[];
 }) {
   return (
     <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
@@ -120,6 +132,30 @@ function ProjectGrid({
             <p className="mt-3 text-sm leading-relaxed text-[var(--color-muted)]">
               {p.body}
             </p>
+            {(p.github || p.site) && (
+              <p className="mt-3 flex gap-4 font-[family-name:var(--font-mono)] text-xs">
+                {p.github && (
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--color-muted)] underline underline-offset-4 hover:text-[var(--color-signal)]"
+                  >
+                    GitHub ↗
+                  </a>
+                )}
+                {p.site && (
+                  <a
+                    href={p.site}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--color-muted)] underline underline-offset-4 hover:text-[var(--color-signal)]"
+                  >
+                    Site ↗
+                  </a>
+                )}
+              </p>
+            )}
           </article>
         </Reveal>
       ))}
@@ -142,6 +178,14 @@ export default function ProjectsPage() {
           Discovery &amp; Governance function.
         </p>
         <ProjectGrid items={builtByMe} />
+      </section>
+
+      <section className="mt-16">
+        <p className="eyebrow mb-2">Open source</p>
+        <p className="text-[var(--color-muted)]">
+          Built and maintained independently, outside of work.
+        </p>
+        <ProjectGrid items={openSourceProjects} />
       </section>
 
       <section className="mt-16">
