@@ -1,0 +1,42 @@
+---
+title: "25 horses, five at a time, and the top three"
+description: "No stopwatch, and the track fits only five horses at once. Find the three fastest in the fewest races. The satisfying part is realizing how little sorting you actually need to do."
+date: "2026-07-17"
+category: "logic"
+difficulty: "medium"
+tags: ["logic", "classic", "sorting", "interview"]
+source: "Classic analytical/interview puzzle (\"25 horses\"), widely circulated; origin uncertain."
+draft: false
+---
+
+You have 25 horses and want the **three fastest**, in order. There's no stopwatch — the only way to compare horses is to race them — and the track holds exactly **five at a time**, giving you their finishing order for that heat. Assume no ties and that each horse runs at a consistent speed every race.
+
+**What is the fewest number of races that guarantees you the top three, and how do you do it?**
+
+<Spoiler>
+
+**Seven races.**
+
+**Races 1–5.** Split the 25 horses into five groups of five and race each group once. You now know the full ranking *within* each group — but nothing across groups yet.
+
+**Race 6.** Race the five group-winners against each other. Whoever wins race 6 is the fastest horse of all 25. Relabel the groups **A, B, C, D, E** in the order their winners finished race 6 — so A's winner came first, E's winner came last.
+
+**Now eliminate ruthlessly.** Two whole groups are already out: any horse in group D or E is beaten by at least three horses (the winners of A, B, C all finished ahead of D's and E's winners, who are themselves the fastest in their own groups). That's 10 horses gone in a single race. And A's winner is confirmed as the overall #1 — set it aside.
+
+**Who can still be 2nd or 3rd?** Only five horses survive the cut:
+
+| Candidate | Why it's still alive |
+|---|---|
+| A2, A3 | 2nd and 3rd in group A; only A1 is proven faster |
+| B1, B2 | B's winner could be 2nd overall; its runner-up could be 3rd |
+| C1 | C's winner could sneak in at 3rd |
+
+Everyone else is provably behind at least three known-faster horses. (B3 sits behind B1 and B2, and B1 sits behind A1 — three faster. C2 sits behind C1, behind B1, behind A1 — three faster. And so on.)
+
+**Race 7.** Race those five survivors — A2, A3, B1, B2, C1. The top two finishers are the overall **2nd and 3rd**.
+
+Total: 5 + 1 + 1 = **7 races.**
+
+**The lesson.** The whole trick is refusing to do work you don't need. A full ranking of 25 horses would take far more races — but you were only ever asked for the top three, so most comparisons are wasted. Race 6 is the move that pays: one heat eliminates ten horses at once by *transitivity*, not by racing them directly. Then you sort only the tiny frontier that's genuinely still in contention. It's the same instinct behind a partial sort or a well-seeded tournament bracket — spend your comparisons only where the answer is still undecided, and let logic delete the rest for free.
+
+</Spoiler>

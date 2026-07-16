@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 const CATEGORY_LABEL: Record<string, string> = {
   ai: "AI & Engineering",
   career: "Career & Life",
+  science: "Science",
 };
 
 export default async function BlogIndexPage({

@@ -1,0 +1,34 @@
+---
+title: "1000 release bundles, one poison pill, and a single hour"
+description: "Exactly one of a thousand change-bundles silently corrupts data. You have one round of canary testing before the rollout. How few canaries pin down the exact culprit? The answer is a lesson in treating a test as a bit, not a check."
+date: "2026-07-17"
+category: "information"
+difficulty: "medium"
+tags: ["information", "binary-encoding", "original", "counterintuitive"]
+source: "Original framing of the classic \"poisoned wine / 1000 bottles\" binary-search puzzle."
+draft: false
+---
+
+You're about to ship a release, and you've narrowed a nasty data-corruption bug down to **exactly one of 1000 candidate change-bundles** — you just don't know which one. You do have a way to test: deploy any bundle to a **canary** server, and if that bundle is the poisoned one, the canary's data is visibly corrupted within the hour. A single canary can run **any number of bundles at once** — if *any* of the bundles it's running is the bad one, it corrupts (and you can't tell which of them did it, only that the canary went bad).
+
+You have **one hour** before the full rollout — so time for only **one round** of testing, all canaries running in parallel — and you want to spin up as few canaries as possible.
+
+**What is the minimum number of canaries that guarantees you identify the exact bad bundle in that single round?**
+
+<Spoiler>
+
+**Ten.** Because 2¹⁰ = 1024, which is just barely enough to give all 1000 bundles a distinct 10-bit fingerprint — and one round of parallel testing is exactly enough to read one such fingerprint back.
+
+**The strategy.** Number the bundles 0 through 999 and write each number in **10-bit binary**. Assign canary *i* (for i = 0 to 9) to run **every bundle whose i-th binary digit is a 1**. Each canary ends up running roughly 500 bundles at once. After the hour, look at which canaries corrupted:
+
+> canary *i* is corrupted **if and only if** the bad bundle's i-th bit is 1.
+
+So the set of corrupted canaries, read off as a binary number, *is* the ID of the poisoned bundle. One reading, exact answer, no second round.
+
+**Worked example.** Say the culprit is bundle #642. In binary that's `1010000010`. Then canaries 9, 7, and 1 corrupt and the other seven stay clean — and `1010000010` reads straight back as 642. Every one of the 1000 bundles produces a different corruption pattern, so there's never any ambiguity.
+
+**Why ten is a hard floor.** Each canary comes back in one of two states — corrupted or clean — so *n* canaries yield *n* bits, which can distinguish at most 2ⁿ different outcomes. To tell 1000 possibilities apart you need 2ⁿ ≥ 1000, i.e. n ≥ 10. Nine canaries could only separate 512 cases, not enough. Ten is both sufficient *and* necessary.
+
+**The lesson.** The unlock is to stop picturing a test as "check one bundle" and start picturing it as "extract one bit of information." Once each canary is a bit, the whole problem collapses to a familiar question — *how many bits does it take to address 1000 things?* — and the answer is ⌈log₂ 1000⌉ = 10. It's the same reason 10 bits index a 1000-row table, and the same reason a batch of parallel yes/no probes crushes checking candidates one at a time: you're not eliminating one suspect per test, you're halving the field ten times at once. (This is the centuries-old "poisoned wine, 1000 bottles" riddle wearing an incident-response costume.)
+
+</Spoiler>

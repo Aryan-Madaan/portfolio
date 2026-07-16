@@ -1,0 +1,36 @@
+---
+title: "100 prisoners, 100 boxes, and a strategy that shouldn't work"
+description: "Each of 100 prisoners must find their own number by opening only half the boxes. Independent guessing gives odds indistinguishable from zero — yet one simple strategy saves them all about a third of the time. The trick is not better luck; it's correlated luck."
+date: "2026-07-17"
+category: "probability"
+difficulty: "hard"
+tags: ["probability", "classic", "permutations", "counterintuitive"]
+source: "Classic — the 100 prisoners problem, first posed by Peter Bro Miltersen (2003); see Wikipedia, \"100 prisoners problem\" — https://en.wikipedia.org/wiki/100_prisoners_problem"
+draft: false
+---
+
+A warden lines up 100 prisoners, numbered 1 to 100. In a separate room sit 100 identical closed boxes; inside each box is a slip of paper carrying one prisoner's number — the numbers 1 through 100 are distributed among the boxes in some random order, one per box. One at a time, each prisoner is led into the room and may open **any 50 boxes**, hunting for the slip with their own number. Then they leave, the boxes are closed exactly as they were, and they can pass **no information** to anyone still waiting.
+
+If **every single prisoner** finds their own number, they all walk free. If even one fails, they all lose. They're allowed to agree on a strategy beforehand — but once the search starts, each is alone.
+
+If each prisoner just opens 50 boxes at random, they each have a 1/2 chance, so the group's odds are (1/2)¹⁰⁰ — a number so small it's indistinguishable from zero. **Is there a strategy that does meaningfully better — and how good can it possibly get?**
+
+<Spoiler>
+
+Yes — and it's one of the most surprising results in all of probability. A simple strategy frees all 100 prisoners about **31% of the time**. Not 31% per prisoner — **31% for the entire group**, all-or-nothing.
+
+**The strategy.** Each prisoner starts at the box labelled with their *own* number. They read the slip inside. Then they walk to the box whose label matches that slip's number, read *its* slip, and repeat — always going next to the box named by the slip they just read — for up to 50 boxes.
+
+**Why it works.** The boxes and slips together define a permutation: box → the number on its slip. Follow it the way the strategy says and you're walking a *cycle* — a loop that must eventually return to your starting box, because the only slip that points back to box "you" is the one carrying your number. So a prisoner finds their number within 50 opens **if and only if the cycle they're standing in has length 50 or fewer.** And here's the pivot: every prisoner in the same cycle succeeds or fails together. The whole group wins if and only if the random arrangement happens to have **no cycle longer than 50.**
+
+**The magic is correlation, not luck.** Random guessing is 100 independent coin flips, and independent failures multiply into catastrophe. The strategy replaces those 100 independent events with a single shared question — *is there a cycle longer than 50?* — so the failures all pile onto the same bad worlds instead of spreading across many.
+
+**The odds.** For a random permutation of 100, the probability there's a cycle of length exactly L (for any L greater than 50) is exactly 1/L, and there can be at most one such long cycle, so these cases never overlap:
+
+> P(they lose) = 1/51 + 1/52 + ... + 1/100 ≈ 0.688
+
+which makes P(they win) ≈ 1 − 0.688 = **0.312.** Even more striking: this barely depends on the numbers. Scale it up to a million prisoners each allowed to open half the boxes and the survival probability *still* sits near 1 − ln 2 ≈ **30.7%**, and it never drops below that. The odds essentially don't get worse no matter how large the group.
+
+**The lesson.** The naive calculation wasn't wrong about any individual — each prisoner really does have exactly a 50% shot at their own number, strategy or not. What the strategy changes is whether those failures are *independent* (which is fatal) or *aligned* (which is survivable). Same per-event odds; wildly different joint outcome. It's worth keeping in your pocket for any time you're about to multiply a string of probabilities together as if they had nothing to do with each other — because sometimes you get to choose whether they do.
+
+</Spoiler>
