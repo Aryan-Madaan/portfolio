@@ -50,8 +50,8 @@ export default async function ContactPage({
       <div className="mt-10">
         <ContactForm defaultReason={defaultReason} />
         <p className="mt-4 text-xs text-[var(--color-muted)]">
-          Used only to reply to you — never shared, sold, or added to a
-          list.
+          Used only to reply to you. Never sold, never used for marketing,
+          and deleted automatically after 12 months.
         </p>
       </div>
     </Container>

@@ -1,0 +1,68 @@
+---
+title: "The attacker moves second: why agent security has to be structural"
+description: "Prompt-injection filters keep failing against attackers who adapt. The defences that hold up limit what an agent can reach in a session, whatever it has been talked into."
+date: "2026-11-22"
+category: "ai"
+tags: ["security", "agents", "governance", "prompt-injection"]
+draft: true
+---
+
+Most of the security conversation around AI agents still assumes the problem can be filtered away. Put a classifier in front of the model, scan the prompt for anything that looks like an attack, block it, ship. It's appealing because nothing else about the system has to change.
+
+The research of the last eighteen months says filtering alone doesn't work.
+
+## Filters lose to attackers who adapt
+
+A 2025 paper with authors from OpenAI, Anthropic and Google DeepMind, titled *"The Attacker Moves Second"*, took twelve published prompt-injection and jailbreak defences and attacked each one *adaptively*. Instead of replaying a fixed set of known attacks, the attackers tuned their inputs against the specific defence in front of them. Almost every defence that had reported near-zero attack success fell to above 90%.
+
+The title explains why. A defence gets designed, published and deployed, and then the attacker can study it for as long as they like. A defence that works by *recognising* an attack is in an arms race it can't win.
+
+Classifiers still catch the lazy attacks, which are most attacks. They just can't be the thing that makes an agent safe.
+
+## Three incidents with the same wiring
+
+- **EchoLeak (CVE-2025-32711, Microsoft 365 Copilot, June 2025).** A single crafted email, never opened by the user, could get Copilot to pull internal data into a response and send it out. Microsoft fixed it server-side. ([case study](https://arxiv.org/html/2509.10540v1))
+- **GitHub MCP "toxic flow" (Invariant Labs, May 2025).** A malicious issue in a *public* repository instructed a coding agent to read the user's *private* repositories and leak their contents into a public pull request. There was no CVE, because nothing in GitHub's code was broken: the agent did exactly what its permissions allowed. ([write-up](https://invariantlabs.ai/blog/mcp-github-vulnerability))
+- **Supabase MCP (mid-2025).** Instructions planted in a support ticket led an agent with database access to expose private tables. ([analysis](https://simonwillison.net/2025/Jul/06/supabase-mcp-lethal-trifecta/))
+
+None of these needed a novel jailbreak. Each one put the same three things in a single agent session.
+
+## The lethal trifecta
+
+Simon Willison calls it the lethal trifecta. An agent is exposed when it has:
+
+1. access to private data,
+2. exposure to untrusted content (an email, a web page, a public issue, a ticket), and
+3. a way to send data out (an email, a pull request, a web request, an image URL it renders).
+
+With all three in one session, a prompt injection in the untrusted content can make the agent read the private data and send it out, and a better filter only makes that less likely. The reliable fix is to make sure no single session ever holds all three at once.
+
+Meta's "Agents Rule of Two" turns this into a design rule: in any one session, pick at most two of the three. If an agent genuinely needs all three, a human approves the step that completes the set.
+
+## What structural defence looks like
+
+The defences that have held up don't try to spot the attack. They limit what any attack could achieve.
+
+### Separate the planner from the untrusted data
+
+Google DeepMind's CaMeL design has a privileged model plan the task from the user's request alone, while a separate, quarantined model handles untrusted content and can't call tools. Injected text can corrupt a value, but it can't change the plan.
+
+### Track where data came from
+
+Information-flow approaches label data by origin ("this came from a public web page") and block it from flowing into sensitive actions, however persuasive the text is.
+
+### Pin tool definitions
+
+In MCP, a tool's description is itself an instruction to the model. A server that changes a tool's description after you've approved it (a "rug pull"), or hides instructions in it ("tool poisoning"), is now a recognised attack class in OWASP's MCP Top 10. Approve a specific version of each tool and treat any change as a new approval.
+
+### Check the action before it runs
+
+A policy check before a consequential tool call (send this email, merge this PR, run this query) works whatever the model was talked into. Databases already work this way: access control makes a leak impossible for that user, instead of trusting the application to behave.
+
+## OWASP's agentic list
+
+OWASP now publishes a separate Top 10 for Agentic Applications alongside the LLM list, with entries like agent goal hijacking, tool misuse, identity and privilege abuse, and memory and context poisoning ([OWASP](https://genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications/)). A better prompt filter would fix very few of them. Almost all are about what the agent is *allowed* to touch, and on whose behalf.
+
+So I treat agent security as a governance problem first and a model problem second. The questions that decide whether an agent is safe are the ones I already ask about whether it's trustworthy: whose permissions is it using, what can it reach in this session, which actions need a human, and does the audit trail show who it was acting for?
+
+The attacker will always get to move second. If every session is wired so the private data, the untrusted content and the way out are never together, their best move still has nowhere to go.

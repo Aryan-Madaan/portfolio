@@ -1,0 +1,35 @@
+---
+title: "Measure exactly four gallons with a three and a five"
+description: "A 3-gallon jug, a 5-gallon jug, a tap and a drain. No markings on either. Measure exactly 4 gallons."
+date: "2026-11-22"
+category: "logic"
+difficulty: "easy"
+tags: ["logic", "classic", "state-space"]
+source: "A classic of recreational mathematics, going back to Tartaglia (16th century); popularized for modern audiences by \"Die Hard with a Vengeance\" (1995)"
+draft: false
+---
+
+You have two unmarked jugs, one that holds exactly **5 gallons** and one that holds exactly **3 gallons**, plus an unlimited water supply and a drain. You can fill a jug completely, empty a jug completely, or pour one into the other until the source is empty or the target is full. There's no other way to measure.
+
+**How do you end up with exactly 4 gallons in the 5-gallon jug?**
+
+<Spoiler>
+
+Track the contents as (5-gallon jug, 3-gallon jug):
+
+| Step | Action | State |
+|---|---|---|
+| 1 | Fill the 5-gallon jug | (5, 0) |
+| 2 | Pour into the 3-gallon jug until full | (2, 3) |
+| 3 | Empty the 3-gallon jug | (2, 0) |
+| 4 | Pour the remaining 2 gallons into the 3-gallon jug | (0, 2) |
+| 5 | Fill the 5-gallon jug again | (5, 2) |
+| 6 | Pour into the 3-gallon jug until full (it only has room for 1 more) | (4, 1) |
+
+The 5-gallon jug now holds exactly **4 gallons**.
+
+There's a second route: fill the 3-gallon jug and pour it into the 5, fill the 3 again and top up the 5 (leaving 1 in the 3), empty the 5, pour that 1 gallon across, fill the 3 once more and pour it in to get 1 + 3 = 4. It takes more steps, which is why the first route is the one to remember.
+
+It works because 3 and 5 share no common factor, so differences of those two sizes can produce every whole number up to 5. With jugs of 4 and 6 you could never measure an odd amount.
+
+</Spoiler>

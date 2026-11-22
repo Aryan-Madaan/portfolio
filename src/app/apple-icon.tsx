@@ -13,13 +13,13 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#12151a",
+          background: "#0e1115",
         }}
       >
         <div style={{ display: "flex", alignItems: "baseline" }}>
           <span
             style={{
-              color: "#f1f0ec",
+              color: "#e8e6e1",
               fontSize: 100,
               fontWeight: 700,
               letterSpacing: "-2px",
@@ -29,7 +29,7 @@ export default function AppleIcon() {
           </span>
           <span
             style={{
-              color: "#ff6a2e",
+              color: "#f0a63a",
               fontSize: 100,
               fontWeight: 700,
               marginLeft: 2,

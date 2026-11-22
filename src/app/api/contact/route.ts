@@ -13,6 +13,9 @@ const ContactSchema = z.object({
   // Honeypot: real users never fill this in — it's hidden via CSS, not `type="hidden"`,
   // since bots specifically skip hidden inputs.
   company: z.string().max(0).optional().or(z.literal("")),
+  // DPDP Act s.6: consent must be a clear affirmative action, so the
+  // checkbox is enforced here too, not just in the browser.
+  consent: z.literal(true),
   // FormData.get() returns null (not undefined) when the Turnstile widget isn't
   // rendered (no site key configured yet) — accept both.
   turnstileToken: z.string().nullish(),
@@ -101,7 +104,7 @@ export async function POST(request: Request) {
         from: `Portfolio Contact <${fromEmail}>`,
         to: [toEmail],
         reply_to: email,
-        subject: `[${reason}] New message from ${safeName}`,
+        subject: `[Portfolio] [${reason}] New message from ${safeName}`,
         text: `From: ${name} <${email}>\nReason: ${reason}\n\n${message}`,
       }),
     });

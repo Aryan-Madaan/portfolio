@@ -4,41 +4,48 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm audit --audit-level=low",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "tsc --noEmit",
+    "prepare": "git config core.hooksPath .githooks || true",
+    "credits": "node scripts/gen-credits.mjs"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.110.0",
+    "@anthropic-ai/sdk": "^1.12.0",
     "@vercel/analytics": "^2.0.1",
-    "@vercel/speed-insights": "^2.0.0",
+    "@vercel/speed-insights": "^2.1.0",
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
-    "js-yaml": "^5.2.1",
-    "lucide-react": "^1.23.0",
-    "next": "16.2.10",
+    "js-yaml": "^5.5.0",
+    "lucide-react": "^1.77.0",
+    "next": "16.4.6",
     "next-mdx-remote": "^6.0.0",
     "next-themes": "^0.4.6",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
-    "resend": "^6.17.1",
-    "zod": "^4.4.3"
+    "resend": "^6.39.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^26",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.10",
+    "eslint": "^10",
+    "eslint-config-next": "16.4.6",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^7.0.2"
   },
   "overrides": {
     "postcss": "^8.5.16"
-  }
+  },
+  "engines": {
+    "node": ">=26"
+  },
+  "license": "MIT"
 }

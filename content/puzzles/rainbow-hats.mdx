@@ -1,0 +1,38 @@
+---
+title: "Ten prisoners, ten colours, and a guarantee that one of them is right"
+description: "Each prisoner wears a hat in one of ten colours and sees everyone's hat but their own. They guess at the same moment. Find a strategy that guarantees at least one correct guess."
+date: "2026-11-22"
+category: "combinatorics"
+difficulty: "hard"
+tags: ["strategy", "modular-arithmetic", "hats"]
+source: "A well-known generalization of the hat-guessing puzzles; appears in Peter Winkler's \"Mathematical Puzzles: A Connoisseur's Collection\" and many puzzle collections"
+draft: false
+---
+
+Ten prisoners are told the rules in advance and can agree a strategy. Then each gets a hat in one of **ten colours**. Colours can repeat, and any combination is possible, including all ten the same.
+
+Each prisoner can see the other nine hats but **not their own**. At a signal, all ten write down a guess for their own hat colour **at the same time**. No communication is allowed once the hats are on.
+
+If **at least one** prisoner guesses correctly, they all go free.
+
+**Is there a strategy that guarantees freedom, whatever the hats are?** And how many prisoners will be correct?
+
+<Spoiler>
+
+Yes. The strategy guarantees that **exactly one** prisoner is correct, every time.
+
+Number the colours **0 to 9** and number the prisoners **0 to 9**. Let T be the sum of **all ten** hat numbers, taken modulo 10 (so just the last digit).
+
+Nobody knows T, because nobody sees their own hat. But each prisoner can assume a value for it. The strategy is:
+
+**Prisoner k assumes T = k**, and guesses whichever colour would make that true.
+
+Concretely, prisoner k adds up the nine hats they can see, gets some total V, and guesses the colour c where V + c ends in the digit k.
+
+Why it works: the real T is *some* digit from 0 to 9. Exactly one prisoner assumed that digit, and for that prisoner, "the colour that makes the total equal T" is their actual hat colour. Every other prisoner assumed a wrong total, so they're all wrong.
+
+And why you can't do better: whatever the strategy, each prisoner on their own is guessing a hat they can't see, so across all possible hat assignments each prisoner is right exactly 1 time in 10. That makes the average number of correct guesses exactly **1**. A strategy that never gets zero must therefore always get exactly one.
+
+Error-correcting codes use the same trick: split the possibilities so that each check covers exactly one case.
+
+</Spoiler>

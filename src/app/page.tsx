@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
 import { CountUp } from "@/components/count-up";
+import { AuditLog } from "@/components/audit-log";
 
 const stats = [
   { value: "76,000+", label: "total users TDA has rolled out to" },
@@ -37,29 +38,30 @@ const pillars = [
 export default function Home() {
   return (
     <>
-      <section className="overflow-hidden border-b border-[var(--color-line)] py-16 sm:py-24">
+      <section className="border-b border-[var(--color-line)] py-16 sm:py-24">
         <Container>
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-14">
-            <Reveal>
-              <div className="h-48 w-48 shrink-0 overflow-hidden rounded-full ring-4 ring-[var(--color-signal)] ring-offset-4 ring-offset-[var(--color-bg)] drop-shadow-xl sm:h-60 sm:w-60">
+          <div className="flex flex-wrap items-start gap-12 lg:gap-14">
+            <Reveal className="min-w-0 flex-[999_1_30rem]">
+              <div className="mb-6 flex items-center gap-3">
                 <Image
                   src="/images/aryan-madaan.jpg"
                   alt="Portrait of Aryan Madaan"
-                  width={480}
-                  height={480}
+                  width={112}
+                  height={112}
                   priority
-                  className="h-full w-full object-cover object-top"
+                  className="h-14 w-14 object-cover object-top"
                 />
+                <p className="eyebrow">
+                  Aryan Madaan · enterprise AI, governance &amp; security
+                </p>
               </div>
-            </Reveal>
-
-            <Reveal delay={100}>
-              <p className="eyebrow mb-3">Aryan Madaan</p>
-              <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold leading-tight sm:text-4xl">
-                Enterprise AI leader spanning strategy, governance, and
-                security — not just model-building.
+              <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-5xl lg:text-[3.5rem]">
+                Every AI decision should have an answer to{" "}
+                <span className="text-[var(--color-signal)]">
+                  &ldquo;who allowed this?&rdquo;
+                </span>
               </h1>
-              <p className="mt-4 max-w-2xl text-base text-[var(--color-muted)]">
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--color-muted)] sm:text-lg">
                 At Tata Steel, I partner directly with the C-suite on
                 enterprise GenAI strategy, and I&apos;ve shipped that
                 strategy myself: an assistant built zero-to-production in
@@ -72,15 +74,10 @@ export default function Home() {
                 safely at that scale.
               </p>
 
-              <p className="mt-8 max-w-2xl font-[family-name:var(--font-display)] text-xl font-semibold leading-snug sm:text-2xl">
-                Systems don&apos;t fail from bad models. They fail from{" "}
-                <span className="text-[var(--color-signal)]">bad trust.</span>
-              </p>
-
-              <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Link
                   href="/advisory"
-                  className="border border-[var(--color-fg)] bg-[var(--color-fg)] px-6 py-3 text-sm font-medium text-[var(--color-bg)] transition-all hover:-translate-y-0.5 hover:border-[var(--color-signal)] hover:bg-[var(--color-signal)] hover:shadow-lg"
+                  className="inline-flex min-h-11 items-center bg-[var(--color-signal)] px-5 text-sm font-semibold text-[var(--color-signal-contrast)] transition-opacity hover:opacity-90"
                 >
                   Work with me on your AI stack
                 </Link>
@@ -88,42 +85,43 @@ export default function Home() {
                   href="/resume/Aryan-Madaan-Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-medium underline decoration-[var(--color-line)] underline-offset-4 transition-colors hover:text-[var(--color-signal)] hover:decoration-[var(--color-signal)]"
+                  className="inline-flex min-h-11 items-center border border-[var(--color-line)] px-5 text-sm font-medium transition-colors hover:border-[var(--color-fg)]"
                 >
-                  Download resume
+                  Résumé (PDF)
                 </a>
                 <Link
-                  href="/blog"
-                  className="text-sm font-medium underline decoration-[var(--color-line)] underline-offset-4 transition-colors hover:text-[var(--color-signal)] hover:decoration-[var(--color-signal)]"
+                  href="/experience"
+                  className="inline-flex min-h-11 items-center px-3 text-sm font-medium text-[var(--color-muted)] transition-colors hover:text-[var(--color-fg)]"
                 >
-                  Read the writing
-                </Link>
-                <Link
-                  href="/contact"
-                  className="text-sm font-medium text-[var(--color-muted)] transition-colors hover:text-[var(--color-signal)]"
-                >
-                  Get in touch →
+                  Climb the career route →
                 </Link>
               </div>
+
+              <p className="mt-10 font-[family-name:var(--font-mono)] text-sm text-[var(--color-muted)]">
+                Systems don&apos;t fail from bad models. They fail from{" "}
+                <span className="text-[var(--color-signal)]">bad trust.</span>
+              </p>
+            </Reveal>
+
+            <Reveal delay={150} className="min-w-0 flex-[1_1_22rem]">
+              <AuditLog />
             </Reveal>
           </div>
         </Container>
       </section>
 
-      <section className="border-b border-[var(--color-line)] py-16">
+      <section className="py-12">
         <Container>
-          <dl className="grid grid-cols-2 gap-8 sm:grid-cols-4">
-            {stats.map((s, i) => (
-              <Reveal key={s.label} delay={i * 80}>
-                <div className="reg-mark p-4 transition-colors hover:bg-[var(--color-surface)]">
-                  <dd className="font-[family-name:var(--font-display)] text-2xl font-semibold sm:text-3xl">
-                    <CountUp value={s.value} />
-                  </dd>
-                  <dt className="mt-1 text-sm text-[var(--color-muted)]">
-                    {s.label}
-                  </dt>
-                </div>
-              </Reveal>
+          <dl className="grid grid-cols-2 gap-px border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-4">
+            {stats.map((s) => (
+              <div key={s.label} className="flex flex-col-reverse bg-[var(--color-bg)] p-6">
+                <dt className="mt-2 text-sm text-[var(--color-muted)]">
+                  {s.label}
+                </dt>
+                <dd className="font-[family-name:var(--font-mono)] text-3xl font-medium tracking-tight tabular-nums">
+                  <CountUp value={s.value} />
+                </dd>
+              </div>
             ))}
           </dl>
         </Container>
@@ -132,19 +130,21 @@ export default function Home() {
       <section className="py-20">
         <Container>
           <Reveal>
-            <p className="eyebrow mb-10">What I build</p>
+            <h2 className="mb-8 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-[-0.02em]">
+              What I build
+            </h2>
           </Reveal>
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {pillars.map((p, i) => (
               <Reveal key={p.tag} delay={i * 100}>
-                <div className="group border-t-2 border-[var(--color-fg)] pt-5 transition-transform duration-300 hover:-translate-y-1">
-                  <span className="font-[family-name:var(--font-mono)] text-xs text-[var(--color-muted)]">
+                <div className="group h-full border border-[var(--color-line)] p-6 transition-colors hover:border-[var(--color-muted)]">
+                  <span className="font-[family-name:var(--font-mono)] text-[0.8125rem] text-[var(--color-signal)]">
                     {p.tag}
                   </span>
-                  <h3 className="mt-3 font-[family-name:var(--font-display)] text-lg font-semibold transition-colors group-hover:text-[var(--color-signal)]">
+                  <h3 className="mt-2 font-[family-name:var(--font-display)] text-xl font-semibold">
                     {p.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--color-muted)]">
+                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-[var(--color-muted)]">
                     {p.body}
                   </p>
                 </div>
@@ -155,21 +155,46 @@ export default function Home() {
       </section>
 
       <section className="border-t border-[var(--color-line)] py-20">
-        <Container className="max-w-3xl">
+        <Container>
           <Reveal>
-            <p className="eyebrow mb-4">Enterprise Intelligence</p>
-            <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold sm:text-3xl">
-              Most &ldquo;enterprise AI&rdquo; is a chatbot bolted onto a
-              department. That&apos;s not the same claim as making an
-              organization&apos;s own knowledge queryable and trustworthy.
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-[-0.02em]">
+              Two layers, one answer
             </h2>
-            <p className="mt-5 text-[var(--color-muted)]">
-              That distinction — and why the hard part is governance, not the
-              model — is the thesis behind my advisory work.
+            <p className="mt-3 max-w-2xl text-[var(--color-muted)]">
+              Most &ldquo;enterprise AI&rdquo; is a chatbot bolted onto a
+              department. The useful answer is what the organization knows,
+              filtered by what this person is allowed to see.
             </p>
+            <div className="mt-8 flex flex-wrap items-stretch gap-4">
+              <div className="min-w-0 flex-[1_1_17rem] border border-[var(--color-line)] p-6">
+                <p className="font-[family-name:var(--font-mono)] text-[0.8125rem] text-[var(--color-signal)]">
+                  EIL
+                </p>
+                <p className="mt-2 text-xl font-semibold">
+                  Enterprise Intelligence Layer
+                </p>
+                <p className="mt-2 text-[0.9375rem] leading-relaxed text-[var(--color-muted)]">
+                  Data, documents, policies, agents and governance. The same
+                  for everyone.
+                </p>
+              </div>
+              <div className="flex flex-[0_1_8rem] items-center justify-center font-[family-name:var(--font-mono)] text-[0.8125rem] text-[var(--color-muted)]">
+                ∩ at 4 joints
+              </div>
+              <div className="min-w-0 flex-[1_1_17rem] border border-[var(--color-line)] p-6">
+                <p className="font-[family-name:var(--font-mono)] text-[0.8125rem] text-[var(--color-signal)]">
+                  UCL
+                </p>
+                <p className="mt-2 text-xl font-semibold">User Context Layer</p>
+                <p className="mt-2 text-[0.9375rem] leading-relaxed text-[var(--color-muted)]">
+                  Role, entitlements, entity, country and memory. Different
+                  for every user.
+                </p>
+              </div>
+            </div>
             <Link
               href="/advisory"
-              className="mt-6 inline-block font-medium text-[var(--color-signal)] underline underline-offset-4"
+              className="mt-8 inline-flex min-h-11 items-center font-medium text-[var(--color-signal)] underline underline-offset-4"
             >
               Read the full argument →
             </Link>

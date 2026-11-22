@@ -119,7 +119,7 @@ export default function AboutPage() {
         <h2>Outside of work</h2>
         <p>
           I trek — Brahmatal, Chopta Chandrashila Tungnath, Kedarkanta,
-          Kasol Kheerganga so far — mostly because it&apos;s the only place
+          Kasol Kheerganga, Dayara Bugyal so far — mostly because it&apos;s the only place
           where output and performance are irrelevant. I read across
           fiction, strategy, and mental models more for the frameworks than
           for completion, and I swim and play badminton to stay sane in

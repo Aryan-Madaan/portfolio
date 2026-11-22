@@ -1,0 +1,4 @@
+Contact: https://aryanmadaan.vercel.app/contact
+Expires: 2027-11-22T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://aryanmadaan.vercel.app/.well-known/security.txt

@@ -1,0 +1,37 @@
+---
+title: "Two eggs, a hundred floors, and the fewest drops you can guarantee"
+description: "A 100-storey building, two identical eggs, and one unknown floor above which eggs break. What is the smallest number of drops that guarantees you find it?"
+date: "2026-11-22"
+category: "optimization"
+difficulty: "medium"
+tags: ["optimization", "worst-case", "classic"]
+source: "A widely circulated interview and algorithms puzzle; a generalised version, the egg dropping problem, is a standard exercise in dynamic programming"
+draft: false
+---
+
+A building has 100 floors. There is a highest floor from which an egg can be dropped without breaking. Drop from that floor or below and it survives, and from any floor above it, it breaks. It could be floor 1, floor 100, or anything between (or an egg might even break from the first floor).
+
+You have **two identical eggs**. An egg that survives a drop is undamaged and can be reused. A broken egg is gone.
+
+**What's the minimum number of drops that guarantees you find the exact threshold floor, in the worst case, and what's your strategy?**
+
+<Spoiler>
+
+The answer is **14 drops**.
+
+With one egg you'd have no choice but to climb floor by floor, 1, 2, 3, and so on, which could take 100 drops. With two eggs, the first egg can take big steps to narrow the range, and the second egg then searches that small range one floor at a time.
+
+The trick is to make every outcome cost the same total number of drops. Say the first drop is from floor x:
+
+- If it **breaks**, you have one egg and floors 1 to x−1 to check one by one, so at most x−1 more drops. Total: x.
+- If it **survives**, you've used one drop and now have x−1 fewer drops available for the rest, so your next jump on the first egg should be only **x−1** floors higher, not x.
+
+So the first egg goes up in steps that shrink by one each time: x, then x−1, then x−2, and so on down to 1. The number of floors covered is the triangular number
+
+x + (x−1) + … + 1 = x(x+1)/2
+
+You need that to reach at least 100. x = 13 gives 91, which is not enough. x = 14 gives 105, which is.
+
+So start at floor **14**, then go to 27 (+13), 39 (+12), 50 (+11), 60 (+10), 69 (+9), 77 (+8), 84 (+7), 90 (+6), 95 (+5), 99 (+4), 100 (+1). When the first egg breaks, step through the gap with the second egg one floor at a time from just above the last safe floor. The worst case is always exactly **14 drops**, and no strategy can do better because 13 drops can cover at most 91 floors.
+
+</Spoiler>

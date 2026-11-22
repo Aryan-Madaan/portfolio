@@ -17,7 +17,7 @@ const services = [
   {
     tag: "02",
     title: "Knowledge-graph & agentic architecture design and review",
-    body: "Knowledge catalogs, graph-based retrieval, cross-session memory, and multi-agent orchestration — plus a second set of eyes on an existing build before it hits production load.",
+    body: "Designing how the Enterprise Intelligence Layer and the User Context Layer fit together: knowledge catalogs, graph-based retrieval, cross-session memory and multi-agent orchestration. Or a second set of eyes on an existing build before it hits production load.",
   },
   {
     tag: "03",
@@ -27,7 +27,7 @@ const services = [
   {
     tag: "04",
     title: "AI security & red-teaming",
-    body: "Testing for prompt injection, data leakage, and agent manipulation before an attacker — or a regulator — finds it first.",
+    body: "Testing for prompt injection, data leakage, tool poisoning and agent goal hijacking before an attacker (or a regulator) finds it. Findings map to the OWASP Top 10 for LLM and Agentic Applications, and the fixes change what agents can reach, so they hold up when attackers adapt.",
   },
   {
     tag: "05",
@@ -125,6 +125,75 @@ export default function AdvisoryPage() {
               happens when it doesn&apos;t know, and who it escalates to
               when it&apos;s unsure. That is a distinct discipline, not a
               side effect of picking a model vendor.
+            </p>
+            <h2>Two layers, one answer</h2>
+            <p>
+              I think of this as two layers that have to be designed
+              together.
+            </p>
+            <p>
+              The <strong>Enterprise Intelligence Layer (EIL)</strong> is
+              what the organization knows and is allowed to do: its data,
+              documents, policies, past decisions, the agents that act on
+              them, and the governance that sits over all of it. It&apos;s
+              the same for everyone in the company.
+            </p>
+            <p>
+              The <strong>User Context Layer (UCL)</strong> is everything
+              about the person asking: who they are, their role and
+              entitlements, which entity and country they sit in, what
+              they&apos;re working on, and what the system should remember
+              about them. It&apos;s different for every single user.
+            </p>
+            <p>
+              An EIL without user context is a search
+              engine that gives a plant engineer and a finance controller
+              the same answer, and leaks whatever either of them
+              shouldn&apos;t see. A UCL without the EIL is a personal
+              assistant with no institutional memory, confidently guessing.
+              The useful answer is always the intersection: what the
+              organization knows, filtered by what this person is allowed
+              to see, ranked by what they actually need right now.
+            </p>
+            <p>That marriage happens at four specific joints:</p>
+            <ul>
+              <li>
+                <strong>Permissions travel with the person.</strong> Access
+                control is applied at retrieval time, at the document and
+                field level, using the user&apos;s own entitlements. It
+                isn&apos;t applied as a filter on the final answer, after
+                the model has already read everything.
+              </li>
+              <li>
+                <strong>Agents act <em>for</em> someone, and the audit trail
+                says so.</strong> Every action records two identities: the
+                user it was done for, and the agent that did it. Without
+                that split, &ldquo;who approved this?&rdquo; has no answer.
+              </li>
+              <li>
+                <strong>Context shapes relevance as well as access.</strong>{" "}
+                The same question about a safety procedure should land
+                differently for someone on the shop floor and someone
+                writing the audit report, even when both are allowed to see
+                the same documents.
+              </li>
+              <li>
+                <strong>User memory is governed as personal data.</strong>{" "}
+                What the system remembers about a person has its own
+                retention, consent, and cross-border rules, separate from
+                the organization&apos;s knowledge. Mixing the two is how a
+                private conversation ends up in someone else&apos;s answer.
+              </li>
+            </ul>
+            <p>
+              The joint between the two layers is also where most of the
+              security risk lives. An agent session that holds a
+              user&apos;s private context, reads untrusted content, and can
+              send data out is exactly the combination that recent
+              prompt-injection incidents have exploited. If nobody designs
+              the boundary between the EIL and the UCL, it ends up wherever
+              the chosen framework puts it. Designing it on purpose is most
+              of what makes the system safe to scale.
             </p>
             <p>
               I&apos;d rather understate this than oversell it: the

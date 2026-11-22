@@ -10,7 +10,15 @@ export function Footer() {
         <p>
           &copy; {year} Aryan Madaan. Built from scratch, no CMS, no database.
         </p>
-        <div className="flex gap-6">
+        <div className="flex flex-wrap gap-x-6 gap-y-2">
+          <a
+            href={`${siteConfig.links.github}/portfolio/blob/main/LICENSE`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[var(--color-signal)]"
+          >
+            MIT License
+          </a>
           <a
             href={siteConfig.links.github}
             target="_blank"
@@ -27,6 +35,12 @@ export function Footer() {
           >
             LinkedIn
           </a>
+          <Link href="/privacy" className="hover:text-[var(--color-signal)]">
+            Privacy
+          </Link>
+          <Link href="/credits" className="hover:text-[var(--color-signal)]">
+            Credits
+          </Link>
           <Link href="/contact" className="hover:text-[var(--color-signal)]">
             Contact
           </Link>

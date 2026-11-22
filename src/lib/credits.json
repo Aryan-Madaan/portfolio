@@ -1,0 +1,1409 @@
+[
+  {
+    "name": "@anthropic-ai/sdk",
+    "version": "1.12.0",
+    "license": "Apache-2.0",
+    "repository": "https://github.com/anthropics/anthropic-sdk-typescript",
+    "publisher": "Anthropic"
+  },
+  {
+    "name": "@babel/code-frame",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": "https://github.com/babel/babel",
+    "publisher": "The Babel Team"
+  },
+  {
+    "name": "@babel/helper-validator-identifier",
+    "version": "7.29.7",
+    "license": "MIT",
+    "repository": "https://github.com/babel/babel",
+    "publisher": "The Babel Team"
+  },
+  {
+    "name": "@babel/runtime",
+    "version": "7.29.15",
+    "license": "MIT",
+    "repository": "https://github.com/babel/babel",
+    "publisher": "The Babel Team"
+  },
+  {
+    "name": "@img/colour",
+    "version": "1.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/lovell/colour",
+    "publisher": null
+  },
+  {
+    "name": "@img/sharp-darwin-x64",
+    "version": "0.35.5",
+    "license": "Apache-2.0",
+    "repository": "https://github.com/lovell/sharp",
+    "publisher": "Lovell Fuller"
+  },
+  {
+    "name": "@img/sharp-libvips-darwin-x64",
+    "version": "1.3.4",
+    "license": "LGPL-3.0-or-later",
+    "repository": "https://github.com/lovell/sharp-libvips",
+    "publisher": "Lovell Fuller"
+  },
+  {
+    "name": "@mdx-js/mdx",
+    "version": "3.1.1",
+    "license": "MIT",
+    "repository": "https://github.com/mdx-js/mdx",
+    "publisher": "John Otander"
+  },
+  {
+    "name": "@mdx-js/react",
+    "version": "3.1.1",
+    "license": "MIT",
+    "repository": "https://github.com/mdx-js/mdx",
+    "publisher": "John Otander"
+  },
+  {
+    "name": "@next/env",
+    "version": "16.4.6",
+    "license": "MIT",
+    "repository": "https://github.com/vercel/next.js",
+    "publisher": "Next.js Team"
+  },
+  {
+    "name": "@next/swc-darwin-x64",
+    "version": "16.4.6",
+    "license": "MIT",
+    "repository": "https://github.com/vercel/next.js",
+    "publisher": null
+  },
+  {
+    "name": "@opentelemetry/api",
+    "version": "1.10.0",
+    "license": "Apache-2.0",
+    "repository": "https://github.com/open-telemetry/opentelemetry-js",
+    "publisher": "OpenTelemetry Authors"
+  },
+  {
+    "name": "@stablelib/base64",
+    "version": "1.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/StableLib/stablelib",
+    "publisher": "Dmitry Chestnykh"
+  },
+  {
+    "name": "@swc/helpers",
+    "version": "0.5.23",
+    "license": "Apache-2.0",
+    "repository": "https://github.com/swc-project/swc",
+    "publisher": "강동윤"
+  },
+  {
+    "name": "@types/debug",
+    "version": "4.1.13",
+    "license": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "publisher": null
+  },
+  {
+    "name": "@types/estree",
+    "version": "1.0.10",
+    "license": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "publisher": null
+  },
+  {
+    "name": "@types/estree-jsx",
+    "version": "1.0.5",
+    "license": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "publisher": null
+  },
+  {
+    "name": "@types/hast",
+    "version": "3.0.5",
+    "license": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "publisher": null
+  },
+  {
+    "name": "@types/mdast",
+    "version": "4.0.4",
+    "license": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "publisher": null
+  },
+  {
+    "name": "@types/mdx",
+    "version": "2.0.14",
+    "license": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "publisher": null
+  },
+  {
+    "name": "@types/ms",
+    "version": "2.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "publisher": null
+  },
+  {
+    "name": "@types/react",
+    "version": "19.3.0",
+    "license": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "publisher": null
+  },
+  {
+    "name": "@types/unist",
+    "version": "2.0.11",
+    "license": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "publisher": null
+  },
+  {
+    "name": "@types/unist",
+    "version": "3.0.3",
+    "license": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "publisher": null
+  },
+  {
+    "name": "@ungap/structured-clone",
+    "version": "1.4.0",
+    "license": "ISC",
+    "repository": "https://github.com/ungap/structured-clone",
+    "publisher": "Andrea Giammarchi"
+  },
+  {
+    "name": "@vercel/analytics",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/vercel/analytics",
+    "publisher": null
+  },
+  {
+    "name": "@vercel/speed-insights",
+    "version": "2.1.0",
+    "license": "Apache-2.0",
+    "repository": "https://github.com/vercel/speed-insights",
+    "publisher": null
+  },
+  {
+    "name": "acorn",
+    "version": "8.19.0",
+    "license": "MIT",
+    "repository": "https://github.com/acornjs/acorn",
+    "publisher": null
+  },
+  {
+    "name": "acorn-jsx",
+    "version": "5.3.2",
+    "license": "MIT",
+    "repository": "https://github.com/acornjs/acorn-jsx",
+    "publisher": null
+  },
+  {
+    "name": "argparse",
+    "version": "1.0.10",
+    "license": "MIT",
+    "repository": "https://github.com/nodeca/argparse",
+    "publisher": null
+  },
+  {
+    "name": "argparse",
+    "version": "3.0.4",
+    "license": "PSF-2.0",
+    "repository": "https://github.com/nodeca/argparse",
+    "publisher": null
+  },
+  {
+    "name": "astring",
+    "version": "1.9.0",
+    "license": "MIT",
+    "repository": "https://github.com/davidbonnet/astring",
+    "publisher": "David Bonnet"
+  },
+  {
+    "name": "bail",
+    "version": "2.0.2",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/bail",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "baseline-browser-mapping",
+    "version": "2.11.39",
+    "license": "Apache-2.0",
+    "repository": "https://github.com/web-platform-dx/baseline-browser-mapping",
+    "publisher": null
+  },
+  {
+    "name": "caniuse-lite",
+    "version": "1.0.30001826",
+    "license": "CC-BY-4.0",
+    "repository": "https://github.com/browserslist/caniuse-lite",
+    "publisher": "Ben Briggs"
+  },
+  {
+    "name": "ccount",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/ccount",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "character-entities",
+    "version": "2.0.2",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/character-entities",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "character-entities-html4",
+    "version": "2.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/character-entities-html4",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "character-entities-legacy",
+    "version": "3.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/character-entities-legacy",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "character-reference-invalid",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/character-reference-invalid",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "client-only",
+    "version": "0.0.1",
+    "license": "MIT",
+    "repository": null,
+    "publisher": null
+  },
+  {
+    "name": "clsx",
+    "version": "2.1.1",
+    "license": "MIT",
+    "repository": "https://github.com/lukeed/clsx",
+    "publisher": "Luke Edwards"
+  },
+  {
+    "name": "collapse-white-space",
+    "version": "2.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/collapse-white-space",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "comma-separated-tokens",
+    "version": "2.0.3",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/comma-separated-tokens",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "csstype",
+    "version": "3.2.4",
+    "license": "MIT",
+    "repository": "https://github.com/frenic/csstype",
+    "publisher": "Fredrik Nicol"
+  },
+  {
+    "name": "debug",
+    "version": "4.4.3",
+    "license": "MIT",
+    "repository": "https://github.com/debug-js/debug",
+    "publisher": "Josh Junon"
+  },
+  {
+    "name": "decode-named-character-reference",
+    "version": "1.3.0",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/decode-named-character-reference",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "dequal",
+    "version": "2.0.3",
+    "license": "MIT",
+    "repository": "https://github.com/lukeed/dequal",
+    "publisher": "Luke Edwards"
+  },
+  {
+    "name": "detect-libc",
+    "version": "2.1.2",
+    "license": "Apache-2.0",
+    "repository": "https://github.com/lovell/detect-libc",
+    "publisher": "Lovell Fuller"
+  },
+  {
+    "name": "devlop",
+    "version": "1.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/devlop",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "esast-util-from-estree",
+    "version": "2.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/esast-util-from-estree",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "esast-util-from-js",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/esast-util-from-js",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "escape-string-regexp",
+    "version": "5.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/sindresorhus/escape-string-regexp",
+    "publisher": "Sindre Sorhus"
+  },
+  {
+    "name": "esprima",
+    "version": "4.0.1",
+    "license": "BSD-2-Clause",
+    "repository": "https://github.com/jquery/esprima",
+    "publisher": "Ariya Hidayat"
+  },
+  {
+    "name": "estree-util-attach-comments",
+    "version": "3.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/estree-util-attach-comments",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "estree-util-build-jsx",
+    "version": "3.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/estree-util-build-jsx",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "estree-util-is-identifier-name",
+    "version": "3.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/estree-util-is-identifier-name",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "estree-util-scope",
+    "version": "1.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/estree-util-scope",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "estree-util-to-js",
+    "version": "2.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/estree-util-to-js",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "estree-util-visit",
+    "version": "2.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/estree-util-visit",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "estree-walker",
+    "version": "3.0.3",
+    "license": "MIT",
+    "repository": "https://github.com/Rich-Harris/estree-walker",
+    "publisher": "Rich Harris"
+  },
+  {
+    "name": "extend",
+    "version": "3.0.2",
+    "license": "MIT",
+    "repository": "https://github.com/justmoon/node-extend",
+    "publisher": "Stefan Thomas"
+  },
+  {
+    "name": "extend-shallow",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/jonschlinkert/extend-shallow",
+    "publisher": "Jon Schlinkert"
+  },
+  {
+    "name": "fast-sha256",
+    "version": "1.3.0",
+    "license": "Unlicense",
+    "repository": "https://github.com/dchest/fast-sha256-js",
+    "publisher": "Dmitry Chestnykh"
+  },
+  {
+    "name": "github-slugger",
+    "version": "2.0.0",
+    "license": "ISC",
+    "repository": "https://github.com/Flet/github-slugger",
+    "publisher": "Dan Flettre"
+  },
+  {
+    "name": "gray-matter",
+    "version": "4.0.3",
+    "license": "MIT",
+    "repository": "https://github.com/jonschlinkert/gray-matter",
+    "publisher": "Jon Schlinkert"
+  },
+  {
+    "name": "hast-util-heading-rank",
+    "version": "3.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/hast-util-heading-rank",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "hast-util-is-element",
+    "version": "3.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/hast-util-is-element",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "hast-util-to-estree",
+    "version": "3.1.3",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/hast-util-to-estree",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "hast-util-to-jsx-runtime",
+    "version": "2.3.7",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/hast-util-to-jsx-runtime",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "hast-util-to-string",
+    "version": "3.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/rehypejs/rehype-minify.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "hast-util-whitespace",
+    "version": "3.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/hast-util-whitespace",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "inline-style-parser",
+    "version": "0.2.7",
+    "license": "MIT",
+    "repository": "https://github.com/remarkablemark/inline-style-parser",
+    "publisher": null
+  },
+  {
+    "name": "inline-style-parser",
+    "version": "0.2.9",
+    "license": "MIT",
+    "repository": "https://github.com/remarkablemark/inline-style-parser",
+    "publisher": null
+  },
+  {
+    "name": "is-alphabetical",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/is-alphabetical",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "is-alphanumerical",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/is-alphanumerical",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "is-decimal",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/is-decimal",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "is-extendable",
+    "version": "0.1.1",
+    "license": "MIT",
+    "repository": "https://github.com/jonschlinkert/is-extendable",
+    "publisher": "Jon Schlinkert"
+  },
+  {
+    "name": "is-hexadecimal",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/is-hexadecimal",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "is-plain-obj",
+    "version": "4.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/sindresorhus/is-plain-obj",
+    "publisher": "Sindre Sorhus"
+  },
+  {
+    "name": "js-tokens",
+    "version": "4.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/lydell/js-tokens",
+    "publisher": "Simon Lydell"
+  },
+  {
+    "name": "js-yaml",
+    "version": "3.15.2",
+    "license": "MIT",
+    "repository": "https://github.com/nodeca/js-yaml",
+    "publisher": "Vladimir Zapparov"
+  },
+  {
+    "name": "js-yaml",
+    "version": "5.5.0",
+    "license": "MIT",
+    "repository": "https://github.com/nodeca/js-yaml",
+    "publisher": "Vladimir Zapparov"
+  },
+  {
+    "name": "json-schema-to-ts",
+    "version": "3.1.1",
+    "license": "MIT",
+    "repository": "https://github.com/ThomasAribart/json-schema-to-ts",
+    "publisher": "Thomas Aribart"
+  },
+  {
+    "name": "kind-of",
+    "version": "6.0.3",
+    "license": "MIT",
+    "repository": "https://github.com/jonschlinkert/kind-of",
+    "publisher": "Jon Schlinkert"
+  },
+  {
+    "name": "longest-streak",
+    "version": "3.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/longest-streak",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "lucide-react",
+    "version": "1.77.0",
+    "license": "ISC",
+    "repository": "https://github.com/lucide-icons/lucide",
+    "publisher": "Eric Fennis"
+  },
+  {
+    "name": "markdown-extensions",
+    "version": "2.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/sindresorhus/markdown-extensions",
+    "publisher": "Sindre Sorhus"
+  },
+  {
+    "name": "markdown-table",
+    "version": "3.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/markdown-table",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "mdast-util-find-and-replace",
+    "version": "3.0.5",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-find-and-replace",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "mdast-util-from-markdown",
+    "version": "2.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-from-markdown",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "mdast-util-gfm",
+    "version": "3.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-gfm",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "mdast-util-gfm-autolink-literal",
+    "version": "2.1.2",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-gfm-autolink-literal",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "mdast-util-gfm-footnote",
+    "version": "2.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-gfm-footnote",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "mdast-util-gfm-strikethrough",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-gfm-strikethrough",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "mdast-util-gfm-table",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-gfm-table",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "mdast-util-gfm-task-list-item",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-gfm-task-list-item",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "mdast-util-mdx",
+    "version": "3.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-mdx",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "mdast-util-mdx-expression",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-mdx-expression",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "mdast-util-mdx-jsx",
+    "version": "3.2.2",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-mdx-jsx",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "mdast-util-mdxjs-esm",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-mdxjs-esm",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "mdast-util-phrasing",
+    "version": "4.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-phrasing",
+    "publisher": "Victor Felder"
+  },
+  {
+    "name": "mdast-util-to-hast",
+    "version": "13.2.2",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-to-hast",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "mdast-util-to-markdown",
+    "version": "2.2.4",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-to-markdown",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "mdast-util-to-string",
+    "version": "4.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/mdast-util-to-string",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark",
+    "version": "4.0.3",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-core-commonmark",
+    "version": "2.0.4",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-extension-gfm",
+    "version": "3.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark-extension-gfm",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-extension-gfm-autolink-literal",
+    "version": "2.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark-extension-gfm-autolink-literal",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-extension-gfm-footnote",
+    "version": "2.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark-extension-gfm-footnote",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-extension-gfm-strikethrough",
+    "version": "2.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark-extension-gfm-strikethrough",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-extension-gfm-table",
+    "version": "2.1.2",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark-extension-gfm-table",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-extension-gfm-tagfilter",
+    "version": "2.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark-extension-gfm-tagfilter",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-extension-gfm-task-list-item",
+    "version": "2.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark-extension-gfm-task-list-item",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-extension-mdx-expression",
+    "version": "3.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark-extension-mdx-expression.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-extension-mdx-jsx",
+    "version": "3.0.2",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark-extension-mdx-jsx",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-extension-mdx-md",
+    "version": "2.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark-extension-mdx-md",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-extension-mdxjs",
+    "version": "3.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark-extension-mdxjs",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-extension-mdxjs-esm",
+    "version": "3.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark-extension-mdxjs-esm",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-factory-destination",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-factory-label",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-factory-mdx-expression",
+    "version": "2.0.3",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark-extension-mdx-expression.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-factory-space",
+    "version": "2.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-factory-title",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-factory-whitespace",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-character",
+    "version": "2.1.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-chunked",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-classify-character",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-combine-extensions",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-decode-numeric-character-reference",
+    "version": "2.0.2",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-decode-string",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-edit-map",
+    "version": "1.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-encode",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-events-to-acorn",
+    "version": "2.0.3",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark-extension-mdx-expression.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-html-tag-name",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-normalize-identifier",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-resolve-all",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-sanitize-uri",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-subtokenize",
+    "version": "2.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-symbol",
+    "version": "2.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "micromark-util-types",
+    "version": "2.0.3",
+    "license": "MIT",
+    "repository": "https://github.com/micromark/micromark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "ms",
+    "version": "2.1.3",
+    "license": "MIT",
+    "repository": "https://github.com/vercel/ms",
+    "publisher": null
+  },
+  {
+    "name": "nanoid",
+    "version": "3.3.20",
+    "license": "MIT",
+    "repository": "https://github.com/ai/nanoid",
+    "publisher": "Andrey Sitnik"
+  },
+  {
+    "name": "next",
+    "version": "16.4.6",
+    "license": "MIT",
+    "repository": "https://github.com/vercel/next.js",
+    "publisher": null
+  },
+  {
+    "name": "next-mdx-remote",
+    "version": "6.0.0",
+    "license": "MPL-2.0",
+    "repository": "https://github.com/hashicorp/next-mdx-remote",
+    "publisher": "Jeff Escalante"
+  },
+  {
+    "name": "next-themes",
+    "version": "0.4.6",
+    "license": "MIT",
+    "repository": "https://github.com/pacocoursey/next-themes",
+    "publisher": null
+  },
+  {
+    "name": "parse-entities",
+    "version": "4.0.2",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/parse-entities",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "picocolors",
+    "version": "1.1.1",
+    "license": "ISC",
+    "repository": "https://github.com/alexeyraspopov/picocolors",
+    "publisher": "Alexey Raspopov"
+  },
+  {
+    "name": "postal-mime",
+    "version": "2.7.6",
+    "license": "MIT-0",
+    "repository": "https://github.com/postalsys/postal-mime",
+    "publisher": "Andris Reinman"
+  },
+  {
+    "name": "postcss",
+    "version": "8.5.33",
+    "license": "MIT",
+    "repository": "https://github.com/postcss/postcss",
+    "publisher": "Andrey Sitnik"
+  },
+  {
+    "name": "property-information",
+    "version": "7.2.0",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/property-information",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "react",
+    "version": "19.3.1",
+    "license": "MIT",
+    "repository": "https://github.com/react/react",
+    "publisher": null
+  },
+  {
+    "name": "react-dom",
+    "version": "19.3.1",
+    "license": "MIT",
+    "repository": "https://github.com/react/react",
+    "publisher": null
+  },
+  {
+    "name": "reading-time",
+    "version": "1.5.0",
+    "license": "MIT",
+    "repository": "https://github.com/ngryman/reading-time",
+    "publisher": "Nicolas Gryman"
+  },
+  {
+    "name": "recma-build-jsx",
+    "version": "1.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/mdx-js/recma.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "recma-jsx",
+    "version": "1.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/mdx-js/recma.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "recma-parse",
+    "version": "1.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/mdx-js/recma.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "recma-stringify",
+    "version": "1.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/mdx-js/recma.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "rehype-autolink-headings",
+    "version": "7.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/rehypejs/rehype-autolink-headings",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "rehype-recma",
+    "version": "1.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/mdx-js/recma.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "rehype-slug",
+    "version": "6.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/rehypejs/rehype-slug",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "remark-gfm",
+    "version": "4.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/remarkjs/remark-gfm",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "remark-mdx",
+    "version": "3.1.1",
+    "license": "MIT",
+    "repository": "https://github.com/mdx-js/mdx",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "remark-parse",
+    "version": "11.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/remarkjs/remark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "remark-rehype",
+    "version": "11.1.2",
+    "license": "MIT",
+    "repository": "https://github.com/remarkjs/remark-rehype",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "remark-stringify",
+    "version": "11.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/remarkjs/remark.git#main",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "resend",
+    "version": "6.39.0",
+    "license": "MIT",
+    "repository": "https://github.com/resend/resend-node",
+    "publisher": null
+  },
+  {
+    "name": "scheduler",
+    "version": "0.28.0",
+    "license": "MIT",
+    "repository": "https://github.com/react/react",
+    "publisher": null
+  },
+  {
+    "name": "section-matter",
+    "version": "1.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/jonschlinkert/section-matter",
+    "publisher": "Jon Schlinkert"
+  },
+  {
+    "name": "semver",
+    "version": "7.8.6",
+    "license": "ISC",
+    "repository": "https://github.com/npm/node-semver",
+    "publisher": "GitHub Inc."
+  },
+  {
+    "name": "sharp",
+    "version": "0.35.5",
+    "license": "Apache-2.0",
+    "repository": "https://github.com/lovell/sharp",
+    "publisher": "Lovell Fuller"
+  },
+  {
+    "name": "source-map",
+    "version": "0.7.6",
+    "license": "BSD-3-Clause",
+    "repository": "https://github.com/mozilla/source-map",
+    "publisher": "Nick Fitzgerald"
+  },
+  {
+    "name": "source-map-js",
+    "version": "1.2.4",
+    "license": "BSD-3-Clause",
+    "repository": "https://github.com/7rulnik/source-map-js",
+    "publisher": "Valentin 7rulnik Semirulnik"
+  },
+  {
+    "name": "space-separated-tokens",
+    "version": "2.0.2",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/space-separated-tokens",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "sprintf-js",
+    "version": "1.0.3",
+    "license": "BSD-3-Clause",
+    "repository": "https://github.com/alexei/sprintf.js",
+    "publisher": "Alexandru Marasteanu"
+  },
+  {
+    "name": "standardwebhooks",
+    "version": "1.1.1",
+    "license": "MIT",
+    "repository": "https://github.com/standard-webhooks/standard-webhooks",
+    "publisher": "Standard Webhooks"
+  },
+  {
+    "name": "standardwebhooks",
+    "version": "1.3.0",
+    "license": "MIT",
+    "repository": "https://github.com/standard-webhooks/standard-webhooks",
+    "publisher": "Standard Webhooks"
+  },
+  {
+    "name": "stringify-entities",
+    "version": "4.0.5",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/stringify-entities",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "strip-bom-string",
+    "version": "1.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/jonschlinkert/strip-bom-string",
+    "publisher": "Jon Schlinkert"
+  },
+  {
+    "name": "style-to-js",
+    "version": "1.1.21",
+    "license": "MIT",
+    "repository": "https://github.com/remarkablemark/style-to-js",
+    "publisher": "Mark"
+  },
+  {
+    "name": "style-to-object",
+    "version": "1.0.14",
+    "license": "MIT",
+    "repository": "https://github.com/remarkablemark/style-to-object",
+    "publisher": "Mark"
+  },
+  {
+    "name": "style-to-object",
+    "version": "2.0.2",
+    "license": "MIT",
+    "repository": "https://github.com/remarkablemark/style-to-object",
+    "publisher": "Mark"
+  },
+  {
+    "name": "styled-jsx",
+    "version": "5.1.6",
+    "license": "MIT",
+    "repository": "https://github.com/vercel/styled-jsx",
+    "publisher": null
+  },
+  {
+    "name": "trim-lines",
+    "version": "3.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/trim-lines",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "trough",
+    "version": "2.2.0",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/trough",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "ts-algebra",
+    "version": "2.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/ThomasAribart/ts-algebra",
+    "publisher": "Thomas Aribart"
+  },
+  {
+    "name": "tslib",
+    "version": "2.9.1",
+    "license": "0BSD",
+    "repository": "https://github.com/Microsoft/tslib",
+    "publisher": "Microsoft Corp."
+  },
+  {
+    "name": "unified",
+    "version": "11.0.5",
+    "license": "MIT",
+    "repository": "https://github.com/unifiedjs/unified",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "unist-util-is",
+    "version": "6.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/unist-util-is",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "unist-util-position",
+    "version": "5.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/unist-util-position",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "unist-util-position-from-estree",
+    "version": "2.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/unist-util-position-from-estree",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "unist-util-remove",
+    "version": "4.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/unist-util-remove",
+    "publisher": "Eugene Sharygin"
+  },
+  {
+    "name": "unist-util-stringify-position",
+    "version": "4.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/unist-util-stringify-position",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "unist-util-visit",
+    "version": "5.2.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/unist-util-visit",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "unist-util-visit-parents",
+    "version": "6.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/syntax-tree/unist-util-visit-parents",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "vfile",
+    "version": "6.0.3",
+    "license": "MIT",
+    "repository": "https://github.com/vfile/vfile",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "vfile-matter",
+    "version": "5.0.1",
+    "license": "MIT",
+    "repository": "https://github.com/vfile/vfile-matter",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "vfile-message",
+    "version": "4.0.4",
+    "license": "MIT",
+    "repository": "https://github.com/vfile/vfile-message",
+    "publisher": "Titus Wormer"
+  },
+  {
+    "name": "yaml",
+    "version": "2.9.1",
+    "license": "ISC",
+    "repository": "https://github.com/eemeli/yaml",
+    "publisher": "Eemeli Aro"
+  },
+  {
+    "name": "zod",
+    "version": "4.6.7",
+    "license": "MIT",
+    "repository": "https://github.com/colinhacks/zod",
+    "publisher": "Colin McDonnell"
+  },
+  {
+    "name": "zwitch",
+    "version": "2.0.4",
+    "license": "MIT",
+    "repository": "https://github.com/wooorm/zwitch",
+    "publisher": "Titus Wormer"
+  }
+]

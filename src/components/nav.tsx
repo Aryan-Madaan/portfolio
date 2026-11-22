@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -10,6 +10,15 @@ import { ThemeToggle } from "@/components/theme-toggle";
 export function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--color-line)] bg-[var(--color-bg)]/90 backdrop-blur">
@@ -30,6 +39,7 @@ export function Nav() {
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={active ? "page" : undefined}
                 className={`eyebrow transition-colors hover:text-[var(--color-signal)] ${
                   active ? "text-[var(--color-signal)]" : ""
                 }`}
@@ -55,7 +65,7 @@ export function Nav() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((v) => !v)}
-            className="flex h-8 w-8 items-center justify-center"
+            className="flex h-11 w-11 items-center justify-center"
           >
             {open ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -64,14 +74,14 @@ export function Nav() {
 
       {open && (
         <nav id="mobile-nav" className="border-t border-[var(--color-line)] px-6 py-4 md:hidden">
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col gap-1">
             {[...siteConfig.nav, { label: "Contact", href: "/contact" }].map(
               (item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="eyebrow block"
+                    className="eyebrow block py-3"
                   >
                     {item.label}
                   </Link>

@@ -13,14 +13,14 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#12151a",
+          background: "#0e1115",
           fontFamily: "Georgia, serif",
         }}
       >
         <div style={{ display: "flex", alignItems: "baseline" }}>
           <span
             style={{
-              color: "#f1f0ec",
+              color: "#e8e6e1",
               fontSize: 40,
               fontWeight: 700,
               letterSpacing: "-1px",
@@ -30,7 +30,7 @@ export default function Icon() {
           </span>
           <span
             style={{
-              color: "#ff6a2e",
+              color: "#f0a63a",
               fontSize: 40,
               fontWeight: 700,
               marginLeft: 1,

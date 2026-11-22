@@ -1,0 +1,40 @@
+---
+title: "How many people before two share a birthday?"
+description: "In a room of 23 people, the chance that two share a birthday is already above one half. Why is that so much lower than intuition expects?"
+date: "2026-11-22"
+category: "probability"
+difficulty: "easy-medium"
+tags: ["probability", "counterintuitive", "classic"]
+source: "Usually attributed to Richard von Mises (1939); a standard worked example in introductory probability. See also Wikipedia, \"Birthday problem\""
+draft: false
+---
+
+Ignore leap years and assume every day of the year is equally likely to be someone's birthday. You put people in a room one at a time.
+
+**How many people do you need before it's more likely than not that at least two of them share a birthday?** Most people guess somewhere near 183, which is half of 365. Make your guess, then work out the real answer.
+
+<Spoiler>
+
+The answer is **23 people**, which gives a probability of about **50.7%**.
+
+The intuition for 183 comes from asking "will someone share *my* birthday?" That's a much harder event. The question here is whether *any* two people among all of them match, and the number of pairs grows far faster than the number of people.
+
+Count pairs instead. With 23 people there are 23 × 22 / 2 = **253 pairs**, and each pair has a 1/365 chance of matching. That's a lot of chances.
+
+To get the exact figure, it's easier to calculate the opposite: the probability that **nobody** shares a birthday.
+
+- The second person must avoid the first person's date: 364/365
+- The third must avoid both: 363/365
+- And so on, down to the 23rd: 343/365
+
+Multiply them together:
+
+P(no match) = (365/365) × (364/365) × (363/365) × … × (343/365) ≈ **0.4927**
+
+So P(at least one match) = 1 − 0.4927 ≈ **0.5073**.
+
+It climbs quickly after that. With 30 people it's about 70%, with 50 about 97%, and with 70 people it's above 99.9%.
+
+The same maths is why hash collisions show up much sooner than you'd expect, and it's the basis of the "birthday attack" in cryptography.
+
+</Spoiler>

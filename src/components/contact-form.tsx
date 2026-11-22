@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type FormEvent } from "react";
+import Link from "next/link";
 import Script from "next/script";
 import { siteConfig } from "@/lib/site";
 
@@ -59,6 +60,7 @@ export function ContactForm({ defaultReason = "opportunity" }: { defaultReason?:
       reason: formData.get("reason"),
       message: formData.get("message"),
       company: formData.get("company") ?? "",
+      consent: formData.get("consent") === "yes",
       turnstileToken,
     };
 
@@ -182,6 +184,24 @@ export function ContactForm({ defaultReason = "opportunity" }: { defaultReason?:
           />
         </div>
 
+        <div className="flex items-start gap-3">
+          <input
+            id="consent"
+            name="consent"
+            type="checkbox"
+            value="yes"
+            required
+            className="mt-1 h-5 w-5 shrink-0 accent-[var(--color-signal)]"
+          />
+          <label htmlFor="consent" className="text-sm leading-relaxed text-[var(--color-muted)]">
+            I agree to my name, email and message being used to reply to me,
+            as described in the{" "}
+            <Link href="/privacy" className="underline underline-offset-2">
+              privacy notice
+            </Link>
+            .
+          </label>
+        </div>
         {TURNSTILE_SITE_KEY && (
           <div>
             <div

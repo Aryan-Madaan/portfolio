@@ -1,0 +1,43 @@
+---
+title: "Cheryl's birthday, and what two people can learn from not knowing"
+description: "Albert knows the month, Bernard knows the day, and ten possible dates. Their conversation about what they don't know is enough to find the answer."
+date: "2026-11-22"
+category: "epistemic logic"
+difficulty: "medium-hard"
+tags: ["logic", "common-knowledge", "elimination"]
+source: "Singapore and Asian Schools Math Olympiad (SASMO), 2015, which went viral after being shared online in April 2015"
+draft: false
+---
+
+Albert and Bernard have just met Cheryl and want to know her birthday. Cheryl gives them a list of ten possible dates:
+
+**May** 15, 16, 19
+**June** 17, 18
+**July** 14, 16
+**August** 14, 15, 17
+
+She privately tells Albert **only the month**, and Bernard **only the day**. Then this conversation happens:
+
+1. **Albert:** "I don't know when Cheryl's birthday is, but I know that Bernard doesn't know either."
+2. **Bernard:** "At first I didn't know when Cheryl's birthday is, but now I know."
+3. **Albert:** "Then I also know when Cheryl's birthday is."
+
+**When is Cheryl's birthday?**
+
+<Spoiler>
+
+Cheryl's birthday is **July 16**.
+
+**After statement 1.** Albert says he knows Bernard doesn't know. Bernard would know immediately if he'd been told a day that appears only once on the list. The days that appear once are **18** (June) and **19** (May). So if the birthday were in May or June, Albert couldn't be sure Bernard was in the dark. Albert is certain, so the month must be **July or August**. That leaves:
+
+July 14, July 16, August 14, August 15, August 17
+
+**After statement 2.** Bernard now knows the date. He's been told a day, and he can pin down the date only if his day appears once in what's left. The day **14** appears twice (July and August), so Bernard can't have been told 14. That leaves:
+
+July 16, August 15, August 17
+
+**After statement 3.** Albert now knows the date too. If the month were August, he'd still have two options (15 and 17). Only **July** leaves a single option, so the month is July, and the date is **July 16**.
+
+Two of the three statements are someone saying what they don't know, and each one still cuts the list down, because both men are logical and know the other is too.
+
+</Spoiler>

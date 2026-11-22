@@ -1,0 +1,36 @@
+---
+title: "Forty-one in a circle, every second one out: where do you stand?"
+description: "41 people stand in a circle. Going round, every second person is removed until one remains. Which position survives, and can you find it for any number without simulating?"
+date: "2026-11-22"
+category: "number theory"
+difficulty: "hard"
+tags: ["recursion", "binary", "classic"]
+source: "Named after Flavius Josephus's account of the siege of Yodfat (1st century CE); the k = 2 closed form appears in Graham, Knuth and Patashnik, \"Concrete Mathematics\""
+draft: false
+---
+
+41 people stand in a circle, numbered 1 to 41. Starting from person 1, you go round the circle: person 1 is skipped, person 2 is removed, person 3 is skipped, person 4 is removed, and so on. The circle keeps closing up, and you keep removing every second person still standing, going round as many times as needed, until **only one person is left**.
+
+**Which position survives?**
+
+Then the harder part: **find a formula** that gives the survivor for any number of people n, without simulating the circle.
+
+<Spoiler>
+
+The survivor is **position 19**.
+
+**The formula.** Write n as a power of 2 plus a remainder: **n = 2^m + L**, where 2^m is the largest power of 2 not bigger than n, and 0 ≤ L < 2^m. Then the survivor is
+
+**J(n) = 2L + 1**
+
+For n = 41: the largest power of 2 below 41 is 32, so L = 9, and J(41) = 2 × 9 + 1 = **19**.
+
+**Why it works.**
+
+*Powers of 2 first.* If n is a power of 2, the first lap removes every even position and leaves half as many people, starting again from person 1. That's another power of 2. Repeat until one is left, and person **1** always survives. So J(2^m) = 1.
+
+*Everything else.* Start with n = 2^m + L. Remove people until exactly L of them are gone. That takes L removals, and the last person removed is at position 2L. Now there are exactly 2^m people left, and the count restarts at the next person, position **2L + 1**. From the powers-of-2 case, whoever stands first in a circle of 2^m survives. That's position 2L + 1.
+
+**Binary shortcut.** Write n in binary and move the leading 1 to the end. 41 is 101001 in binary, so moving the leading 1 gives 010011, which is **19**.
+
+</Spoiler>

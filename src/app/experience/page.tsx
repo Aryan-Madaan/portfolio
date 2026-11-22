@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/container";
+import { Basecamp } from "@/components/basecamp";
 
 export const metadata: Metadata = {
   title: "Experience",
-  description: "Work history — Tata Steel, Indus Insights, MASTH Life.",
+  description:
+    "My career as a trek route, camp by camp: Tata Steel, Indus Insights and MASTH Life.",
 };
 
 const roles = [
@@ -74,49 +76,58 @@ const roles = [
 
 export default function ExperiencePage() {
   return (
-    <Container className="max-w-3xl py-16 sm:py-24">
-      <p className="eyebrow mb-4">Experience</p>
-      <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold sm:text-4xl">
-        Where I&apos;ve built things.
-      </h1>
+    <>
+      <Container className="max-w-5xl pt-16 sm:pt-24">
+        <p className="eyebrow mb-4">Experience</p>
+        <Basecamp />
+      </Container>
 
-      <ol className="mt-12 space-y-12">
-        {roles.map((role, i) => (
-          <li key={role.title + role.period} className="border-t border-[var(--color-line)] pt-6">
-            <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-              <h2 className="font-[family-name:var(--font-display)] text-lg font-semibold">
-                {role.title}
-              </h2>
-              <span className="font-[family-name:var(--font-mono)] text-xs text-[var(--color-muted)]">
-                {String(i + 1).padStart(2, "0")} / {role.period}
-              </span>
-            </div>
-            <p className="mt-1 text-sm text-[var(--color-signal)]">
-              {role.org}
-            </p>
-            <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[var(--color-muted)]">
-              {role.bullets.map((b) => (
-                <li key={b} className="flex gap-3">
-                  <span className="mt-2 h-1 w-1 shrink-0 bg-[var(--color-muted)]" />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ol>
+      <Container className="max-w-3xl pb-16 pt-20 sm:pb-24">
+        <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-[-0.02em]">
+          The full route
+        </h2>
 
-      <div className="mt-16 border-t border-[var(--color-line)] pt-10 text-center">
-        <p className="text-[var(--color-muted)]">
-          Looking for someone to fill a role, not just advise on one?
-        </p>
-        <Link
-          href="/contact?reason=opportunity"
-          className="mt-4 inline-block border border-[var(--color-fg)] bg-[var(--color-fg)] px-6 py-3 text-sm font-medium text-[var(--color-bg)] transition-colors hover:border-[var(--color-signal)] hover:bg-[var(--color-signal)]"
-        >
-          Get in touch
-        </Link>
-      </div>
-    </Container>
+        <ol className="mt-10 space-y-12">
+          {roles.map((role, i) => (
+            <li
+              key={role.title + role.period}
+              className="border-t border-[var(--color-line)] pt-6"
+            >
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold">
+                  {role.title}
+                </h3>
+                <span className="font-[family-name:var(--font-mono)] text-xs text-[var(--color-muted)]">
+                  {String(i + 1).padStart(2, "0")} / {role.period}
+                </span>
+              </div>
+              <p className="mt-1 text-sm text-[var(--color-signal)]">
+                {role.org}
+              </p>
+              <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[var(--color-muted)]">
+                {role.bullets.map((b) => (
+                  <li key={b} className="flex gap-3">
+                    <span className="mt-2 h-1 w-1 shrink-0 bg-[var(--color-muted)]" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ol>
+
+        <div className="mt-16 border-t border-[var(--color-line)] pt-10 text-center">
+          <p className="text-[var(--color-muted)]">
+            Looking for someone to fill a role, not just advise on one?
+          </p>
+          <Link
+            href="/contact?reason=opportunity"
+            className="mt-4 inline-block border border-[var(--color-fg)] bg-[var(--color-fg)] px-6 py-3 text-sm font-medium text-[var(--color-bg)] transition-colors hover:border-[var(--color-signal)] hover:bg-[var(--color-signal)]"
+          >
+            Get in touch
+          </Link>
+        </div>
+      </Container>
+    </>
   );
 }

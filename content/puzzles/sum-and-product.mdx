@@ -1,0 +1,62 @@
+---
+title: "Sum and Product: four sentences, two strangers, one pair of numbers"
+description: "One mathematician knows the sum, the other knows the product. Neither knows the numbers. After four short statements, both do. So can you."
+date: "2026-11-22"
+category: "epistemic logic"
+difficulty: "very hard"
+tags: ["logic", "number-theory", "common-knowledge", "classic"]
+source: "Hans Freudenthal, Nieuw Archief voor Wiskunde (1969); popularized by Martin Gardner. See also Wikipedia, \"Sum and Product Puzzle\""
+draft: false
+---
+
+Two whole numbers x and y are chosen with **1 < x < y** and **x + y ≤ 100**.
+
+**S** is told only their **sum**. **P** is told only their **product**. Both are perfect logicians, and both know all of the above. Then:
+
+1. **P:** "I don't know the numbers."
+2. **S:** "I knew you didn't know."
+3. **P:** "Now I know the numbers."
+4. **S:** "Now I know them too."
+
+**What are x and y?**
+
+This is the hardest puzzle on the page. You'll want paper, and a list of primes up to 100.
+
+<Spoiler>
+
+The numbers are **4 and 13** (sum 17, product 52).
+
+**Statement 1** tells you that P's product can be factored in more than one valid way. If the product were, say, 3 × 7 = 21, there'd be only one factorization and P would know immediately.
+
+**Statement 2** is the strong one. S *already knew* P couldn't know. That means **every** way of splitting S's sum into x + y gives a product with more than one valid factorization. That rules out a lot:
+
+- If the sum is **even**, it can be written as prime + prime (true for every even number in this range), and P would know those numbers. So the sum is **odd**.
+- If **sum − 2 is prime**, then 2 + (sum − 2) is a prime-times-prime split. Ruled out.
+- If the sum is **55 or more**, the split 53 + (sum − 53) gives a product of 53 × k whose only valid factorization keeps 53 whole (any other factorization would need a sum over 100). Ruled out.
+- A few more fall to the same "large prime factor" argument, such as 51 = 17 + 34, whose product 578 = 2 × 17² can only be 17 × 34 within the limits.
+
+What survives is exactly ten sums: **11, 17, 23, 27, 29, 35, 37, 41, 47, 53**. Call these the *good* sums.
+
+**Statement 3.** P now knows, so out of all the ways to factor P's product, **exactly one** has a good sum.
+
+**Statement 4.** S now knows too, so out of all the ways to split S's sum, **exactly one** gives a product that passes statement 3.
+
+Here's sum 17 worked through. For each split, list the product's factorizations and see how many have a good sum:
+
+| Split of 17 | Product | Factorizations (sum) | Good sums | Would P know? |
+|---|---|---|---|---|
+| 2 + 15 | 30 | 2·15 (17), 3·10 (13), 5·6 (11) | 17, 11 | No |
+| 3 + 14 | 42 | 2·21 (23), 3·14 (17), 6·7 (13) | 23, 17 | No |
+| **4 + 13** | **52** | 2·26 (28), 4·13 (17) | **17 only** | **Yes** |
+| 5 + 12 | 60 | 2·30, 3·20 (23), 4·15, 5·12 (17), 6·10 | 23, 17 | No |
+| 6 + 11 | 66 | 2·33 (35), 3·22, 6·11 (17) | 35, 17 | No |
+| 7 + 10 | 70 | 2·35 (37), 5·14, 7·10 (17) | 37, 17 | No |
+| 8 + 9 | 72 | 3·24 (27), 8·9 (17), and others with bad sums | 27, 17 | No |
+
+Exactly one split of 17 works, so S can deduce the answer. Every other good sum has **at least two** splits that would satisfy P. For sum 11, for example, both 4 + 7 (product 28 = 2·14 or 4·7) and 3 + 8 (product 24) leave P with a single good sum, so S couldn't tell which, and statement 4 would be false.
+
+So the sum is 17, and the numbers are **4 and 13**.
+
+Every statement is about what someone *doesn't* know. It only carries information because each of them knows the other reasons perfectly.
+
+</Spoiler>

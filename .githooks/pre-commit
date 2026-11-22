@@ -1,0 +1,2 @@
+#!/bin/sh
+npm audit --audit-level=low || { echo "Commit blocked: fix vulnerabilities first."; exit 1; }

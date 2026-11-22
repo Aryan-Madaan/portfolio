@@ -1,0 +1,33 @@
+---
+title: "A hundred doors, a hundred passes, and which ones stay open"
+description: "100 closed doors. On pass k you toggle every k-th door. After 100 passes, which doors are open?"
+date: "2026-11-22"
+category: "number theory"
+difficulty: "easy-medium"
+tags: ["number-theory", "divisors", "classic"]
+source: "A classic of recreational mathematics and a common programming exercise (often called the \"100 doors\" problem)"
+draft: false
+---
+
+There are 100 doors in a row, all closed. You make 100 passes:
+
+- **Pass 1:** toggle every door (open if closed, close if open).
+- **Pass 2:** toggle every 2nd door (2, 4, 6, …).
+- **Pass 3:** toggle every 3rd door (3, 6, 9, …).
+- …and so on, until **pass 100**, where you toggle only door 100.
+
+**After all 100 passes, which doors are open?**
+
+<Spoiler>
+
+The open doors are exactly the **perfect squares**: 1, 4, 9, 16, 25, 36, 49, 64, 81 and 100. That's **10 doors**.
+
+Door n gets toggled once for each pass k where k divides n. So the question becomes: does n have an odd or an even number of divisors? A door ends up open only if it was toggled an **odd** number of times.
+
+Divisors normally come in pairs: if d divides n, so does n/d. Door 12, for example, has the pairs (1, 12), (2, 6) and (3, 4), which gives six divisors, an even number, so the door ends up closed.
+
+The only way a divisor can lack a partner is when d = n/d, meaning n = d², a perfect square. Door 36 has the pairs (1, 36), (2, 18), (3, 12), (4, 9), and then 6 on its own, giving nine divisors. That's odd, so the door ends up open.
+
+So the doors left open are the squares up to 100, and there are exactly ten of them, since 10² = 100.
+
+</Spoiler>
