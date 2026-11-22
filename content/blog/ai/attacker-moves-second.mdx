@@ -4,7 +4,7 @@ description: "Prompt-injection filters keep failing against attackers who adapt.
 date: "2026-11-22"
 category: "ai"
 tags: ["security", "agents", "governance", "prompt-injection"]
-draft: true
+draft: false
 ---
 
 Most of the security conversation around AI agents still assumes the problem can be filtered away. Put a classifier in front of the model, scan the prompt for anything that looks like an attack, block it, ship. It's appealing because nothing else about the system has to change.
@@ -13,7 +13,7 @@ The research of the last eighteen months says filtering alone doesn't work.
 
 ## Filters lose to attackers who adapt
 
-A 2025 paper with authors from OpenAI, Anthropic and Google DeepMind, titled *"The Attacker Moves Second"*, took twelve published prompt-injection and jailbreak defences and attacked each one *adaptively*. Instead of replaying a fixed set of known attacks, the attackers tuned their inputs against the specific defence in front of them. Almost every defence that had reported near-zero attack success fell to above 90%.
+A 2025 paper with authors from OpenAI, Anthropic and Google DeepMind, titled [*"The Attacker Moves Second"*](https://arxiv.org/abs/2510.09023) and since published at USENIX Security 2026, took twelve published prompt-injection and jailbreak defences and attacked each one *adaptively*. Instead of replaying a fixed set of known attacks, the attackers tuned their inputs against the specific defence in front of them. Against most of the defences, attack success rose above 90%, even though the majority had originally reported attack success near zero.
 
 The title explains why. A defence gets designed, published and deployed, and then the attacker can study it for as long as they like. A defence that works by *recognising* an attack is in an arms race it can't win.
 

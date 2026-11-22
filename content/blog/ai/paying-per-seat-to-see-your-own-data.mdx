@@ -1,0 +1,55 @@
+---
+title: "Why pay per seat to look at your own data?"
+description: "BI tools charge by the person who wants to see a chart. An AI assistant that builds live dashboards on request changes who needs a licence, and what the remaining licences are really for."
+date: "2026-11-23"
+category: "ai"
+tags: ["enterprise-ai", "business-intelligence", "dashboards", "cost"]
+draft: false
+---
+
+{/* REVIEW BEFORE PUBLISHING: check with Tata Steel communications before LinkedIn. */}
+
+Most companies pay for business intelligence the way they pay for office chairs: one per person. A BI licence is priced per user per month, with separate tiers for the people who build dashboards and the people who only look at them. Published list prices for Tableau, as tracked by [third-party pricing guides](https://www.datastudios.org/post/tableau-pricing-creator-explorer-viewer-standard-enterprise-tableau-plus), run from about $15 a month for a viewer to over $100 for a creator on an enterprise plan.
+
+That model made sense when building a dashboard was skilled work. You needed someone who knew the tool, the data model and the difference between a filter and a parameter. Everyone else got a viewer seat and waited.
+
+Building a dashboard capability into TDA, Tata Steel's AI assistant, raised a simple question: if anyone can ask for a dashboard in plain language and get a live one in a minute, what exactly is the seat for?
+
+## What changed
+
+In TDA, a person can attach an Excel or CSV file, link one from SharePoint, or point at company data, and ask for a dashboard. TDA proposes it first and shows the table it was built from, so nobody is surprised by what it used. Then it opens beside the chat as a live view, not a picture.
+
+Every chart is interactive. Click a value and the other charts filter to it. Drill from all regions down to one and back. Maps shade countries or Indian states. Tables with millions of rows page through a window instead of choking the browser. A dashboard built on a linked spreadsheet refreshes on its own.
+
+The feature I'd single out is "Explain". Point at any bar or KPI tile and TDA says why that number is what it is, then lets you ask the chat about that exact figure. A traditional dashboard shows you that sales in the north dipped. It rarely tells you why, and the person looking at it usually has to go and find an analyst.
+
+## Where the per-seat model breaks
+
+Per-seat pricing assumes two things: that building is scarce, and that looking is passive. AI removes both.
+
+Building stops being scarce when the person with the question can produce the dashboard themselves. The bottleneck in most BI teams was never the licence. It was the queue of requests waiting for the few people who could use the tool well.
+
+Looking stops being passive when you can ask a chart a question. Once people expect to interrogate a number in plain language, a static viewer seat feels like paying for a locked display case.
+
+Software that charged for access to a capability is under pressure everywhere AI can reproduce that capability on demand. When the capability itself becomes something you can ask for, paying a toll per person to use it gets hard to justify.
+
+We've only just launched dashboards in TDA at Tata Steel, so I don't have savings figures yet. I'll share them once they're real, not projected.
+
+## Where paid BI still earns its money
+
+I don't think BI tools disappear. I think their licence count shrinks to the places where they genuinely do something an assistant shouldn't.
+
+- **Certified metrics.** When finance, operations and the board must all see the same definition of "revenue" or "on-time delivery", you want a governed semantic layer that a few people own. An assistant should read from that layer, not reinvent it per question.
+- **Regulatory and fixed-format reporting.** Some reports have to look identical every month and be signed off. That's a publishing job, not a conversation.
+- **Very heavy, very shared dashboards.** A control-room screen that hundreds of people watch all day is a product, and it should be engineered like one.
+
+So the realistic future isn't "no BI licences". It's a small number of seats for the people who maintain certified data and fixed reports, and an AI layer for everyone else who just has a question about a number.
+
+## What I'd tell a CIO reviewing a BI renewal
+
+- Count how many of your licensed users built anything in the last quarter. The rest are paying to look.
+- Find out how long the dashboard request queue is. That queue is the real cost of per-seat BI.
+- Keep paying for governance: certified definitions, lineage and access control. Stop paying for access to charts.
+- Make any AI dashboard tool show its source table and explain its numbers. A chart nobody can trace is worse than no chart.
+
+The money was never really in the chart. It was in trusted data and in knowing why a number moved. Licences that charge for the chart are the part most exposed.

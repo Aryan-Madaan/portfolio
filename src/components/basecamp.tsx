@@ -67,7 +67,11 @@ const camps = [
     title: "Manager, AI Discovery and Governance",
     period: "Nov 2025 to present",
     story:
-      "Built the Tata Steel Digital Assistant in 2 months: 76,000+ people, 13,000+ daily active users across 5 group companies. Launched Zen AI, behind a fleet of 300+ agents in 9 months. Won Apex Recognition at Innovista 2025, as a team.",
+      "Built the Tata Steel Digital Assistant in 2 months: 76,000+ people, 13,000+ daily active users across 5 group companies. Launched Zen AI, behind a fleet of 300+ agents in 9 months. Won Apex Recognition at Innovista 2025, as a team. Off the build, I reverse-mentor Tata Steel's Chief People Officer under the Reverse Mentoring 2.0 programme, working through AI with her in the context of real people decisions.",
+    highlight: {
+      label: "What I learned mentoring someone two decades senior to me",
+      href: "/blog/reverse-mentoring-a-cpo",
+    },
     carried: "governance for a fleet of 300+ agents",
     x: 900,
     y: 26,
@@ -186,6 +190,15 @@ export function Basecamp() {
         </div>
         <p className="mt-1 text-[0.9375rem] text-[var(--color-muted)]">{sel.org}</p>
         <p className="mt-4 text-[1.0625rem] leading-relaxed">{sel.story}</p>
+        {"highlight" in sel && sel.highlight && (
+          <Link
+            href={sel.highlight.href}
+            className="mt-4 inline-flex min-h-11 items-center gap-2 border border-[var(--color-signal)] px-3.5 text-sm text-[var(--color-signal)] transition-opacity hover:opacity-80"
+          >
+            <span className="font-[family-name:var(--font-mono)] text-xs">camp highlight</span>
+            {sel.highlight.label} →
+          </Link>
+        )}
         <p className="mt-3 font-[family-name:var(--font-mono)] text-[0.8125rem] text-[var(--color-muted)]">
           packed for the next climb:{" "}
           <span className="text-[var(--color-fg)]">{sel.carried}</span>

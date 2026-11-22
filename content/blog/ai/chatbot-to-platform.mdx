@@ -1,0 +1,62 @@
+---
+title: "From chatbot to AI platform: what TDA had to become"
+description: "Tata Steel's digital assistant started as a chat window. Being useful to 76,000+ people took grounding, approvals, cost control and a dozen places to meet people where they already work."
+date: "2026-11-22"
+category: "ai"
+tags: ["enterprise-ai", "governance", "agents", "tda"]
+draft: false
+---
+
+{/* Check with Tata Steel communications before this goes on LinkedIn. */}
+
+In 2023, as an intern, I pitched an NLP chatbot to Tata Steel's senior leadership. They endorsed it. When I joined full-time, I built it, and I'm still its lead architect and developer, now with a team of five. The Tata Steel Digital Assistant, or TDA, went from concept to production in two months and has since been rolled out to more than 76,000 people across five group companies.
+
+The first version was a chat window. The version people use today is a governed, multi-agent platform in its fourth generation. Most of what changed in between had little to do with the model.
+
+Two things told me a chat window wasn't enough. Senior leaders didn't want an answer in a chat box; they wanted the finished deck or report. And I kept seeing people copy TDA's answers into Excel and PowerPoint by hand. That copying is what led to the Office add-ins.
+
+## People don't come to the AI; it has to go to them
+
+A chat window asks people to stop what they're doing and open another tab. Most don't, at least not every day. So TDA now lives where the work already happens: on the web, on Windows and macOS desktops, on Android and iPhone, inside Word, Excel, PowerPoint, Outlook and OneNote, in a browser extension, on Microsoft Teams, and by voice.
+
+Each of those surfaces changes what "an answer" means. In Excel it's an edited workbook. In Word it's a tracked change the author can accept or reject. In a meeting it's minutes, or a spoken explanation, from TDA Secy, which can join a call, take notes, speak and present.
+
+## An answer nobody can check is an answer nobody trusts
+
+Retrieval was never the hard part. Getting people to act on an answer was. TDA answers from SharePoint, OneDrive, enterprise data and a knowledge graph we call the Enterprise Intelligence Layer, and it shows its working: the sources and relationships it used, and a verdict on each claim.
+
+The difference in practice: policy discovery that used to take two business days now takes under a minute, because the person asking can see where the answer came from and doesn't need to double-check it by email.
+
+## Remembering the person, not just the conversation
+
+Knowing the company isn't enough. The same question means different things from a plant engineer in Jamshedpur and from someone writing a board paper. So TDA keeps two kinds of memory about each person: what it knows (facts they've told it, the sites and topics they keep coming back to) and what it makes of that (how they like answers structured, how they work).
+
+Both are visible. Under an answer, the person can see which memories were used and why, and forget any of them with one click. A chat can also be kept out of memory entirely. Memory that people can't inspect turns into something they don't trust.
+
+## Showing how each answer was made
+
+Every answer can open a "how this response was made" view: each step in order, which specialist agents ran in parallel, how long each part took and what it cost. It started as a debugging tool for us. It turned out to be the fastest way to explain to anyone, from a user to a CFO, why one answer took a minute and another took five seconds.
+
+The same numbers ended up driving our cost work too.
+
+## Doing things is different from saying things
+
+Once an assistant can apply for leave, raise a service ticket or edit a shared document, a wrong answer stops being embarrassing and starts being expensive. Every action TDA takes on a company system needs the user's explicit approval first, and changes made through the Office add-ins can be reverted.
+
+## Governance started as an experiment on one product
+
+None of the governance came from a framework document. I ran it as experiments on TDA first: FinOps, so every department could see what its AI use actually cost and set limits on it; threat monitoring; and monitoring of the whole TDA landscape, so we knew what was running and how it behaved.
+
+That work is now being extended to every AI product and model at Tata Steel, as the AI Governance Platform. The lesson I'd pass on: build governance into the first product that gets real usage, while it is still cheap to change, instead of designing it for a fleet you don't have yet.
+
+The experiment that paid off more than I expected was caching. Once we could see the cost of every step, it was obvious how often people asked TDA the same things. About 41% of requests turned out to be repeats we could serve from cache, which cut model cost by about 26% and made those answers several seconds faster.
+
+## What I'd tell someone starting now
+
+- Put the assistant inside the tools people already use before you build a better chat window.
+- Show sources and confidence from day one. Trust is much harder to add later.
+- Require approval for every action that changes a system, and make it easy to undo.
+- Make cost visible per team early. Usage grows faster than budgets.
+- Treat the first product's governance as the prototype for the whole company's.
+
+We still haven't fully solved teaching people to ask good questions. The tool is ahead of the habit.

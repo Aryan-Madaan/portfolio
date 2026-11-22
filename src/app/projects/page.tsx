@@ -6,14 +6,24 @@ import { Reveal } from "@/components/reveal";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Enterprise AI products built at Tata Steel, Marshal (an open-source AI governance library), and research projects from undergrad — diffusion models, StyleGAN, CNNs from scratch, time-series forecasting.",
+    "Enterprise AI products built at Tata Steel, including TDA and the governance work behind its AI Governance Platform, Marshal (an open-source AI governance library), and research projects from undergrad — diffusion models, StyleGAN, CNNs from scratch, time-series forecasting.",
 };
 
 const builtByMe = [
   {
     title: "Tata Steel Digital Assistant (TDA)",
     period: "2025 — present",
-    body: "Enterprise knowledge assistant built from zero to production in 2 months — past basic retrieval, on knowledge graphs and cross-session memory. Queries across three domains — global public data, internal enterprise systems, and proprietary user data (call recordings, spreadsheets, PDFs) — cutting policy discovery from 2 business days to under a minute. Rolled out to 76,000+ people across 5 group companies.",
+    body: "I'm the lead architect and developer, with a team of five. Built from zero to production in 2 months, then grown from a chatbot into a governed multi-agent AI platform, now in its fourth generation. Employees use it on web, desktop, mobile, inside Word, Excel, PowerPoint, Outlook and OneNote, in a browser extension, on Microsoft Teams and by voice. It answers from SharePoint, enterprise data and a knowledge graph with sources shown, handles HR and IT self-service with approval before any change, and generates decks, documents, workbooks, dashboards, images, video and podcasts. Policy discovery went from 2 business days to under a minute. Rolled out to 76,000+ people across 5 group companies in India, the UK and Southeast Asia, with each company's data kept separate.",
+  },
+  {
+    title: "TDA governance, the start of AGP",
+    period: "2025 — present",
+    body: "Built and ran the governance experiments on TDA first: FinOps with cost attribution by department and usage limits, threat monitoring, and monitoring of the whole TDA landscape. That work is now being extended to every AI product and model at Tata Steel as the AI Governance Platform (AGP): one registry for ownership, lifecycle, usage, cloud and token cost, and compliance.",
+  },
+  {
+    title: "Company Graph Studio",
+    period: "2026 — in development",
+    body: "Building it end to end: a governed way to build, review and query the company knowledge graph behind TDA's answers. People propose changes by hand or by feeding in documents and tables, and facts read from a document stay tied to the passage they came from. Every change is checked by rules, approved by named people, and recorded in a tamper-evident history. Questions are answered only from what the person asking is allowed to see, with the evidence cited.",
   },
   {
     title: "Project Management System",
@@ -26,9 +36,9 @@ const builtByMe = [
     body: "The low-code platform behind Tata Steel's agent fleet — lets non-data-scientists (developers, frontline managers) build and ship their own AI agents. Built on Google's Agent Development Kit (ADK). Agents built on it now number 300+ across the group, 9 months after launch.",
   },
   {
-    title: "Vaani",
+    title: "TDA Secy",
     period: "2026 — present",
-    body: "A Microsoft Teams voice and conversational bot extending TDA — captures minutes of meeting automatically and answers spoken queries when invoked, across HR, Finance, and Operations.",
+    body: "TDA's meeting assistant on Microsoft Teams, which replaced the earlier Vaani plan. It joins from a chat, a calendar invite or a link, keeps a live transcript by speaker, and writes minutes with decisions and action items within minutes of the call. Higher tiers also read the shared screen into the minutes and can speak in the meeting, answer from company data and present a chart or document. Audio is deleted once the minutes are written.",
   },
   {
     title: "Sarathi",
