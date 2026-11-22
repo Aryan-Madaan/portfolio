@@ -61,7 +61,7 @@ const openSourceProjects = [
   {
     title: "Marshal",
     period: "2026 — present",
-    body: "Governance for AI systems — permission-aware retrieval, tool-call approval, model routing with budgets, cross-border data-residency and retention control, and one shared audit trail across all of it. MIT-licensed.",
+    body: "An MIT-licensed Python library, now at v0.14, that decides before an AI agent acts whether a retrieval, tool call or model call is allowed, and keeps one tamper-evident audit trail across all three. It blocks the \"lethal trifecta\" (private data, untrusted content and a way to send data out in one session), pins MCP tool definitions against rug pulls, records who an agent acted for, and routes risky actions to a human approval queue. Permission filters run inside 8 vector databases including pgvector, Pinecone, Qdrant and MongoDB Atlas. It plugs into LangChain, CrewAI, Pydantic AI, Google ADK, the Claude Agent SDK and OpenAI Agents, supports shadow mode for risk-free rollout and policies written in YAML, and produces EU AI Act Article 12 and 73 reports. 485 tests.",
     github: "https://github.com/Aryan-Madaan/Marshal",
     site: "https://aryan-madaan.github.io/Marshal/",
   },
