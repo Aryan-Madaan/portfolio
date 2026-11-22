@@ -37,12 +37,15 @@ const services = [
 ];
 
 const proof = [
-  "Govern a fleet that scaled past 300 specialized AI agents in 9 months — including Safety EyeQ (computer-vision safety monitoring) and People Care Agent (HR helpdesk) — publicly verified in Tata Steel's April 2026 press release with Google Cloud.",
-  "Built an enterprise AI assistant from zero to production in 2 months, now rolled out to 76,000+ people (13,000+ daily active) across 5 Tata Group companies.",
-  "Integrated 150+ enterprise data sources — 100+ databases and 50,000+ documents — into a single retrieval layer.",
-  "Manage the same platform across UK, Thailand, and Singapore entities — including cross-border data transfer and data-privacy compliance across jurisdictions, not just the India build.",
-  "Helping shape how the organization governs its models and LLMs directly — which get approved, how they're monitored, and when they're retired.",
-  "Delivered enterprise-grade security — role-based access control (RBAC), encryption, and VAPT (independent penetration testing) clearance — at 99% uptime.",
+  "Lead architect and developer of an enterprise AI assistant built from zero to production in 2 months, now rolled out to 76,000+ people (13,000+ daily active) across 5 Tata Group companies, with a team of 5.",
+  "Govern a fleet that scaled past 300 specialized AI agents in 9 months, including Safety EyeQ (computer-vision safety monitoring) and People Care Agent (HR helpdesk), publicly verified in Tata Steel's April 2026 press release with Google Cloud.",
+  "Built the governance proofs of concept (FinOps, threat monitoring, landscape monitoring) that grew into Tata Steel's AI Governance Platform for every AI product and model. Caching alone cut model cost by 26%.",
+  "Integrated 150+ enterprise data sources (100+ databases and 50,000+ documents) into a single retrieval layer that cites a source and verdict for every claim.",
+  "Launched AI dashboards built from plain-language requests, built to replace paid BI licences for everyday reporting and cutting dashboard creation from months to minutes.",
+  "Manage the same platform across UK, Thailand, and Singapore entities, including cross-border data transfer and data-privacy compliance across jurisdictions, not just the India build.",
+  "Reverse mentor to Tata Steel's Chief People Officer, shaping enterprise GenAI strategy with initiatives presented to senior leadership and the Managing Director.",
+  "Delivered enterprise-grade security (role-based access control, encryption and VAPT penetration-test clearance) at 99% uptime.",
+  "Author of Marshal, an open-source AI governance library (now v0.14) covering agent permissions, the lethal-trifecta gate, human approval queues and EU AI Act reporting.",
   "Two peer-reviewed ML publications in indexed international journals.",
 ];
 
