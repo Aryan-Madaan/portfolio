@@ -77,7 +77,7 @@ const camps = [
 const climbs: { name: string; href?: string }[] = [
   { name: "Chandrashila · 13,000+ ft", href: "/blog/chopta-chandrashila" },
   { name: "Kedarkantha · Maggi at 12,500 ft", href: "/blog/kedarkantha" },
-  { name: "Dayara Bugyal" },
+  { name: "Dayara Bugyal", href: "/blog/dayara-bugyal" },
   { name: "Brahmatal" },
   { name: "Kasol Kheerganga" },
   { name: "Meghalaya · caves, not peaks", href: "/blog/meghalaya" },
