@@ -16,12 +16,12 @@ const pillars = [
   {
     tag: "01",
     title: "Retrieval, knowledge graphs & agentic systems",
-    body: "Past basic RAG — knowledge catalogs, graph-based retrieval (GraphRAG), and persistent memory across sessions, wired into multi-agent orchestration that holds up past a demo, at organization scale.",
+    body: "Past basic RAG: knowledge catalogs, graph-based retrieval (GraphRAG), and persistent memory across sessions, wired into multi-agent orchestration that holds up past a demo, at organization scale.",
   },
   {
     tag: "02",
     title: "Governance, security & Responsible AI",
-    body: "Access control, audit trails, and escalation paths on one side; red-teaming against prompt injection and data leakage on the other — plus the cross-border compliance work of running one platform across four countries.",
+    body: "Access control, audit trails, and escalation paths on one side; red-teaming against prompt injection and data leakage on the other, plus the cross-border compliance work of running one platform across four countries.",
   },
   {
     tag: "03",
@@ -31,7 +31,7 @@ const pillars = [
   {
     tag: "04",
     title: "Executive-facing AI products",
-    body: "Turning a model into something a CXO will make a real decision from — voice interfaces, reporting pipelines, and getting people to actually change how they work.",
+    body: "Turning a model into something a CXO will make a real decision from: voice interfaces, reporting pipelines, and getting people to actually change how they work.",
   },
 ];
 
@@ -42,18 +42,23 @@ export default function Home() {
         <Container>
           <div className="flex flex-wrap items-start gap-12 lg:gap-14">
             <Reveal className="min-w-0 flex-[999_1_30rem]">
-              <div className="mb-6 flex items-center gap-3">
+              <div className="mb-8 flex items-center gap-4">
                 <Image
                   src="/images/aryan-madaan.jpg"
                   alt="Portrait of Aryan Madaan"
-                  width={112}
-                  height={112}
+                  width={144}
+                  height={144}
                   priority
-                  className="h-14 w-14 object-cover object-top"
+                  className="h-[4.5rem] w-[4.5rem] object-cover object-top"
                 />
-                <p className="eyebrow">
-                  Aryan Madaan · enterprise AI, governance &amp; security
-                </p>
+                <div>
+                  <p className="font-[family-name:var(--font-display)] text-2xl font-semibold leading-tight tracking-[-0.01em]">
+                    Aryan Madaan
+                  </p>
+                  <p className="mt-1 font-[family-name:var(--font-mono)] text-sm text-[var(--color-muted)]">
+                    Enterprise AI architect &amp; AI governance lead
+                  </p>
+                </div>
               </div>
               <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-5xl lg:text-[3.5rem]">
                 Every AI decision should have an answer to{" "}
@@ -62,16 +67,15 @@ export default function Home() {
                 </span>
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--color-muted)] sm:text-lg">
-                At Tata Steel, I partner directly with the C-suite on
-                enterprise GenAI strategy, and I&apos;ve shipped that
-                strategy myself: an assistant built zero-to-production in
-                two months, now at 76,000+ people (13,000+ daily active)
-                across five group companies. My governance remit covers
-                what doesn&apos;t show up in a demo — access control, audit
-                trails, and cross-border data-privacy compliance across
-                India, the UK, Thailand, and Singapore — plus the
-                partnerships that keep 860+ production AI models running
-                safely at that scale.
+                I build enterprise AI that large organisations trust enough
+                to use, and the governance that keeps it safe. At Tata Steel
+                I&apos;m the lead architect of TDA, built from zero to
+                production in two months and now rolled out to 76,000+
+                people (13,000+ daily) across five group companies. My
+                governance remit covers what a demo never shows: access
+                control, audit trails and cross-border data compliance
+                across India, the UK, Thailand and Singapore, in a company
+                that runs 860+ AI models in production.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-3">

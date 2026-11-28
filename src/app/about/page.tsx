@@ -1,131 +1,252 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { BookOpen, Code, Mountain, Waves } from "lucide-react";
 import { Container } from "@/components/container";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Chemical engineer turned enterprise AI architect. Published ML researcher, builder of enterprise AI systems, occasional trekker.",
+    "Chemical engineer who ended up building enterprise AI. Lead architect of TDA at Tata Steel, published ML researcher, reverse mentor, trekker.",
 };
+
+const facts = [
+  { label: "Now", value: "Lead architect of TDA", note: "Tata Steel" },
+  { label: "Leading", value: "A team of 6", note: "AI discovery and governance" },
+  { label: "Puzzles", value: "Placed 3rd", note: "cryptic puzzle-solving competition, BITS Pilani" },
+  { label: "Treks", value: "5 Himalayan treks", note: "and counting" },
+  { label: "Studied", value: "BITS Pilani", note: "Chemical Engineering, Data Science minor" },
+  { label: "Published", value: "2 ML papers", note: "peer-reviewed journals" },
+];
+
+const route = [
+  { year: "2020", title: "BITS Pilani", detail: "Chemical Engineering with a Data Science minor. Two ML research papers came out of it." },
+  { year: "2022", title: "MASTH Life", detail: "Eight months building two mental-health apps. Largest contributor to the codebase." },
+  { year: "2023", title: "Tata Steel, IT intern", detail: "Pitched an NLP chatbot to senior leadership. They said yes. It became TDA." },
+  { year: "2024", title: "Indus Insights", detail: "BITS Practice School placement. Automated reporting for a US lender; asked to stay on." },
+  { year: "2024", title: "Tata Steel, Management Trainee", detail: "Rotated across the whole stack, from React to SAP." },
+  { year: "2025", title: "Manager, AI", detail: "An AI development platform for 700+ developers." },
+  { year: "Now", title: "Manager, AI Discovery and Governance", detail: "Lead architect of TDA, governance for 300+ agents, reverse mentor to the CPO." },
+];
+
+const treks: { name: string; href?: string }[] = [
+  { name: "Chandrashila", href: "/blog/chopta-chandrashila" },
+  { name: "Kedarkantha", href: "/blog/kedarkantha" },
+  { name: "Dayara Bugyal", href: "/blog/dayara-bugyal" },
+  { name: "Brahmatal" },
+  { name: "Kasol Kheerganga" },
+];
+
+const topics = [
+  "Governing AI agents",
+  "Knowledge graphs",
+  "Enterprise AI adoption",
+  "Reverse mentoring",
+  "Himalayan treks",
+  "Logic puzzles",
+];
+
+const linkClass =
+  "text-[var(--color-signal)] underline underline-offset-4 hover:opacity-80";
 
 export default function AboutPage() {
   return (
-    <Container className="max-w-3xl py-16 sm:py-24">
-      <p className="eyebrow mb-4">About</p>
-      <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold sm:text-4xl">
-        Chemical engineer who ended up building enterprise AI.
-      </h1>
+    <>
+      <section className="border-b border-[var(--color-line)] py-16 sm:py-20">
+        <Container className="max-w-5xl">
+          <div className="flex flex-wrap items-center gap-8">
+            <Image
+              src="/images/aryan-madaan.jpg"
+              alt="Portrait of Aryan Madaan"
+              width={320}
+              height={320}
+              priority
+              className="h-36 w-36 shrink-0 object-cover object-top sm:h-44 sm:w-44"
+            />
+            <div className="min-w-0 flex-[1_1_20rem]">
+              <p className="eyebrow">About · Aryan Madaan</p>
+              <h1 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold leading-tight tracking-[-0.02em] sm:text-5xl">
+                Chemical engineer who ended up building enterprise AI.
+              </h1>
+              <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+                Enterprise AI architect and AI governance lead. I build
+                enterprise AI that large organisations trust enough to use,
+                and the governance that keeps it safe.
+              </p>
+            </div>
+          </div>
 
-      <div className="prose-schematic mt-10">
-        <p>
-          I studied Chemical Engineering with a minor in Data Science at
-          BITS Pilani, where most of what I do now is still process design:
-          mapping how information actually flows through an organization,
-          finding where it bottlenecks, and building the system that fixes
-          it. I just do it with retrieval pipelines and agents instead of
-          reactors.
-        </p>
-        <p>
-          Two{" "}
+          <dl className="mt-12 grid grid-cols-2 gap-px border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-3">
+            {facts.map((f) => (
+              <div key={f.label} className="flex flex-col-reverse bg-[var(--color-bg)] p-5">
+                <dd>
+                  <span className="block text-lg font-semibold leading-snug">{f.value}</span>
+                  <span className="mt-1 block text-sm text-[var(--color-muted)]">{f.note}</span>
+                </dd>
+                <dt className="mb-2 font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.08em] text-[var(--color-signal)]">
+                  {f.label}
+                </dt>
+              </div>
+            ))}
+          </dl>
+        </Container>
+      </section>
+
+      <section className="border-b border-[var(--color-line)] py-16">
+        <Container className="max-w-5xl">
+          <div className="flex flex-wrap items-baseline justify-between gap-4">
+            <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold sm:text-3xl">
+              The route here
+            </h2>
+            <Link href="/experience" className={`text-sm ${linkClass}`}>
+              Climb the full route →
+            </Link>
+          </div>
+          <ol className="mt-10 border-l-2 border-[var(--color-line)]">
+            {route.map((r, i) => (
+              <li key={r.title} className="relative pb-8 pl-8 last:pb-0">
+                <span
+                  aria-hidden="true"
+                  className={`absolute -left-[7px] top-1.5 h-3 w-3 rounded-full border-2 ${
+                    i === route.length - 1
+                      ? "border-[var(--color-signal)] bg-[var(--color-signal)]"
+                      : "border-[var(--color-muted)] bg-[var(--color-bg)]"
+                  }`}
+                />
+                <p className="font-[family-name:var(--font-mono)] text-[0.8125rem] text-[var(--color-signal)]">
+                  {r.year}
+                </p>
+                <p className="mt-1 text-lg font-semibold">{r.title}</p>
+                <p className="mt-1 max-w-2xl leading-relaxed text-[var(--color-muted)]">
+                  {r.detail}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
+
+      <section className="border-b border-[var(--color-line)] py-16">
+        <Container className="max-w-3xl">
+          <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold sm:text-3xl">
+            What I believe
+          </h2>
+          <blockquote className="mt-8 border-l-2 border-[var(--color-signal)] pl-6 font-[family-name:var(--font-display)] text-2xl font-semibold leading-snug sm:text-3xl">
+            Systems don&apos;t fail from bad models. They fail from bad trust.
+          </blockquote>
+          <div className="mt-8 space-y-4 text-lg leading-relaxed text-[var(--color-muted)]">
+            <p>
+              Chemical engineering taught me process design: map how
+              something flows, find where it bottlenecks, fix the system. I
+              still do that, with knowledge and agents instead of reactors.
+            </p>
+            <p>
+              My{" "}
+              <Link href="/publications" className={linkClass}>
+                two research papers
+              </Link>{" "}
+              taught me that a model is only as useful as the trust an expert
+              will place in it. That became the thread through everything
+              since.
+            </p>
+            <p>
+              Reverse mentoring Tata Steel&apos;s Chief People Officer taught
+              me that explaining AI well is its own skill. The full argument
+              is on the{" "}
+              <Link href="/advisory" className={linkClass}>
+                advisory page
+              </Link>
+              .
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-b border-[var(--color-line)] py-16">
+        <Container className="max-w-5xl">
+          <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold sm:text-3xl">
+            Off the clock
+          </h2>
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="border border-[var(--color-line)] p-6 sm:col-span-2">
+              <Mountain aria-hidden="true" className="h-6 w-6 text-[var(--color-signal)]" />
+              <p className="mt-3 text-lg font-semibold">Treks</p>
+              <p className="mt-1 text-[var(--color-muted)]">
+                The one place where output and performance are irrelevant.
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {treks.map((t) => (
+                  <li key={t.name}>
+                    {t.href ? (
+                      <Link
+                        href={t.href}
+                        className="inline-flex min-h-11 items-center border border-[var(--color-line)] px-3.5 text-sm transition-colors hover:border-[var(--color-signal)] hover:text-[var(--color-signal)]"
+                      >
+                        {t.name} →
+                      </Link>
+                    ) : (
+                      <span className="inline-flex min-h-11 items-center border border-[var(--color-line)] px-3.5 text-sm text-[var(--color-muted)]">
+                        {t.name}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="border border-[var(--color-line)] p-6">
+              <BookOpen aria-hidden="true" className="h-6 w-6 text-[var(--color-signal)]" />
+              <p className="mt-3 text-lg font-semibold">Reading</p>
+              <p className="mt-1 text-[var(--color-muted)]">
+                Fiction, strategy and mental models, more for the frameworks
+                than for finishing.
+              </p>
+            </div>
+            <div className="border border-[var(--color-line)] p-6">
+              <Waves aria-hidden="true" className="h-6 w-6 text-[var(--color-signal)]" />
+              <p className="mt-3 text-lg font-semibold">Swimming and badminton</p>
+              <p className="mt-1 text-[var(--color-muted)]">To stay sane in between.</p>
+            </div>
+            <div className="border border-[var(--color-line)] p-6 sm:col-span-2">
+              <Code aria-hidden="true" className="h-6 w-6 text-[var(--color-signal)]" />
+              <p className="mt-3 text-lg font-semibold">Puzzles and competitive programming</p>
+              <p className="mt-1 text-[var(--color-muted)]">
+                I placed 3rd in a cryptic puzzle-solving competition at BITS
+                Pilani, and from 2021 to 2023 competed on Codeforces and
+                CodeChef, including SnackDown 2021 and APOGEE&apos;s
+                International Coding League 2023. The habit lives on in the{" "}
+                <Link href="/puzzles" className={linkClass}>
+                  puzzles section
+                </Link>
+                .
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16">
+        <Container className="max-w-3xl text-center">
+          <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold sm:text-3xl">
+            Ask me about
+          </h2>
+          <ul className="mt-6 flex flex-wrap justify-center gap-2">
+            {topics.map((t) => (
+              <li
+                key={t}
+                className="border border-[var(--color-line)] px-3.5 py-2 text-sm"
+              >
+                {t}
+              </li>
+            ))}
+          </ul>
           <Link
-            href="/publications"
-            className="text-[var(--color-signal)] underline underline-offset-4"
+            href="/contact"
+            className="mt-8 inline-flex min-h-11 items-center bg-[var(--color-signal)] px-5 text-sm font-semibold text-[var(--color-signal-contrast)] transition-opacity hover:opacity-90"
           >
-            research papers
-          </Link>{" "}
-          came out of undergrad, both on applying machine learning to
-          industrial chemical processes — predicting fuel cell performance
-          and catalyst deactivation. That work taught me that a model is
-          only as useful as the trust an expert is willing to place in its
-          output, which turned out to be the through-line of everything
-          I&apos;ve built since.
-        </p>
-        <p>
-          I currently lead AI Discovery and Governance work at Tata Steel —
-          part of the Tata Group, one of India&apos;s largest industrial
-          conglomerates — where I built an enterprise AI assistant from zero
-          to production in two months. It has since rolled out to 76,000+
-          people, with 13,000+ using it daily across five group companies,
-          integrated with 150+ internal data sources. The interesting part
-          was never the model. It was designing the access control, audit
-          trails, and escalation paths that made people willing to act on
-          what it told them. I also launched{" "}
-          <Link
-            href="/projects"
-            className="text-[var(--color-signal)] underline underline-offset-4"
-          >
-            Zen AI
+            Get in touch
           </Link>
-          , the low-code platform behind the group&apos;s now-300+-agent
-          fleet, and that work won Apex Recognition at Tata Steel&apos;s
-          Innovista 2025.
-        </p>
-        <p>
-          Tata Steel runs 860+ AI models in production and partners
-          directly with Google Cloud on agentic AI at a scale{" "}
-          <a
-            href="https://www.tatasteel.com/newsroom/press-releases/india/2026/tata-steel-partners-with-google-cloud-to-deploy-a-unified-agentic-ai-across-its-global-value-chain/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[var(--color-signal)] underline underline-offset-4"
-          >
-            Google Cloud publicly called
-          </a>{" "}
-          &ldquo;few in the industry have achieved.&rdquo; That environment
-          — heavy industry, real operational constraints, no tolerance for
-          a model that&apos;s wrong at the wrong moment — is precisely what
-          shaped how I think about shipping AI that has to actually work.
-        </p>
-        <p>
-          That scope has since grown past India to the UK, Thailand, and
-          Singapore entities, which pulled me into cross-border data
-          transfer and data-privacy compliance work alongside the
-          engineering — plus weekly syncs with Microsoft, Google, and AWS,
-          and end-to-end deployment work down to server and network
-          configuration, not just the application layer. That work
-          shaped how I think about{" "}
-          <Link
-            href="/advisory"
-            className="text-[var(--color-signal)] underline underline-offset-4"
-          >
-            AI governance
-          </Link>{" "}
-          as much as any research paper did.
-        </p>
-        <p>
-          I also serve as a reverse mentor to Tata Steel&apos;s Chief People
-          Officer under the company&apos;s Reverse Mentoring 2.0 program —
-          she&apos;s written about the program publicly in{" "}
-          <a
-            href="https://www.forbesindia.com/article/upfront/column/forging-the-future/2988540/1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[var(--color-signal)] underline underline-offset-4"
-          >
-            Forbes India
-          </a>
-          . It&apos;s taught me that simplifying complexity for different
-          audiences is its own skill, separate from getting the technical
-          answer right.
-        </p>
-        <p>
-          Before that: an internship analyzing large-scale financial
-          datasets for a US lender, an IT internship at Tata Steel building
-          the analytics case for an internal chatbot, and two years building
-          app infrastructure for a mental health startup — MASTH Life —
-          where I learned that the most meaningful technology usually
-          isn&apos;t the most complex.
-        </p>
-        <h2>Outside of work</h2>
-        <p>
-          I trek — Brahmatal, Chopta Chandrashila Tungnath, Kedarkanta,
-          Kasol Kheerganga, Dayara Bugyal so far — mostly because it&apos;s the only place
-          where output and performance are irrelevant. I read across
-          fiction, strategy, and mental models more for the frameworks than
-          for completion, and I swim and play badminton to stay sane in
-          between.
-        </p>
-      </div>
-    </Container>
+        </Container>
+      </section>
+    </>
   );
 }

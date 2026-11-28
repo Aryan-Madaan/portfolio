@@ -1,0 +1,56 @@
+---
+title: "It was never about the agents"
+description: "We hit a ceiling on how many agents our enterprise assistant could handle, tried to fix it as an agent problem, and it didn't work. The fix turned out to be the harness, and the people using it."
+date: "2026-11-28"
+category: "ai"
+tags: ["case-study", "agents", "harness", "enterprise-ai"]
+draft: false
+---
+
+{/* REVIEW BEFORE PUBLISHING: written to avoid employer-confidential detail (no internal limits, metrics, costs, incidents or named individuals). Still check with Tata Steel communications before it goes here or on LinkedIn. */}
+
+This is the story of a design decision that didn't work while building TDA, the enterprise AI assistant I lead at Tata Steel, and what it taught me. It's told from my own point of view, as the lead architect.
+
+## The constraint
+
+TDA answers questions by handing them to specialist agents: one for HR policy, one for procurement, one for finance data, and so on. As more teams wanted their own, we ran into a ceiling on how many specialist agents the original design could handle well. Demand kept growing past it.
+
+So the question looked obvious: how do we get more agents into TDA?
+
+## The decision
+
+We treated it as a search problem. Instead of letting TDA consider every agent for every question, we built a tree-based search that routed each question down a narrower branch first. Fewer agents to choose from at each step meant the ceiling stopped mattering, at least on paper.
+
+## What broke
+
+It didn't work. People found TDA less useful, and it showed in how they used it.
+
+Narrowing the space TDA could answer from made it worse at the thing people relied on it for. We had solved the problem we could count, how many agents we could route between, and made the experience worse for the people asking questions.
+
+## What I learned
+
+It was never about the agents. It was the harness: everything around the model and the agents that decides whether a person actually gets what they need.
+
+Three things mattered more than agent count:
+
+- **Letting TDA ask follow-up questions.** A vague question routed to the wrong place gives a confident wrong answer. A short clarifying question gets the right one.
+- **Customisation.** People wanted to shape TDA to their own work, with their own skills, prompts and context, rather than take one answer for everyone.
+- **Dashboards and outputs people could use.** An answer in a chat box wasn't the end of the job. A live dashboard, a deck or an edited spreadsheet was.
+
+The fourth lesson was the least technical. We had to listen to users properly, not just read the usage graphs, and that changed what we built next.
+
+## What changed
+
+We rebuilt TDA as a governed multi-agent platform, with the harness at the centre instead of the agent count.
+
+It was a rebuild, not a refactor, and that was a deliberate call. The old foundations couldn't give people the reliability they needed, like not losing work when a connection dropped, or give us the speed of shipping we wanted, and the framework underneath was changing anyway.
+
+In our own testing on real questions, the new version completed roughly 10% more of them, answered about a quarter faster, needed close to 90% fewer agent calls per question, and won about two-thirds of side-by-side comparisons. The drop in agent calls is the part I come back to. We got better results by calling agents far less, which is the opposite of where we started.
+
+## What I'd tell someone hitting the same wall
+
+- When a metric you can count starts to bind, check whether it's the metric your users care about before you optimise it.
+- Put the effort into the harness first: follow-up questions, customisation and outputs people can act on.
+- Talk to the people using it. The usage graph told us something had gone wrong. Only users told us why.
+
+I wrote earlier that [the harness matters more than the model](/blog/agent-harness-design). TDA is where I learned it the hard way.

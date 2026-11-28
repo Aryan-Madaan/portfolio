@@ -25,7 +25,7 @@ export default async function ContactPage({
       </h1>
       <p className="mt-4 text-[var(--color-muted)]">
         Whether it&apos;s a role, an advisory conversation, or something
-        else — this form reaches me directly. Prefer a public profile
+        else, this form reaches me directly. Prefer a public profile
         instead?{" "}
         <a
           href={siteConfig.links.linkedin}

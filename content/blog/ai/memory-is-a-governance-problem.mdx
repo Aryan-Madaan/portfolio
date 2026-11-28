@@ -1,0 +1,59 @@
+---
+title: "An assistant's memory is a governance problem"
+description: "Personal memory makes an AI assistant useful. Letting it learn from teams makes it far more useful, and far more dangerous. Here's how I'm designing that line for TDA's memory."
+date: "2026-11-28"
+category: "ai"
+tags: ["memory", "governance", "knowledge-graphs", "enterprise-ai", "tda"]
+draft: false
+---
+
+{/* REVIEW BEFORE PUBLISHING: check with Tata Steel communications before LinkedIn. Do not use the internal name for TDA's memory layer. */}
+
+Most enterprise assistants remember you in the simplest way possible: your chat history, plus a summary of it, pulled back in when you ask something new. That's how TDA's memory layer, which I designed, works today. It's personal, it's fast, and because each person owns their own memory, it's easy to keep compliant.
+
+It also leaves a lot on the table.
+
+## What simple memory misses
+
+Retrieval by similarity finds things that sound like your question. It misses things that are *connected* to it: the project behind a document, the decision behind a policy, the person who owns the answer.
+
+And it learns nothing as an organisation. If a hundred people in procurement have worked out the right way to ask about a vendor process, the hundred-and-first starts from zero.
+
+## Where research is pointing
+
+Two recent papers shaped how I think about the next step.
+
+[SAGE (arXiv:2605.12061)](https://arxiv.org/abs/2605.12061) turns interaction history into a graph of entities and relationships, and retrieves by association across that graph rather than by text similarity alone. [MemRec (arXiv:2601.08816)](https://arxiv.org/abs/2601.08816) keeps a shared, collaborative memory that a smaller model maintains in the background, so what one user learns can help others.
+
+Both are exactly what an enterprise assistant needs. Both, taken whole, would be a governance problem.
+
+## What I'd take, and what I wouldn't
+
+I'd take the graph. Turning conversations into entities, relationships and decisions makes memory reusable, and associative retrieval finds the connections people actually care about.
+
+I'd take collaborative memory, but only at the level of teams and roles, and only under control. A plant engineer benefits from what other plant engineers have learned. That doesn't mean anyone's raw conversations should flow to anyone else.
+
+What I wouldn't take, at least not yet:
+
+- **Memory that rewrites itself.** A graph that evolves on its own is a graph nobody can audit.
+- **Memory that spreads between users freely.** In a company, that's a privacy and compliance failure waiting to happen.
+
+## Every memory needs a label
+
+The rule that makes this safe is simple: nothing goes into shared memory without metadata that a policy can act on. Every item needs:
+
+- an **owner** and a **source** (which conversation or document it came from),
+- a **time** and a **confidence** score,
+- a **sensitivity** level,
+- a **retention** rule, and
+- whether a **human has approved** it for wider use.
+
+Inferred relationships get promoted only after review. Teams stay isolated by default. And any item can be deleted on request, which matters as much for data-protection law as it does for trust.
+
+## Searching outwards, not everywhere
+
+Memory should also be searched in order, and only as far as needed. Start with the person's own memory. If that's not confident enough, widen to the knowledge graph, then to team memory, and only then to enterprise search. Most questions stop at the first step, which keeps answers fast and cheap.
+
+## Why this is the same problem as everything else
+
+I've argued before that enterprise AI is two layers: what the organisation knows, and what this person is allowed to see. Memory is where those two layers meet most intimately. A good memory system makes the assistant feel like it knows you. A governed one makes sure it never tells anyone else what it knows about you.

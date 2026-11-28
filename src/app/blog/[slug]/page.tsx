@@ -82,6 +82,12 @@ export default async function BlogPostPage({
       <div className="mt-10">
         <MdxContent source={post.content} />
       </div>
+      <p className="mt-16 border-t border-[var(--color-line)] pt-6 text-sm leading-relaxed text-[var(--color-muted)]">
+        Views are my own and don&apos;t represent Tata Steel or any other
+        organisation. Company and product names are mentioned only to describe
+        my own work or public information, and belong to their owners. Nothing
+        here is professional, legal or investment advice.
+      </p>
     </Container>
   );
 }

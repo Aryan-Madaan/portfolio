@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/container";
+import { ClearPill } from "@/components/clear-pill";
 
 export const metadata: Metadata = {
   title: "AI Advisory",
   description:
-    "Advisory for organizations on enterprise AI stack strategy, knowledge-graph and agentic architecture, and AI governance — from someone who has built and shipped it at scale.",
+    "Advisory for organizations on enterprise AI stack strategy, knowledge-graph and agentic architecture, and AI governance, from someone who has built and shipped it at scale.",
 };
 
 const services = [
   {
     tag: "01",
     title: "Enterprise AI stack strategy & roadmapping",
-    body: "Where to start, what to build versus buy or extend, and what sequence actually gets adopted — not a vendor slide deck.",
+    body: "Where to start, what to build versus buy or extend, and what sequence actually gets adopted. Not a vendor slide deck.",
   },
   {
     tag: "02",
@@ -22,7 +23,7 @@ const services = [
   {
     tag: "03",
     title: "AI governance & Responsible AI frameworks",
-    body: "Access control, audit trails, escalation paths, and a framework for how the organization approves, monitors, and retires the models and LLMs it runs — the compliance posture that decides whether the business actually trusts the system.",
+    body: "Access control, audit trails, escalation paths, and a framework for how the organization approves, monitors, and retires the models and LLMs it runs: the compliance posture that decides whether the business actually trusts the system.",
   },
   {
     tag: "04",
@@ -37,30 +38,36 @@ const services = [
 ];
 
 const proof = [
-  "Lead architect and developer of an enterprise AI assistant built from zero to production in 2 months, now rolled out to 76,000+ people (13,000+ daily active) across 5 Tata Group companies, with a team of 5.",
-  "Govern a fleet that scaled past 300 specialized AI agents in 9 months, including Safety EyeQ (computer-vision safety monitoring) and People Care Agent (HR helpdesk), publicly verified in Tata Steel's April 2026 press release with Google Cloud.",
-  "Built the governance proofs of concept (FinOps, threat monitoring, landscape monitoring) that grew into Tata Steel's AI Governance Platform for every AI product and model. Caching alone cut model cost by 26%.",
-  "Integrated 150+ enterprise data sources (100+ databases and 50,000+ documents) into a single retrieval layer that cites a source and verdict for every claim.",
-  "Launched AI dashboards built from plain-language requests, built to replace paid BI licences for everyday reporting and cutting dashboard creation from months to minutes.",
-  "Manage the same platform across UK, Thailand, and Singapore entities, including cross-border data transfer and data-privacy compliance across jurisdictions, not just the India build.",
-  "Reverse mentor to Tata Steel's Chief People Officer, shaping enterprise GenAI strategy with initiatives presented to senior leadership and the Managing Director.",
-  "Delivered enterprise-grade security (role-based access control, encryption and VAPT penetration-test clearance) at 99% uptime.",
-  "Author of Marshal, an open-source AI governance library (now v0.14) covering agent permissions, the lethal-trifecta gate, human approval queues and EU AI Act reporting.",
-  "Two peer-reviewed ML publications in indexed international journals.",
+  {
+    problem: "\u201cOur AI pilot works, but nobody uses it.\u201d",
+    solved: "Took an assistant from concept to production in 2 months and to 76,000+ people across 5 group companies, by putting it inside the tools they already use.",
+  },
+  {
+    problem: "\u201cWe have dozens of agents and no idea who governs them.\u201d",
+    solved: "Govern a fleet of 300+ agents under one model, publicly cited in Tata Steel's April 2026 press release with Google Cloud.",
+  },
+  {
+    problem: "\u201cOur AI spend is growing faster than anyone can explain.\u201d",
+    solved: "Built cost attribution by department, usage limits and caching that cut model cost by about a quarter, now the basis of Tata Steel's AI Governance Platform.",
+  },
+  {
+    problem: "\u201cWe operate in several countries and legal won't sign off.\u201d",
+    solved: "Run the same platform across India, the UK, Thailand and Singapore, including cross-border data transfer and privacy compliance.",
+  },
+  {
+    problem: "\u201cSecurity says agents are too risky to deploy.\u201d",
+    solved: "Shipped with role-based access, encryption and independent penetration-test clearance at 99% uptime, and wrote Marshal, an open-source governance library for exactly this.",
+  },
 ];
 
 export default function AdvisoryPage() {
   return (
     <>
       <section className="border-b border-[var(--color-line)] py-16 sm:py-24">
-        <Container className="max-w-3xl">
+        <Container>
           <p className="eyebrow mb-4">AI Advisory</p>
-          <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold leading-tight sm:text-4xl">
-            Enterprise Intelligence: why most &ldquo;enterprise AI&rdquo;
-            isn&apos;t, and what actually makes organizations trust it.
-          </h1>
-
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <ClearPill headingLevel="h1" />
+          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
             <Link
               href="/contact?reason=advisory"
               className="border border-[var(--color-fg)] bg-[var(--color-fg)] px-5 py-2.5 text-sm font-medium text-[var(--color-bg)] transition-all hover:-translate-y-0.5 hover:border-[var(--color-signal)] hover:bg-[var(--color-signal)]"
@@ -75,14 +82,24 @@ export default function AdvisoryPage() {
             </Link>
           </div>
 
-          <div className="prose-schematic mt-10">
+        </Container>
+      </section>
+
+      <section className="border-b border-[var(--color-line)] py-16 sm:py-24">
+        <Container className="max-w-3xl">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold leading-tight sm:text-4xl">
+            Enterprise Intelligence: why most &ldquo;enterprise AI&rdquo;
+            isn&apos;t, and what actually makes organizations trust it.
+          </h2>
+
+          <div className="prose-schematic mt-8">
             <p>
               Most enterprise AI today is a chatbot bolted onto a
-              department — a Q&amp;A widget on top of a SharePoint.
+              department, a Q&amp;A widget on top of a SharePoint.
               <strong> Enterprise Intelligence</strong> is a different claim:
-              that an organization&apos;s collective knowledge — its data,
+              that an organization&apos;s collective knowledge (its data,
               documents, policies, past decisions, and the judgment calls its
-              most experienced people make that never get written down —
+              most experienced people make that never get written down)
               should be queryable and actionable in real time, instead of
               sitting locked in silos, PDFs, and the heads of people who
               might leave next quarter.
@@ -96,14 +113,14 @@ export default function AdvisoryPage() {
             <p>
               <strong>Slow decisions lose money.</strong> When policy
               discovery or executive reporting takes days, decisions get
-              made on stale information — or delayed until the window is
+              made on stale information, or delayed until the window is
               gone.
             </p>
             <p>
               <strong>Knowledge doesn&apos;t scale with headcount.</strong>{" "}
               As organizations grow, institutional knowledge fragments
               across systems and people faster than any wiki can keep up.
-              New hires — and veterans — re-solve problems nobody can
+              New hires and veterans alike re-solve problems nobody can
               surface the answer to.
             </p>
             <p>
@@ -115,7 +132,7 @@ export default function AdvisoryPage() {
             <p>
               <strong>Governance requires traceability.</strong> Ad hoc
               knowledge work can&apos;t be audited. A real architecture for
-              this — retrieval plus access control plus audit trails — makes
+              this, retrieval plus access control plus audit trails, makes
               institutional decision-making explainable after the fact,
               which matters more once AI is part of the decision chain, not
               just a lookup tool.
@@ -123,8 +140,8 @@ export default function AdvisoryPage() {
             <p>
               <strong>The real bottleneck is trust, not retrieval.</strong>{" "}
               Anyone can wire an LLM to a vector database this year. The
-              harder problem — the one that actually determines adoption —
-              is the governance layer around it: who can see what, what
+              harder problem, and the one that decides adoption, is the
+              governance layer around it: who can see what, what
               happens when it doesn&apos;t know, and who it escalates to
               when it&apos;s unsure. That is a distinct discipline, not a
               side effect of picking a model vendor.
@@ -201,7 +218,7 @@ export default function AdvisoryPage() {
             <p>
               I&apos;d rather understate this than oversell it: the
               technical build is genuinely the easier half. What I actually
-              spend my time on is the second half — governance, adoption,
+              spend my time on is the second half: governance, adoption,
               and the trust layer that determines whether any of it gets
               used. That&apos;s why 300+ agents run under one governance
               model instead of 300 one-off builds.
@@ -233,12 +250,12 @@ export default function AdvisoryPage() {
 
       <section className="border-b border-[var(--color-line)] py-16">
         <Container className="max-w-3xl">
-          <p className="eyebrow mb-6">Track record</p>
-          <ul className="space-y-3">
+          <p className="eyebrow mb-6">Problems I&apos;ve already solved</p>
+          <ul className="space-y-6">
             {proof.map((p) => (
-              <li key={p} className="flex gap-3 text-sm leading-relaxed text-[var(--color-muted)]">
-                <span className="mt-2 h-1 w-1 shrink-0 bg-[var(--color-signal)]" />
-                <span>{p}</span>
+              <li key={p.problem} className="border-l-2 border-[var(--color-signal)] pl-5">
+                <p className="font-[family-name:var(--font-display)] text-lg font-semibold">{p.problem}</p>
+                <p className="mt-1.5 leading-relaxed text-[var(--color-muted)]">{p.solved}</p>
               </li>
             ))}
           </ul>
@@ -270,7 +287,7 @@ export default function AdvisoryPage() {
             Have an AI stack decision on the table?
           </h2>
           <p className="mt-3 text-[var(--color-muted)]">
-            Tell me what you&apos;re trying to build or fix — I&apos;ll tell
+            Tell me what you&apos;re trying to build or fix, and I&apos;ll tell
             you honestly whether it&apos;s worth a conversation. 15 minutes,
             no deck required.
           </p>

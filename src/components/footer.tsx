@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="mt-auto border-t border-[var(--color-line)]">
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-10 text-sm text-[var(--color-muted)] sm:flex-row sm:items-center sm:justify-between">
         <p>
-          &copy; {year} Aryan Madaan. Built from scratch, no CMS, no database.
+          &copy; {year} Aryan Madaan. Views are my own, not my employer&apos;s.
         </p>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
           <a

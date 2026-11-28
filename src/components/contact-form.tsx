@@ -97,7 +97,7 @@ export function ContactForm({ defaultReason = "opportunity" }: { defaultReason?:
           Message sent.
         </p>
         <p className="mt-2 text-sm text-[var(--color-muted)]">
-          I read every message myself — I&apos;ll get back to you directly.
+          I read every message myself and I&apos;ll get back to you directly.
         </p>
       </div>
     );
@@ -215,8 +215,8 @@ export function ContactForm({ defaultReason = "opportunity" }: { defaultReason?:
             </p>
             {turnstileStatus === "blocked" && (
               <p role="status" className="mt-2 text-xs text-[var(--color-signal)]">
-                The verification widget above doesn&apos;t seem to be loading —
-                this is common with Brave Shields or a strict ad-blocker. Try
+                The verification widget above doesn&apos;t seem to be loading.
+                This is common with Brave Shields or a strict ad-blocker. Try
                 turning shields off for this site and refreshing, or email me
                 directly at{" "}
                 <a href={`mailto:${siteConfig.email}`} className="underline">

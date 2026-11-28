@@ -13,10 +13,10 @@ const roles = [
   {
     org: "Tata Steel Limited",
     title: "Manager, AI Discovery and Governance",
-    period: "Nov 2025 — Present",
+    period: "Nov 2025 to present",
     bullets: [
-      "Lead architect and developer of the Tata Steel Digital Assistant (TDA), leading a team of 5. Built it from concept to production in 2 months: 13,000+ daily active users (76,000+ rolled out to) across 5 group companies in India and the UK, ~20,000 queries/day.",
-      "Re-architected TDA from a chatbot into a governed multi-agent platform that completed 9% more benchmark queries, 23% faster, with 87% fewer agent calls per query. It now runs on web, desktop, mobile, Microsoft Teams, voice, a browser extension and add-ins inside Excel, Word, PowerPoint, Outlook and OneNote, on a 300K+ line TypeScript frontend.",
+      "Lead architect and developer of the Tata Steel Digital Assistant (TDA), leading a team of 6. Built it from concept to production in 2 months: 13,000+ daily active users (76,000+ rolled out to) across 5 group companies in India and the UK, ~20,000 queries/day.",
+      "Re-architected TDA from a chatbot into a governed multi-agent platform that completed 9% more benchmark queries, 23% faster, with 87% fewer agent calls per query. It now runs on web, desktop, native Android and iOS apps, Microsoft Teams, voice, a browser extension and add-ins inside Excel, Word, PowerPoint, Outlook and OneNote, on a 300K+ line TypeScript frontend, with 5,200+ commits across the frontend and backend.",
       "Integrated 150+ enterprise data sources (100+ databases, 50,000+ documents) behind a knowledge graph that cites a source and verdict for every claim; cut policy discovery from 2 business days to under a minute.",
       "Launched live AI dashboards built from plain-language requests, cutting dashboard creation from 2–6 months to minutes and built to replace paid BI licences for everyday reporting. Cut executive presentation work from 10–15 days to hours and ticket resolution from 2–3 days to 10 minutes.",
       "Built TDA Secy, a Teams meeting assistant that writes minutes with decisions and action items, reads the shared screen, and can speak and present in the meeting.",
@@ -32,7 +32,7 @@ const roles = [
   {
     org: "Tata Steel Limited",
     title: "Manager, AI",
-    period: "Mar 2025 — Nov 2025",
+    period: "Mar 2025 to Nov 2025",
     bullets: [
       "Delivered an AI-powered development platform used by 700+ developers (React, Flask, Google Cloud Functions, BigQuery, Bedrock), saving 10+ hours per developer per week and projecting INR 2–3 Cr a year in productivity gains.",
       "Built a pipeline converting CXO input into business and functional requirement docs (BRDs/FRDs) and deployment-ready technical documentation, cutting project start time by 85%.",
@@ -43,37 +43,39 @@ const roles = [
   {
     org: "Tata Steel Limited",
     title: "Management Trainee",
-    period: "Aug 2024 — Mar 2025",
+    period: "Aug 2024 to Mar 2025",
     bullets: [
       "Rotated across React, C#, R, Python, GCP, SAP, and the Google AI Platform, building the foundation for the AI leadership role that followed.",
     ],
   },
   {
     org: "Indus Insights and Analytical Services",
-    title: "Junior Associate",
-    period: "Jan 2024 — Jun 2024",
+    title: "Junior Associate (BITS Pilani Practice School)",
+    period: "Jan 2024 to Jun 2024",
     bullets: [
+      "Joined through BITS Pilani's Practice School programme for my final semester; Indus asked me to stay on afterwards.",
       "Reduced a mission-critical weekly reporting process from 11 hours to under 1 (91% reduction) via Python automation.",
       "Separately optimized a key finance-metric report generation script, cutting runtime from 6 hours to 4 minutes.",
       "Cut downstream reporting errors by 95% with automated quality frameworks; improved SQL pipeline speed by 73%.",
       "Analyzed large-scale datasets for a US-based lender (~$100M revenue), contributing to a 22% reduction in credit risk.",
-      "Designed and built 10 Tableau dashboards spanning 40+ key metrics for a financial-sector client, plus data-optimization work identifying and eliminating redundant tables to speed up storage and retrieval — details of the engagement itself stay under the client NDA.",
+      "Designed and built 10 Tableau dashboards spanning 40+ key metrics for a financial-sector client, plus data-optimization work identifying and eliminating redundant tables to speed up storage and retrieval. Details of the engagement stay under the client NDA.",
     ],
   },
   {
     org: "Tata Steel Limited",
     title: "IT Intern",
-    period: "May 2023 — Jul 2023",
+    period: "May 2023 to Jul 2023",
     bullets: [
       "Built 10+ interactive Tableau dashboards analyzing 10M+ data points for operational decision-making.",
-      "Proposed an NLP-based enterprise chatbot to senior leadership — endorsed, and later built at enterprise scale after joining full-time.",
+      "Proposed an NLP-based enterprise chatbot to senior leadership. It was endorsed, and I built it at enterprise scale after joining full-time.",
     ],
   },
   {
     org: "MASTH Life",
     title: "Member of Technical Staff & App Developer",
-    period: "May 2022 — Dec 2022",
+    period: "May 2022 to Dec 2022",
     bullets: [
+      "Largest contributor to the MASTH app codebase, with about 43% of the team's commits.",
       "Integrated the MASTH and MASTH Guru mental-health apps with Firebase for real-time data and authentication.",
       "Built biometric-secured notes, media streaming, and user profile systems.",
     ],
@@ -100,20 +102,20 @@ export default function ExperiencePage() {
               className="border-t border-[var(--color-line)] pt-6"
             >
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold">
+                <h3 className="font-[family-name:var(--font-display)] text-xl font-semibold">
                   {role.title}
                 </h3>
-                <span className="font-[family-name:var(--font-mono)] text-xs text-[var(--color-muted)]">
+                <span className="font-[family-name:var(--font-mono)] text-[0.8125rem] text-[var(--color-muted)]">
                   {String(i + 1).padStart(2, "0")} / {role.period}
                 </span>
               </div>
-              <p className="mt-1 text-sm text-[var(--color-signal)]">
+              <p className="mt-1 text-[0.9375rem] text-[var(--color-signal)]">
                 {role.org}
               </p>
-              <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[var(--color-muted)]">
+              <ul className="mt-4 space-y-3 text-base leading-relaxed text-[var(--color-fg)]/85">
                 {role.bullets.map((b) => (
                   <li key={b} className="flex gap-3">
-                    <span className="mt-2 h-1 w-1 shrink-0 bg-[var(--color-muted)]" />
+                    <span className="mt-[0.7rem] h-1 w-1 shrink-0 bg-[var(--color-signal)]" />
                     <span>{b}</span>
                   </li>
                 ))}

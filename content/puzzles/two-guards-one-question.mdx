@@ -9,7 +9,7 @@ source: "Classic knights-and-knaves logic puzzle, variants popularized by Raymon
 draft: false
 ---
 
-You're standing in front of two doors. One leads to freedom, the other to doom — you don't know which. Guarding the doors are two guards. One always tells the truth. The other always lies. You don't know which guard is which, either.
+You're standing in front of two doors. One leads to freedom, the other to doom: you don't know which. Guarding the doors are two guards. One always tells the truth. The other always lies. You don't know which guard is which, either.
 
 You may ask exactly **one question**, to exactly **one guard** of your choosing. Based on the answer, you must pick a door.
 
@@ -19,23 +19,23 @@ You may ask exactly **one question**, to exactly **one guard** of your choosing.
 
 Ask either guard: **"If I asked the other guard which door leads to freedom, what would they say?"**
 
-Then take the **other** door — not the one they name.
+Then take the **other** door, not the one they name.
 
 Here's why it works, checking both cases:
 
-**If you happen to ask the truth-teller:** They'll answer honestly about what the liar *would* say. The liar, asked directly which door leads to freedom, would lie and name the doom door. So the truth-teller honestly reports: "the doom door" — meaning their answer to your question points at the wrong door.
+**If you happen to ask the truth-teller:** They'll answer honestly about what the liar *would* say. The liar, asked directly which door leads to freedom, would lie and name the doom door. So the truth-teller honestly reports: "the doom door", meaning their answer to your question points at the wrong door.
 
-**If you happen to ask the liar:** They'll lie about what the truth-teller *would* say. The truth-teller, asked directly, would honestly name the freedom door. The liar, lying about that, reports the doom door instead — again, the wrong door.
+**If you happen to ask the liar:** They'll lie about what the truth-teller *would* say. The truth-teller, asked directly, would honestly name the freedom door. The liar, lying about that, reports the doom door instead: again, the wrong door.
 
 Either guard you ask, and regardless of which one is the liar, the answer you get always names the doom door. So you simply walk through the **other** one.
 
-The trick is the double negation: routing the question through "what would the other guy say" flips the liar's lie back to false a second time, collapsing both cases — honest guard reporting a dishonest answer, and dishonest guard misreporting an honest answer — into the same wrong answer. One question is enough because you've engineered the asymmetry between the guards to cancel itself out.
+The trick is the double negation: routing the question through "what would the other guy say" flips the liar's lie back to false a second time, collapsing both cases (honest guard reporting a dishonest answer, and dishonest guard misreporting an honest answer) into the same wrong answer. One question is enough because you've engineered the asymmetry between the guards to cancel itself out.
 
 | You ask... | They're reporting... | That guard's real answer | What you hear | You take |
 |---|---|---|---|---|
 | The truth-teller | what the liar would say | liar names the **doom** door (lying) | doom door | the **other** door |
 | The liar | what the truth-teller would say | truth-teller names the **freedom** door (honest) | doom door (liar flips it) | the **other** door |
 
-Both rows land on the same answer — that's not a coincidence, it's the whole mechanism.
+Both rows land on the same answer: that's not a coincidence, it's the whole mechanism.
 
 </Spoiler>
