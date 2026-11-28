@@ -31,13 +31,14 @@ Narrowing the space TDA could answer from made it worse at the thing people reli
 
 It was never about the agents. It was the harness: everything around the model and the agents that decides whether a person actually gets what they need.
 
-Three things mattered more than agent count:
+Four things mattered more than agent count:
 
 - **Letting TDA ask follow-up questions.** A vague question routed to the wrong place gives a confident wrong answer. A short clarifying question gets the right one.
 - **Customisation.** People wanted to shape TDA to their own work, with their own skills, prompts and context, rather than take one answer for everyone.
 - **Dashboards and outputs people could use.** An answer in a chat box wasn't the end of the job. A live dashboard, a deck or an edited spreadsheet was.
+- **An interface that speaks to the user.** A chat window that only ever answers in paragraphs makes people do the work of turning text into action. The better pattern, which you can see in Microsoft Copilot and others, is an interface that adapts to the answer: a card to confirm, a choice to pick from, a chart to explore, a canvas to edit, shown at the moment it's needed. The UI is part of the harness, not decoration on top of it.
 
-The fourth lesson was the least technical. We had to listen to users properly, not just read the usage graphs, and that changed what we built next.
+The last lesson was the least technical. We had to listen to users properly, not just read the usage graphs, and that changed what we built next.
 
 ## What changed
 
@@ -50,7 +51,7 @@ In our own testing on real questions, the new version completed roughly 10% more
 ## What I'd tell someone hitting the same wall
 
 - When a metric you can count starts to bind, check whether it's the metric your users care about before you optimise it.
-- Put the effort into the harness first: follow-up questions, customisation and outputs people can act on.
+- Put the effort into the harness first: follow-up questions, customisation, outputs people can act on, and an interface that shows the next step instead of describing it.
 - Talk to the people using it. The usage graph told us something had gone wrong. Only users told us why.
 
 I wrote earlier that [the harness matters more than the model](/blog/agent-harness-design). TDA is where I learned it the hard way.
